@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+banksyariahberkah.com	TRUE	/	FALSE	1999999999	ci_session	d7uag1fr7kk7dem9mqbtc6oock0el97k
+banksyariahberkah.com	TRUE	/	FALSE	1999999999	SameSite	Lax
+

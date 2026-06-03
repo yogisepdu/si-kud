@@ -1,0 +1,203 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 03 Jun 2026 13:49:10 at https://banksyariahberkah.com/beranda +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -WC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://banksyariahberkah.com/beranda -O1 "C:\My Web Sites\company-profile" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+13:49:23	Warning: 	unexpected incomplete type with 200 code at https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:50:31	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:50:31	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:50:31	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:50:31	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:50:31	Warning: 	file not stored in cache due to bogus state (incomplete type with OK (200), size 3128): https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:51:36	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:51:36	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:51:36	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:51:36	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:51:36	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:51:36	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:51:36	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:51:36	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:51:36	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:51:36	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:51:36	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:51:36	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:51:36	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:51:36	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:51:36	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:51:36	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:51:38	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:51:38	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:51:38	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:51:38	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:51:38	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:51:38	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:51:38	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:51:38	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:51:39	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:51:39	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:51:39	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:51:39	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:52:08	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:52:08	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:52:08	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:52:08	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:52:33	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:52:33	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:52:33	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:52:33	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:24	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:24	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:24	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:24	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:24	Warning: 	unexpected incomplete type with 200 code at https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7979.484976473654!2d101.098185!3d0.35325500000000004!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d513c142f4f6e3%3A0x7ffe0c723f9c70c4!2sBank%20Syariah%20Berkah!5e0!3m2!1sid!2sid!4v1739149978663!5m2!1sid!2sid
+13:53:24	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:24	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:24	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:24	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:24	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:24	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:24	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:24	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:25	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:25	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:53:29	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:53:29	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:53:29	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:53:29	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:54:54	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:54:54	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:54:54	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:54:54	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:55:15	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:55:15	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:55:15	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:55:15	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:55:27	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:55:27	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:55:27	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:55:27	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:55:45	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:55:45	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:55:45	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:55:45	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:56:01	Warning: 	Retry after error -4 (Connect Error) at link https://banksyariahberkah.com/assets/img/foto_informasi/informasi_lps.png (from https://banksyariahberkah.com/beranda)
+13:56:10	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:56:10	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:56:10	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:56:10	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:56:14	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:56:14	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:56:14	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:56:14	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:56:19	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:56:19	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:56:19	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:56:19	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:56:29	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+13:56:29	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+13:56:29	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+13:56:29	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+13:56:29	Error: 	"Not Found" (404) at link https://banksyariahberkah.com/assets/http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js (from https://banksyariahberkah.com/beranda)
+13:56:30	Error: 	"Not Found" (404) at link https://banksyariahberkah.com/assets/css/fonts/icofont.woff (from https://banksyariahberkah.com/assets/css/icofont.css)
+13:56:30	Error: 	"Not Found" (404) at link https://banksyariahberkah.com/assets/css/owl.video.play.png (from https://banksyariahberkah.com/assets/css/owl-carousel.css)
+13:56:30	Error: 	"Not Found" (404) at link https://banksyariahberkah.com/assets/img/bread-bg.jpg (from https://banksyariahberkah.com/assets/css/normalize.css)
+13:56:30	Error: 	"Not Found" (404) at link https://banksyariahberkah.com/assets/img/video-bg.jpg (from https://banksyariahberkah.com/assets/style.css)
+13:56:30	Error: 	"Not Found" (404) at link https://banksyariahberkah.com/assets/img/signup-bg.jpg (from https://banksyariahberkah.com/assets/style.css)
+13:56:30	Error: 	"Not Found" (404) at link https://banksyariahberkah.com/assets/img/testi-bg.jpg (from https://banksyariahberkah.com/assets/style.css)
+13:56:30	Error: 	"Not Found" (404) at link https://banksyariahberkah.com/assets/img/client-bg.jpg (from https://banksyariahberkah.com/assets/style.css)
+13:56:30	Error: 	"Not Found" (404) at link https://banksyariahberkah.com/assets/img/blockqoute-bg.jpg (from https://banksyariahberkah.com/assets/style.css)
+13:56:30	Error: 	"Not Found" (404) at link https://banksyariahberkah.com/assets/img/about-img.jpg (from https://banksyariahberkah.com/assets/style.css)
+13:56:30	Error: 	"Not Found" (404) at link https://banksyariahberkah.com/assets/img/mission-img.jpg (from https://banksyariahberkah.com/assets/style.css)
+13:56:30	Error: 	"Forbidden" (403) at link https://banksyariahberkah.com/assets/img/ (from https://banksyariahberkah.com/profil/dewanpengawassyariah)
+13:56:37	Warning: 	File not parsed, looks like binary: https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7979.484976473654!2d101.098185!3d0.35325500000000004!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d513c142f4f6e3%3A0x7ffe0c723f9c70c4!2sBank%20Syariah%20Berkah!5e0!3m2!1sid!2sid!4v1739149978663!5m2!1sid!2sid
+14:11:58	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+14:11:58	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+14:11:58	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+14:11:58	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+14:11:58	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap -> C:/My Web Sites/company-profile/fonts.googleapis.com/css.32c98.delayed
+14:11:58	Warning: 	link is probably looping, type unknown, aborting: https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap
+14:11:58	Error: 	Duplicate entry in hts_wait_delayed() cancelled: https://cdn.jsdelivr.net/npm/flatpickr -> C:/My Web Sites/company-profile/cdn.jsdelivr.net/npm/flatpickr.11.delayed
+14:11:58	Warning: 	link is probably looping, type unknown, aborting: https://cdn.jsdelivr.net/npm/flatpickr
+14:11:59	Warning: 	file not stored in cache due to bogus state (broken size, expected 9131807 got 7077888): https://banksyariahberkah.com/assets/img/foto_berita/imsakiyah_kampar_2025.jpg
+14:11:59	Warning: 	file not stored in cache due to bogus state (broken size, expected 20622786 got 15465993): https://banksyariahberkah.com/menu_laporan/laporantahunan/file/2025/laporan_tahunan_2025.pdf
+14:11:59	Warning: 	Retry after error -4 (Incorrect length (15465993 Bytes, 20622786 expected)) at link https://banksyariahberkah.com/menu_laporan/laporantahunan/file/2025/laporan_tahunan_2025.pdf (from https://banksyariahberkah.com/laporan/laporantahunan)
+14:11:59	Error: 	"Not Found" (404) at link https://banksyariahberkah.com/informasi/news-single.html (from https://banksyariahberkah.com/informasi/jadwal_imsakiyah_27_02_2025)
+14:11:59	Warning: 	Retry after error -4 (Incorrect length (7077888 Bytes, 9131807 expected)) at link https://banksyariahberkah.com/assets/img/foto_berita/imsakiyah_kampar_2025.jpg (from https://banksyariahberkah.com/informasi/jadwal_imsakiyah_27_02_2025)
+14:11:59	Warning: 	file not stored in cache due to bogus state (broken size, expected 8817134 got 7290304): https://banksyariahberkah.com/assets/img/foto_berita/imsakiyah_pekanbaru_2025.jpg
+14:11:59	Warning: 	Retry after error -4 (Incorrect length (7290304 Bytes, 8817134 expected)) at link https://banksyariahberkah.com/assets/img/foto_berita/imsakiyah_pekanbaru_2025.jpg (from https://banksyariahberkah.com/informasi/jadwal_imsakiyah_27_02_2025)
+
+HTTrack Website Copier/3.49-2 mirror complete in 22 minutes 58 seconds : 221 links scanned, 196 files written (248482075 bytes overall) [246178325 bytes received at 178649 bytes/sec], 3584798 bytes transferred using HTTP compression in 117 files, ratio 31%, 2.3 requests per connection
+(97 errors, 95 warnings, 0 messages)
