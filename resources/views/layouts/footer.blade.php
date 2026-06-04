@@ -11,8 +11,9 @@
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="single-footer">
                         <h2>Tentang Kami</h2>
-                        <p style="text-align: justify;">PT BPRS Berkah Dana Fadhlillah (Perseroda) Merupakan Perusahaan
-                            BUMD (Badan Usaha Milik Daerah) Kabupaten Kampar Yang Berkantor Pusat di Air Tiris</p>
+                        <p style="text-align: justify;">KUD Kampar merupakan salah satu koperasi yang menyediakan
+                            berbagai layanan, seperti penyaluran pupuk bersubsidi, penjualan Tandan Buah Segar (TBS),
+                            serta layanan simpan pinjam.</p>
                         <!-- Social -->
                         <ul class="social">
                             <li><a href="#"><i class="icofont-facebook"></i></a></li>
@@ -30,22 +31,6 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-12">
                                 <ul>
-                                    <li><a href="layanan/simulasi_angsuran.html"><i
-                                                class="fa fa-caret-right"
-                                                aria-hidden="true"
-                                            ></i>Simulasi Angsuran</a></li>
-                                    <li><a href="pengajuan/pembiayaan.html"><i
-                                                class="fa fa-caret-right"
-                                                aria-hidden="true"
-                                            ></i>E-Form Pembiyaan</a></li>
-                                    <li><a href="pengaduan/nasabah.html"><i
-                                                class="fa fa-caret-right"
-                                                aria-hidden="true"
-                                            ></i>Pengaduan</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-12">
-                                <ul>
                                     <li><a href="menu_produk/produk.html"><i
                                                 class="fa fa-caret-right"
                                                 aria-hidden="true"
@@ -54,10 +39,6 @@
                                                 class="fa fa-caret-right"
                                                 aria-hidden="true"
                                             ></i>Berita</a></li>
-                                    <li><a href="laporan/publikasi.html"><i
-                                                class="fa fa-caret-right"
-                                                aria-hidden="true"
-                                            ></i>Publikasi</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -66,7 +47,7 @@
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="single-footer">
                         <h2>Jam Operasional</h2>
-                        <p>Bank Buka</p>
+                        <p>Kantor Buka</p>
                         <ul class="time-sidual">
                             <li class="day">Hari : Senin - Jum'at</li>
                             <li class="day">Pukul : 08.00-15.00 Wib</li>
@@ -76,9 +57,8 @@
                 <div class="col-lg-3 col-md-6 col-12">
                     <div class="single-footer">
                         <h2>Kontak</h2>
-                        <p>Email : bprs_berkah@banksyariahberkah.com</p><br>
-                        <p>Call Center : 0811-758-560</p><br>
-                        <p>Telephone Pusat : 0762 323379</p>
+                        <p>Email : kudkampar@gmail.com</p><br>
+                        <p>Call Center : 0812-133-128</p><br>
                     </div>
                 </div>
             </div>
@@ -86,22 +66,8 @@
     </div>
     <div class="footer-bottom bg-white p-3 text-center">
         <span style="color: black; font-size: 14px;">
-            <a>PT BPRS Berkah Dana Fadhlillah (Perseroda) Berizin dan Diawasi oleh <strong>Otoritas Jasa
-                    Keuangan</strong></a> <a>dan Merupakan peserta Penjaminan Keuangan Oleh</a> <strong>LPS</strong>
+            <a>©Copyright 2026 KUD Kampar</a>
         </span>
     </div>
     <!--/ End Footer Top -->
-    <!-- Copyright -->
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-12">
-                    <div class="copyright-content">
-                        <p>©Copyright 2025 PT BPRS Berkah Dana Fadhlillah (Perseroda)</a> </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--/ End Copyright -->
 </footer>

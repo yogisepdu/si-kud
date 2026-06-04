@@ -15,6 +15,10 @@ class profilController extends Controller
         return view('section/profil');
     }
 
+    public function indexStruktur(){
+        return view ('section/struktur');
+    }
+
     /**
      * Show the form for creating a new resource.
      */

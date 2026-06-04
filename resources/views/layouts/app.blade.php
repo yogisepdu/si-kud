@@ -16,16 +16,29 @@
         http-equiv="X-UA-Compatible"
         content="IE=edge"
     >
-    <meta
-        name="twitter:image"
-        content="assets/img/logo.png"
-    >
-
     <!-- Favicon -->
     <link
-        rel="icon"
-        href="assets/img/icon.png"
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="{{ asset('assets/apple-touch-icon.png') }}"
     >
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="{{ asset('assets/favicon-32x32.png') }}"
+    >
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="{{ asset('assets/favicon-16x16.png') }}"
+    >
+    <link
+        rel="manifest"
+        href="{{ asset('assets/site.webmanifest') }}"
+    >
+
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap"
@@ -107,7 +120,14 @@
         rel="stylesheet"
         href="../cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     >
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
+
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     <style>
         * {
             margin: 0;
@@ -362,11 +382,6 @@
             }
         }
 
-        /* Styling dropdown */
-        .nav.menu li {
-            position: relative;
-        }
-
         .nav.menu li ul.dropdown {
             position: absolute;
             left: 0;
@@ -402,6 +417,25 @@
         /* Menampilkan dropdown saat hover */
         .nav.menu li:hover>ul.dropdown {
             display: block;
+        }
+
+        /* Perbaikan tombol Lightbox */
+        .lb-data .lb-close {
+            opacity: 1 !important;
+            display: block !important;
+        }
+
+        .lb-nav a.lb-prev,
+        .lb-nav a.lb-next {
+            opacity: 1 !important;
+        }
+
+        .lb-closeContainer {
+            display: block !important;
+        }
+
+        .lb-dataContainer {
+            display: block !important;
         }
     </style>
 </head>
@@ -481,6 +515,18 @@
         document.querySelector(".nav.menu").classList.toggle("active");
     }
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+<script>
+    const lightbox = GLightbox({
+        touchNavigation: true,
+        loop: true,
+        zoomable: true,
+        autoplayVideos: true
+    });
+</script>
+
 </body>
 
 </html>
