@@ -11,6 +11,7 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/profil-kud', [ProfilController::class, 'index'])->name('profil');
 Route::get('/struktur-kud', [ProfilController::class, 'indexStruktur'])->name('struktur');
 
+Route::get('/layanan', [ProdukController::class, 'index'])->name('layanan');
 Route::get('/layanan/pupuk', [ProdukController::class, 'layananPupuk'])->name('layanan.pupuk');
 Route::get('/layanan/tbs', [ProdukController::class, 'layananTbs'])->name('layanan.tbs');
 Route::get('/layanan/simpan-pinjam', [ProdukController::class, 'layananSimpanPinjam'])->name('layanan.simpanpinjam');

@@ -12,6 +12,7 @@ class ProdukController extends Controller
     public function index()
     {
         //
+        return view('section/menu_produk');
     }
 
     public function layananPupuk()

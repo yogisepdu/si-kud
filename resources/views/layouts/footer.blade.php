@@ -31,11 +31,11 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-12">
                                 <ul>
-                                    <li><a href="menu_produk/produk.html"><i
+                                    <li><a href="{{ route('layanan') }}"><i
                                                 class="fa fa-caret-right"
                                                 aria-hidden="true"
                                             ></i>Produk Kami</a></li>
-                                    <li><a href="informasi/all_berita.html"><i
+                                    <li><a href="{{ route('berita.all') }}"><i
                                                 class="fa fa-caret-right"
                                                 aria-hidden="true"
                                             ></i>Berita</a></li>

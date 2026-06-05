@@ -10,7 +10,7 @@
                 <!-- Tombol di tengah -->
                 <a
                     class="btn custom-btn mt-3 text-white"
-                    href="menu_produk/produk.html"
+                    href="{{ route('layanan') }}"
                 >Klik Disini !</a>
             </div>
         </div>
