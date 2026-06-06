@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
+use App\Models\Pengumuman;
+use App\Models\Profile;
+use App\Models\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -12,7 +17,6 @@ class HomeController extends Controller
     public function index()
     {
         //
-         //
         $berita = [
             [
                 'slug' => 'layanan-pupuk-kud-kampar',
@@ -39,7 +43,31 @@ class HomeController extends Controller
             ],
         ];
 
-        return view('home', compact('berita'));
+        $sliders = Slider::where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
+
+        $profile = Profile::first();
+
+        $pengumuman = Pengumuman::where('is_active', true)
+            ->orderBy('sort_order')
+            ->latest()
+            ->get();
+
+        $galleries = Gallery::where('is_active', true)
+            ->orderBy('sort_order')
+            ->latest()
+            ->get();
+
+        // dd($sliders);
+        // dd($sliders->pluck('image'));
+        // dd(
+        //     Storage::disk('public')->exists(
+        //         'sliders/01KTER0W483KVB610FFAC10S8J.png'
+        //     )
+        // );
+
+        return view('home', compact('berita', 'sliders', 'profile', 'pengumuman', 'galleries'));
     }
 
     /**

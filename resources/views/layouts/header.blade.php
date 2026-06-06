@@ -4,11 +4,7 @@
         <!-- Logo Kiri -->
         <div class="logo-left">
             <a href="#">
-                <img
-                    src="{{ asset('assets/img/logo.jpeg') }}"
-                    alt="Logo Kiri"
-                    width="100"
-                >
+                <img alt="Logo Kiri" src="{{ asset('assets/img/logo.jpeg') }}" width="100">
             </a>
         </div>
         <div class="main-menu">
@@ -24,9 +20,23 @@
                     </li>
                     <li><a href="#">Produk dan Layanan<i class="icofont-rounded-down"></i></a>
                         <ul class="dropdown">
-                            <li><a href="{{ route('layanan.pupuk') }}">Layanan Pupuk</a></li>
-                            <li><a href="{{ route('layanan.tbs') }}">Layanan TBS</a></li>
-                            <li><a href="{{ route('layanan.simpanpinjam') }}">Layanan Simpan Pinjam</a></li>
+                            <li>
+                                <a href="{{ route('layanan.show', 'pupuk') }}">
+                                    Layanan Pupuk
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('layanan.show', 'tbs') }}">
+                                    Layanan TBS
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route('layanan.show', 'simpan_pinjam') }}">
+                                    Layanan Simpan Pinjam
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li><a href="{{ route('index') }}#blog">Pengumuman</a></li>
@@ -34,10 +44,7 @@
                     <li><a href="{{ route('index') }}#galeri">Galeri</a></li>
                     <li><a href="informasi/all_berita.html">Kontak</a></li>
                     <li class="ms-lg-3">
-                        <a
-                            {{-- href="{{ route('login') }}" --}}
-                            class="btn btn-success rounded-pill px-4"
-                        >
+                        <a class="btn btn-success rounded-pill px-4" href="{{ route('login') }}">
                             Login
                         </a>
                     </li>

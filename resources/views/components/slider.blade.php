@@ -22,18 +22,21 @@
 </style>
 <section class="slider">
     <div class="hero-slider">
-        <div class="single-slider">
-            <img
-                src="{{ asset('assets/img/slide_tabungan.png') }}"
-                alt="Slider 1"
-            >
-        </div>
-        <div class="single-slider">
-            <img
-                src="{{ asset('assets/img/slide_pembiayaan.png') }}"
-                alt="Slider 2"
-            >
-        </div>
+        @php
+            use Illuminate\Support\Facades\Storage;
+        @endphp
+
+        {{-- @foreach ($sliders as $slider)
+            <div class="single-slider">
+                <img alt="{{ $slider->title }}" src="{{ asset('storage/' . $slider->image) }}">
+            </div>
+        @endforeach --}}
+        @foreach ($sliders as $slider)
+            <div class="single-slider">
+
+                <img alt="{{ $slider->title }}" src="{{ Storage::url($slider->image) }}">
+            </div>
+        @endforeach
     </div>
 </section>
 <div class="marquee-container">

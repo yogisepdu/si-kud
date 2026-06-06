@@ -3,14 +3,8 @@
 @section('title', $judul)
 
 @section('content')
-    <section
-        class="why-choose section"
-        style="padding: 30px 0 10px 0;"
-    >
-        <div
-            class="container"
-            style="margin-top: 0;"
-        >
+    <section class="why-choose section" style="padding: 30px 0 10px 0;">
+        <div class="container" style="margin-top: 0;">
             <div class="row">
                 <div class="col-lg-12 col-12">
 

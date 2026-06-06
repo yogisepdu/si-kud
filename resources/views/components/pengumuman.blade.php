@@ -1,7 +1,4 @@
-<section
-    class="blog section"
-    id="blog"
->
+<section class="blog section" id="blog">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -14,139 +11,34 @@
         </div>
         <br>
         <div class="row">
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Single Blog -->
-                <div class="single-news">
-                    <div class="news-head">
-                        <img
-                            src="assets/img/foto_informasi/info_loker_april_2026.png"
-                            alt="loker_2026"
-                        >
-                    </div>
-                    <div class="news-body">
-                        <div class="news-content">
-                            <h2><a>LOKER APRIL 2026</a></h2>
-                            <p class="text">Silahkan Upload Berkas di menu Karir atau Di Antar Langsung Ke Kantor
-                                Pusat.</p>
+            @foreach ($pengumuman as $item)
+                <div class="col-lg-4 col-md-6 col-12">
+
+                    <div class="single-news">
+
+                        <div class="news-head">
+                            <img alt="{{ $item->title }}" src="{{ asset('storage/' . $item->image) }}">
                         </div>
-                    </div>
-                </div>
-                <!-- End Single Blog -->
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Single Blog -->
-                <div class="single-news">
-                    <div class="news-head">
-                        <img
-                            src="assets/img/foto_informasi/informasi_lps.png"
-                            alt="jaminan_dari_lps"
-                        >
-                    </div>
-                    <div class="news-body">
-                        <div class="news-content">
-                            <h2><a>PENJAMINAN OLEH LPS</a></h2>
-                            <p class="text">Maksimum nilai simpanan yang dijamin LPS per
-                                nasabah per bank adalah Rp 2 miliar</p>
+
+                        <div class="news-body">
+                            <div class="news-content">
+
+                                <h2>
+                                    <a>{{ $item->title }}</a>
+                                </h2>
+
+                                <p class="text">
+                                    {{ $item->description }}
+                                </p>
+
+                            </div>
                         </div>
+
                     </div>
+
                 </div>
-                <!-- End Single Blog -->
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Single Blog -->
-                <div class="single-news">
-                    <div class="news-head">
-                        <img
-                            src="assets/img/foto_informasi/pembiayaan_mobil.jpg"
-                            alt="pembiayaan_mobil"
-                        >
-                    </div>
-                    <div class="news-body">
-                        <div class="news-content">
-                            <h2><a>PEMBIAYAAN MOBIL</a></h2>
-                            <p class="text">DP Ringan, Akad Syariah dan Bebas Riba</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Blog -->
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Single Blog -->
-                <div class="single-news">
-                    <div class="news-head">
-                        <img
-                            src="assets/img/foto_informasi/pembiayaan_sepeda_motor.jpg"
-                            alt="pembiayaan_sepeda_motor"
-                        >
-                    </div>
-                    <div class="news-body">
-                        <div class="news-content">
-                            <h2><a>PEMBIAYAAN SEPEDA MOTOR</a></h2>
-                            <p class="text">DP Ringan, Akad Syariah dan Bebas Riba</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Blog -->
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Single Blog -->
-                <div class="single-news">
-                    <div class="news-head">
-                        <img
-                            src="assets/img/foto_informasi/pembiayaan_kebun.jpg"
-                            alt="pembiayaan_kebun"
-                        >
-                    </div>
-                    <div class="news-body">
-                        <div class="news-content">
-                            <h2><a>PEMBIAYAAN KEBUN, LAHAN DAN LAIN-LAIN</a></h2>
-                            <p class="text">Akad Syariah dan Bebas Riba</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Blog -->
-            </div>
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Single Blog -->
-                <div class="single-news">
-                    <div class="news-head">
-                        <img
-                            src="assets/img/foto_informasi/pembiayaan_bangunan.jpg"
-                            alt="pembiayaan_bangunan"
-                        >
-                    </div>
-                    <div class="news-body">
-                        <div class="news-content">
-                            <h2><a>PEMBIAYAAN BANGUNAN, RUMAH DAN LAIN - LAIN</a></h2>
-                            <p class="text">Akad Syariah dan Bebas Riba</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Blog -->
-            </div>
+            @endforeach
         </div>
-        <br>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-12">
-                <!-- Single Blog -->
-                <div class="single-news">
-                    <div class="news-head">
-                        <img
-                            src="assets/img/foto_informasi/top_bumd_2025.png"
-                            alt="top_bumd_2025"
-                        >
-                    </div>
-                    <div class="news-body">
-                        <div class="news-content">
-                            <h2><a>TOP BUMD 2025</a></h2>
-                            <p class="text">Bank Syariah Berkah Meraih TOP BUMD 2025</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Blog -->
-            </div>
-        </div>
-    </div>
     </div>
 </section>
 <!-- End Blog Area -->

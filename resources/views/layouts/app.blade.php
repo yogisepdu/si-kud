@@ -1,130 +1,61 @@
 <!DOCTYPE html>
-<html
-    class="no-js"
-    lang="id"
->
+<html class="no-js" lang="id">
 
-<meta
-    http-equiv="content-type"
-    content="text/html;charset=UTF-8"
-/>
+<meta content="text/html;charset=UTF-8" http-equiv="content-type" />
 
 <head>
     <!-- Meta Tags -->
     <meta charset="utf-8">
-    <meta
-        http-equiv="X-UA-Compatible"
-        content="IE=edge"
-    >
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <!-- Favicon -->
-    <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="{{ asset('assets/apple-touch-icon.png') }}"
-    >
-    <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="{{ asset('assets/favicon-32x32.png') }}"
-    >
-    <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href="{{ asset('assets/favicon-16x16.png') }}"
-    >
-    <link
-        rel="manifest"
-        href="{{ asset('assets/site.webmanifest') }}"
-    >
+    <link href="{{ asset('assets/apple-touch-icon.png') }}" rel="apple-touch-icon" sizes="180x180">
+    <link href="{{ asset('assets/favicon-32x32.png') }}" rel="icon" sizes="32x32" type="image/png">
+    <link href="{{ asset('assets/favicon-16x16.png') }}" rel="icon" sizes="16x16" type="image/png">
+    <link href="{{ asset('assets/site.webmanifest') }}" rel="manifest">
 
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;display=swap"
-        rel="stylesheet"
-    >
+        rel="stylesheet">
     <!-- Bootstrap CSS -->
     <!-- Bootstrap CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ asset('assets/css/bootstrap.min.css') }}"
-    >
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Nice Select CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ asset('assets/css/nice-select.css') }}"
-    >
+    <link href="{{ asset('assets/css/nice-select.css') }}" rel="stylesheet">
 
     <!-- Font Awesome CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ asset('assets/css/font-awesome.min.css') }}"
-    >
+    <link href="{{ asset('assets/css/font-awesome.min.css') }}" rel="stylesheet">
 
     <!-- IcoFont CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ asset('assets/css/icofont.css') }}"
-    >
+    <link href="{{ asset('assets/css/icofont.css') }}" rel="stylesheet">
 
     <!-- Slicknav CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ asset('assets/css/slicknav.min.css') }}"
-    >
+    <link href="{{ asset('assets/css/slicknav.min.css') }}" rel="stylesheet">
 
     <!-- Owl Carousel CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ asset('assets/css/owl-carousel.css') }}"
-    >
+    <link href="{{ asset('assets/css/owl-carousel.css') }}" rel="stylesheet">
 
     <!-- Datepicker CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ asset('assets/css/datepicker.css') }}"
-    >
+    <link href="{{ asset('assets/css/datepicker.css') }}" rel="stylesheet">
 
     <!-- Animate CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ asset('assets/css/animate.min.css') }}"
-    >
+    <link href="{{ asset('assets/css/animate.min.css') }}" rel="stylesheet">
 
     <!-- Magnific Popup CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ asset('assets/css/magnific-popup.css') }}"
-    >
+    <link href="{{ asset('assets/css/magnific-popup.css') }}" rel="stylesheet">
 
     <!-- Normalize CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ asset('assets/css/normalize.css') }}"
-    >
+    <link href="{{ asset('assets/css/normalize.css') }}" rel="stylesheet">
 
     <!-- Main Style -->
-    <link
-        rel="stylesheet"
-        href="{{ asset('assets/style.css') }}"
-    >
+    <link href="{{ asset('assets/style.css') }}" rel="stylesheet">
 
     <!-- Responsive CSS -->
-    <link
-        rel="stylesheet"
-        href="{{ asset('assets/css/responsive.css') }}"
-    >
-    <link
-        rel="stylesheet"
-        href="../cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
-    >
+    <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet">
+    <link href="../cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
 
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet" />
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
@@ -437,13 +368,50 @@
         .lb-dataContainer {
             display: block !important;
         }
+
+        /* profile */
+        .profile-box {
+            background: #01A85A;
+            color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, .1);
+        }
+
+        .profile-box p,
+        .profile-box li {
+            color: #fff;
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .profile-box ul,
+        .profile-box ol {
+            padding-left: 25px;
+        }
+
+        .profile-heading {
+            color: #fff;
+            font-weight: 700;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .profile-box hr {
+            border-color: rgba(255, 255, 255, .2);
+        }
+
+        .content-block {
+            text-align: justify;
+        }
+
+        .content-block p:last-child {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <!-- Elfsight All-in-One Chat | Untitled All-in-One Chat -->
-<script
-    src="https://static.elfsight.com/platform/platform.js"
-    async
-></script>
+<script src="https://static.elfsight.com/platform/platform.js" async></script>
 
 @include('layouts.header')
 

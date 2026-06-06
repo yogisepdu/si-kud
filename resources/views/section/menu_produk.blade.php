@@ -86,10 +86,7 @@
                     <div class="product-card">
                         <i class="icofont-listine-dots product-icon"></i>
                         <div class="product-title">Layanan Pupuk</div>
-                        <a
-                            class="btn-product"
-                            href="{{ route('layanan.pupuk') }}"
-                        >
+                        <a class="btn-product" href="{{ route('layanan.show', 'pupuk') }}">
                             <h6 style="color: white;">Lihat</h6>
                         </a>
 
@@ -99,10 +96,7 @@
                     <div class="product-card">
                         <i class="icofont-listine-dots product-icon"></i>
                         <div class="product-title">Layanan TBS</div>
-                        <a
-                            class="btn-product"
-                            href="{{ route('layanan.tbs') }}"
-                        >
+                        <a class="btn-product" href="{{ route('layanan.show', 'tbs') }}">
                             <h6 style="color: white;">Lihat</h6>
                         </a>
 
@@ -112,10 +106,7 @@
                     <div class="product-card">
                         <i class="icofont-listine-dots product-icon"></i>
                         <div class="product-title">Layanan Simpan Pinjam</div>
-                        <a
-                            class="btn-product"
-                            href="{{ route('layanan.simpanpinjam') }}"
-                        >
+                        <a class="btn-product" href="{{ route('layanan.show', 'simpan_pinjam') }}">
                             <h6 style="color: white;">Lihat</h6>
                         </a>
                     </div>

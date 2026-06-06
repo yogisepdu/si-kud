@@ -1,7 +1,4 @@
-<section
-    class="portfolio section"
-    id="galeri"
->
+<section class="portfolio section" id="galeri">
     <div class="container">
 
         <!-- Judul -->
@@ -21,176 +18,22 @@
         <!-- Galeri -->
         <div class="row g-4">
 
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item">
+            @foreach ($galleries as $gallery)
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
 
-                    <a
-                        href="{{ asset('assets/img/galeri/1.png') }}"
-                        class="glightbox"
-                        data-gallery="kud"
-                        data-title="Kantor KUD Kampar"
-                    >
-                        <img
-                            src="{{ asset('assets/img/galeri/1.png') }}"
-                            class="img-fluid"
-                            alt="Kantor KUD Kampar"
-                        >
-                    </a>
+                        <a class="glightbox" data-gallery="kud"
+                            data-title="{{ $gallery->title ?? 'Galeri KUD Kampar' }}"
+                            href="{{ asset('storage/' . $gallery->image) }}">
 
+                            <img alt="{{ $gallery->title ?? 'Galeri KUD Kampar' }}" class="img-fluid"
+                                src="{{ asset('storage/' . $gallery->image) }}">
+
+                        </a>
+
+                    </div>
                 </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item">
-
-                    <a
-                        href="{{ asset('assets/img/galeri/2.png') }}"
-                        class="glightbox"
-                        data-gallery="kud"
-                        data-title="Kantor KUD Kampar"
-                    >
-                        <img
-                            src="{{ asset('assets/img/galeri/2.png') }}"
-                            class="img-fluid"
-                            alt="Kantor KUD Kampar"
-                        >
-                    </a>
-
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item">
-
-                    <a
-                        href="{{ asset('assets/img/galeri/3.png') }}"
-                        class="glightbox"
-                        data-gallery="kud"
-                        data-title="Kantor KUD Kampar"
-                    >
-                        <img
-                            src="{{ asset('assets/img/galeri/3.png') }}"
-                            class="img-fluid"
-                            alt="Kantor KUD Kampar"
-                        >
-                    </a>
-
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item">
-
-                    <a
-                        href="{{ asset('assets/img/galeri/4.png') }}"
-                        class="glightbox"
-                        data-gallery="kud"
-                        data-title="Kantor KUD Kampar"
-                    >
-                        <img
-                            src="{{ asset('assets/img/galeri/4.png') }}"
-                            class="img-fluid"
-                            alt="Kantor KUD Kampar"
-                        >
-                    </a>
-
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item">
-
-                    <a
-                        href="{{ asset('assets/img/galeri/5.png') }}"
-                        class="glightbox"
-                        data-gallery="kud"
-                        data-title="Kantor KUD Kampar"
-                    >
-                        <img
-                            src="{{ asset('assets/img/galeri/5.png') }}"
-                            class="img-fluid"
-                            alt="Kantor KUD Kampar"
-                        >
-                    </a>
-
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item">
-
-                    <a
-                        href="{{ asset('assets/img/galeri/6.png') }}"
-                        class="glightbox"
-                        data-gallery="kud"
-                        data-title="Kantor KUD Kampar"
-                    >
-                        <img
-                            src="{{ asset('assets/img/galeri/6.png') }}"
-                            class="img-fluid"
-                            alt="Kantor KUD Kampar"
-                        >
-                    </a>
-
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item">
-
-                    <a
-                        href="{{ asset('assets/img/galeri/7.png') }}"
-                        class="glightbox"
-                        data-gallery="kud"
-                        data-title="Kantor KUD Kampar"
-                    >
-                        <img
-                            src="{{ asset('assets/img/galeri/7.png') }}"
-                            class="img-fluid"
-                            alt="Kantor KUD Kampar"
-                        >
-                    </a>
-
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item">
-
-                    <a
-                        href="{{ asset('assets/img/galeri/8.png') }}"
-                        class="glightbox"
-                        data-gallery="kud"
-                        data-title="Kantor KUD Kampar"
-                    >
-                        <img
-                            src="{{ asset('assets/img/galeri/8.png') }}"
-                            class="img-fluid"
-                            alt="Kantor KUD Kampar"
-                        >
-                    </a>
-
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="gallery-item">
-
-                    <a
-                        href="{{ asset('assets/img/galeri/9.png') }}"
-                        class="glightbox"
-                        data-gallery="kud"
-                        data-title="Kantor KUD Kampar"
-                    >
-                        <img
-                            src="{{ asset('assets/img/galeri/9.png') }}"
-                            class="img-fluid"
-                            alt="Kantor KUD Kampar"
-                        >
-                    </a>
-
-                </div>
-            </div>
+            @endforeach
 
         </div>
 

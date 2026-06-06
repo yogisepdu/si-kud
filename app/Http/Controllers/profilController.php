@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
+use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class profilController extends Controller
@@ -12,11 +14,18 @@ class profilController extends Controller
     public function index()
     {
         //
-        return view('section/profil');
+        $profile = Profile::first();
+
+        return view('section/profil', compact(
+            'profile',
+        ));
     }
 
-    public function indexStruktur(){
-        return view ('section/struktur');
+    public function indexStruktur()
+    {
+        $profile = Profile::first();
+
+        return view('section/struktur', compact('profile'));
     }
 
     /**

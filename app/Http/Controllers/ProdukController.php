@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produk;
 use Illuminate\Http\Request;
 
 class ProdukController extends Controller
@@ -15,63 +16,15 @@ class ProdukController extends Controller
         return view('section/menu_produk');
     }
 
-    public function layananPupuk()
+    public function layanan(string $type)
     {
-        return view('section/produk', [
-            'judul' => 'Layanan Pupuk',
-            'isi' => '
-                <p>
-                    KUD Kampar menyediakan layanan distribusi pupuk untuk memenuhi kebutuhan anggota
-                    dalam menunjang produktivitas perkebunan dan pertanian.
-                </p>
+        $produk = Produk::where('type', $type)
+            ->where('is_active', true)
+            ->firstOrFail();
 
-                <h3>Manfaat Layanan</h3>
-
-                <p>1. Menyediakan pupuk berkualitas.</p>
-                <p>2. Harga lebih terjangkau bagi anggota.</p>
-                <p>3. Ketersediaan stok lebih terjamin.</p>
-                <p>4. Mendukung peningkatan hasil panen.</p>
-            '
-        ]);
-    }
-
-    public function layananTbs()
-    {
-        return view('section/produk', [
-            'judul' => 'Layanan TBS',
-            'isi' => '
-                <p>
-                    KUD Kampar melayani pengelolaan dan pemasaran Tandan Buah Segar (TBS)
-                    dari anggota kepada pabrik kelapa sawit mitra.
-                </p>
-
-                <h3>Keunggulan Layanan</h3>
-
-                <p>1. Timbangan yang transparan.</p>
-                <p>2. Harga mengikuti ketentuan yang berlaku.</p>
-                <p>3. Pembayaran yang jelas dan teratur.</p>
-                <p>4. Mendukung pemasaran hasil kebun anggota.</p>
-            '
-        ]);
-    }
-
-    public function layananSimpanPinjam()
-    {
-        return view('section/produk', [
-            'judul' => 'Layanan Simpan Pinjam',
-            'isi' => '
-                <p>
-                    Unit Simpan Pinjam KUD Kampar hadir untuk membantu anggota dalam
-                    memperoleh akses pembiayaan dan pengelolaan simpanan.
-                </p>
-
-                <h3>Fasilitas</h3>
-
-                <p>1. Simpanan anggota.</p>
-                <p>2. Pinjaman modal usaha.</p>
-                <p>3. Angsuran yang mudah.</p>
-                <p>4. Proses pelayanan yang cepat dan transparan.</p>
-            '
+        return view('section.produk', [
+            'judul' => $produk->title,
+            'isi' => $produk->content,
         ]);
     }
 

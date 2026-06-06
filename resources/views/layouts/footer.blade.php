@@ -1,9 +1,5 @@
 <!-- Footer Area -->
-<footer
-    id="footer"
-    class="footer"
-    style="background-color: #01A85A;"
->
+<footer class="footer" id="footer" style="background-color: #01A85A;">
     <!-- Footer Top -->
     <div class="footer-top">
         <div class="container">
@@ -31,14 +27,10 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-12">
                                 <ul>
-                                    <li><a href="{{ route('layanan') }}"><i
-                                                class="fa fa-caret-right"
-                                                aria-hidden="true"
-                                            ></i>Produk Kami</a></li>
-                                    <li><a href="{{ route('berita.all') }}"><i
-                                                class="fa fa-caret-right"
-                                                aria-hidden="true"
-                                            ></i>Berita</a></li>
+                                    <li><a href="{{ route('layanan') }}"><i aria-hidden="true"
+                                                class="fa fa-caret-right"></i>Produk Kami</a></li>
+                                    <li><a href="{{ route('berita.all') }}"><i aria-hidden="true"
+                                                class="fa fa-caret-right"></i>Berita</a></li>
                                 </ul>
                             </div>
                         </div>
