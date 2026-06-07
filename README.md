@@ -21,13 +21,13 @@
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/USERNAME/valora-app.git
+git clone https://github.com/USERNAME/si-kud.git
 ```
 
 Masuk ke folder project:
 
 ```bash
-cd valora-app
+cd si-kud
 ```
 
 ---
@@ -80,7 +80,7 @@ Edit file `.env`
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=valora_db
+DB_DATABASE=si-kud
 DB_USERNAME=root
 DB_PASSWORD=
 ```
@@ -88,7 +88,7 @@ DB_PASSWORD=
 Buat database baru di MySQL/phpMyAdmin dengan nama:
 
 ```bash
-valora_db
+si-kud
 ```
 
 Lalu jalankan migration:
@@ -161,17 +161,6 @@ Setelah push:
 - Buat Pull Request
 - Tunggu review dari project leader
 - Merge ke branch `main`
-
----
-
-## Struktur Tim
-
-| Role               | Tugas                |
-| ------------------ | -------------------- |
-| Frontend Developer | UI/UX dan Blade View |
-| Backend Developer  | Controller & Logic   |
-| Database Developer | Migration & Database |
-| Project Leader     | Review & Merge       |
 
 ---
 
