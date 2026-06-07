@@ -26,7 +26,7 @@ class PengumumanResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return 'Kelola Website';
+        return 'Manajemen Website';
     }
 
     public static function form(Schema $schema): Schema

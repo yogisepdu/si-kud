@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
 use App\Models\Gallery;
 use App\Models\Pengumuman;
 use App\Models\Profile;
@@ -16,32 +17,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //
-        $berita = [
-            [
-                'slug' => 'layanan-pupuk-kud-kampar',
-                'judul' => 'Layanan Pupuk KUD Kampar',
-                'tanggal' => '04 Juni 2026',
-                'gambar' => 'imsakiyah_2025.jpg',
-                'ringkasan' => 'KUD Kampar terus meningkatkan pelayanan distribusi pupuk bagi anggota.'
-            ],
-
-            [
-                'slug' => 'pelayanan-tbs-kud-kampar',
-                'judul' => 'Pelayanan TBS KUD Kampar',
-                'tanggal' => '02 Juni 2026',
-                'gambar' => 'pengumuman_perubahan_nama_13_2_2025.png',
-                'ringkasan' => 'Pelayanan penerimaan dan pengelolaan TBS anggota berjalan lancar.'
-            ],
-
-            [
-                'slug' => 'rapat-anggota-tahunan',
-                'judul' => 'Rapat Anggota Tahunan KUD Kampar',
-                'tanggal' => '25 Mei 2026',
-                'gambar' => 'rupslb16_12_2024.jpg',
-                'ringkasan' => 'Pelaksanaan RAT sebagai bentuk pertanggungjawaban pengurus kepada anggota.'
-            ],
-        ];
+        $berita = Berita::where('is_publish', true)
+            ->latest('tanggal')
+            ->get();
 
         $sliders = Slider::where('is_active', true)
             ->orderBy('sort_order')

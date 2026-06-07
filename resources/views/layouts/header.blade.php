@@ -44,7 +44,7 @@
                     <li><a href="{{ route('index') }}#galeri">Galeri</a></li>
                     <li><a href="informasi/all_berita.html">Kontak</a></li>
                     <li class="ms-lg-3">
-                        <a class="btn btn-success rounded-pill px-4" href="{{ route('login') }}">
+                        <a class="btn btn-success rounded-pill px-4 text-white" href="{{ route('login') }}">
                             Login
                         </a>
                     </li>

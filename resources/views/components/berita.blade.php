@@ -1,8 +1,4 @@
-<section
-    class="blog section"
-    style="padding:30px 0;"
-    id="berita"
->
+<section class="blog section" id="berita" style="padding:30px 0;">
     <div class="container">
 
         ```
@@ -14,13 +10,14 @@
 
         <div class="row">
 
-            @foreach ($berita as $item)
+
+            @forelse ($berita ?? [] as $item)
                 <div class="col-lg-4 col-md-6 col-12">
 
                     <div class="single-news">
 
                         <div class="news-head">
-                            <img src="{{ asset('assets/img/foto_berita/' . $item['gambar']) }}">
+                            <img src="{{ asset('storage/' . data_get($item, 'gambar')) }}">
                         </div>
 
                         <div class="news-body">
@@ -31,19 +28,21 @@
                                 </div>
 
                                 <h2>
-                                    <a href="{{ route('berita.detail', $item['slug']) }}">
-                                        {{ $item['judul'] }}
+                                    <a href="{{ route('berita.detail', data_get($item, 'slug')) }}">
+                                        {{ data_get($item, 'judul') }}
                                     </a>
                                 </h2>
 
                                 <p>
-                                    {{ $item['ringkasan'] }}
+                                    {{ data_get($item, 'ringkasan') }}
                                 </p>
 
-                                <a href="{{ route('berita.detail', $item['slug']) }}">
-                                    Baca Selengkapnya
-                                    <i class="fa fa-long-arrow-right"></i>
-                                </a>
+                                <div class="mt-3">
+                                    <a class="btn-berita" href="{{ route('berita.detail', data_get($item, 'slug')) }}">
+                                        Baca Selengkapnya
+                                        <i class="fa fa-arrow-right ms-2"></i>
+                                    </a>
+                                </div>
 
                             </div>
                         </div>
@@ -51,16 +50,27 @@
                     </div>
 
                 </div>
-            @endforeach
+
+            @empty
+
+                <div class="col-12 text-center">
+                    <p>Belum ada berita yang tersedia.</p>
+                </div>
+            @endforelse
 
         </div>
 
     </div>
     ```
-    <center><a
-            class="btn btn-success custom-btn text-white"
-            href="{{ route('berita.all') }}"
-        >Lihat Berita Lainnya <i class="fa fa-long-arrow-right"></i></a>
+    <center>
+        <div class="mt-5 text-center">
+            <a class="btn-semua-berita" href="{{ route('berita.all') }}">
+                <i class="fa fa-newspaper-o me-2"></i>
+                Lihat Semua Berita
+                <i class="fa fa-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </center>
 
 </section>
 <!-- Start portfolio -->

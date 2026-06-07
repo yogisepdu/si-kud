@@ -408,6 +408,72 @@
         .content-block p:last-child {
             margin-bottom: 0;
         }
+
+        /* Button-berita */
+        .btn-berita {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            background: #01A85A;
+            color: #fff !important;
+
+            padding: 10px 18px;
+            border-radius: 30px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            text-decoration: none;
+
+            transition: all .3s ease;
+        }
+
+        .btn-berita:hover {
+            background: #018f4d;
+            color: #fff !important;
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 8px 20px rgba(1, 168, 90, .25);
+        }
+
+        .btn-berita i {
+            transition: .3s;
+        }
+
+        .btn-berita:hover i {
+            transform: translateX(4px);
+        }
+
+        .btn-semua-berita {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 10px;
+
+            background: linear-gradient(135deg, #01A85A, #01914d);
+
+            color: white !important;
+
+            padding: 14px 30px;
+
+            border-radius: 50px;
+
+            font-weight: 700;
+
+            text-decoration: none;
+
+            transition: .3s;
+        }
+
+        .btn-semua-berita:hover {
+            color: white !important;
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 12px 25px rgba(1, 168, 90, .30);
+        }
     </style>
 </head>
 <!-- Elfsight All-in-One Chat | Untitled All-in-One Chat -->
