@@ -26,7 +26,8 @@ class BeritaResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Daftar Berita';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedNewspaper;
+    protected static string|BackedEnum|null $navigationIcon =
+    Heroicon::OutlinedNewspaper;
 
     protected static ?int $navigationSort = 6;
 
@@ -43,6 +44,16 @@ class BeritaResource extends Resource
     public static function table(Table $table): Table
     {
         return BeritasTable::configure($table);
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
+    }
+
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
     }
 
     public static function getRelations(): array

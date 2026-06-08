@@ -19,7 +19,8 @@ class SliderResource extends Resource
 {
     protected static ?string $model = Slider::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon =
+    Heroicon::OutlinedPresentationChartBar;
 
     protected static ?string $recordTitleAttribute = 'title';
 
@@ -39,6 +40,16 @@ class SliderResource extends Resource
     public static function form(Schema $schema): Schema
     {
         return SliderForm::configure($schema);
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
+    }
+
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
     }
 
     public static function table(Table $table): Table

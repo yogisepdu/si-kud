@@ -26,8 +26,11 @@
 
                         @if ($berita->gambar)
                             <div class="news-head mb-4">
-                                <img alt="{{ $berita->judul }}" class="img-fluid rounded"
-                                    src="{{ asset('storage/' . $berita->gambar) }}">
+                                <img
+                                    alt="{{ $berita->judul }}"
+                                    class="img-fluid rounded"
+                                    src="{{ asset('storage/' . $berita->gambar) }}"
+                                >
                             </div>
                         @endif
 
@@ -40,24 +43,30 @@
                             <ul class="social-share">
 
                                 <li class="facebook">
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->url()) }}"
-                                        target="_blank">
+                                    <a
+                                        href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->url()) }}"
+                                        target="_blank"
+                                    >
                                         <i class="fa fa-facebook"></i>
                                         <span>Facebook</span>
                                     </a>
                                 </li>
 
                                 <li class="twitter">
-                                    <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->url()) }}&text={{ urlencode($berita->judul) }}"
-                                        target="_blank">
+                                    <a
+                                        href="https://twitter.com/intent/tweet?url={{ urlencode(request()->url()) }}&text={{ urlencode($berita->judul) }}"
+                                        target="_blank"
+                                    >
                                         <i class="fa fa-twitter"></i>
                                         <span>Twitter</span>
                                     </a>
                                 </li>
 
                                 <li class="linkedin">
-                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(request()->url()) }}"
-                                        target="_blank">
+                                    <a
+                                        href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(request()->url()) }}"
+                                        target="_blank"
+                                    >
                                         <i class="fa fa-linkedin"></i>
                                     </a>
                                 </li>
@@ -81,27 +90,33 @@
                             </h3>
 
                             @foreach ($beritaLainnya as $item)
-                                <div class="single-post mb-3">
+                                <a
+                                    href="{{ route('berita.detail', $item->slug) }}"
+                                    class="text-decoration-none"
+                                >
+                                    <div class="single-post mb-3">
 
-                                    <div class="image">
-                                        <img alt="{{ $item->judul }}" src="{{ asset('storage/' . $item->gambar) }}">
-                                    </div>
+                                        <div class="image">
+                                            <img
+                                                alt="{{ $item->judul }}"
+                                                src="{{ asset('storage/' . $item->gambar) }}"
+                                            >
+                                        </div>
 
-                                    <div class="content">
+                                        <div class="content">
 
-                                        <h5>
-                                            <a href="{{ route('berita.detail', $item->slug) }}">
+                                            <h5>
                                                 {{ $item->judul }}
-                                            </a>
-                                        </h5>
+                                            </h5>
 
-                                        <span>
-                                            {{ $item->tanggal->translatedFormat('d F Y') }}
-                                        </span>
+                                            <span>
+                                                {{ $item->tanggal->translatedFormat('d F Y') }}
+                                            </span>
+
+                                        </div>
 
                                     </div>
-
-                                </div>
+                                </a>
                             @endforeach
 
                         </div>

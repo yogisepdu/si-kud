@@ -18,7 +18,8 @@ class PengumumanResource extends Resource
 {
     protected static ?string $model = Pengumuman::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon =
+    Heroicon::OutlinedSpeakerWave;
 
     protected static ?string $recordTitleAttribute = 'title';
 
@@ -34,11 +35,21 @@ class PengumumanResource extends Resource
         return PengumumanForm::configure($schema);
     }
 
+
     public static function table(Table $table): Table
     {
         return PengumumanTable::configure($table);
     }
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
+    }
+
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
+    }
 
     public static function getRelations(): array
     {

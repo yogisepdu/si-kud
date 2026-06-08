@@ -18,7 +18,8 @@ class ProfileResource extends Resource
 {
     protected static ?string $model = Profile::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon =
+    Heroicon::OutlinedBuildingOffice2;
 
     protected static ?string $recordTitleAttribute = 'title';
 
@@ -37,6 +38,16 @@ class ProfileResource extends Resource
     public static function form(Schema $schema): Schema
     {
         return ProfileForm::configure($schema);
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
+    }
+
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
     }
 
     public static function table(Table $table): Table

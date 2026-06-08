@@ -18,7 +18,8 @@ class GalleryResource extends Resource
 {
     protected static ?string $model = Gallery::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon =
+    Heroicon::OutlinedPhoto;
 
     protected static ?string $recordTitleAttribute = 'title';
 
@@ -31,6 +32,16 @@ class GalleryResource extends Resource
     public static function getNavigationGroup(): ?string
     {
         return 'Manajemen Website';
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
+    }
+
+    public static function canViewAny(): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
     }
 
     public static function form(Schema $schema): Schema

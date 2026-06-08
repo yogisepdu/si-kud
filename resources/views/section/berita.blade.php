@@ -4,7 +4,10 @@
 
 @section('content')
 
-    <section class="blog section" style="padding:30px 0;">
+    <section
+        class="blog section"
+        style="padding:30px 0;"
+    >
         <div class="container">
 
             ```
@@ -17,12 +20,15 @@
             <div class="row">
 
                 @forelse ($berita ?? [] as $item)
-                    <div class="col-lg-4 col-md-6 col-12">
+                    <div class="col-lg-4 col-md-6 col-12 mb-4">
 
-                        <div class="single-news">
+                        <div class="single-news h-100">
 
                             <div class="news-head">
-                                <img src="{{ asset('storage/' . data_get($item, 'gambar')) }}">
+                                <img
+                                    src="{{ asset('storage/' . data_get($item, 'gambar')) }}"
+                                    alt="{{ data_get($item, 'judul') }}"
+                                >
                             </div>
 
                             <div class="news-body">
@@ -43,7 +49,10 @@
                                     </p>
 
                                     <div class="mt-3">
-                                        <a class="btn-berita" href="{{ route('berita.detail', data_get($item, 'slug')) }}">
+                                        <a
+                                            class="btn-berita"
+                                            href="{{ route('berita.detail', data_get($item, 'slug')) }}"
+                                        >
                                             Baca Selengkapnya
                                             <i class="fa fa-arrow-right ms-2"></i>
                                         </a>
@@ -55,9 +64,7 @@
                         </div>
 
                     </div>
-
                 @empty
-
                     <div class="col-12 text-center">
                         <p>Belum ada berita yang tersedia.</p>
                     </div>
