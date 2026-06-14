@@ -43,6 +43,15 @@ class UsersTable
             ->recordActions([
                 EditAction::make(),
 
+                Action::make('delete')
+                    ->label('Hapus')
+                    ->icon('heroicon-o-trash')
+                    ->color('danger')
+                    ->requiresConfirmation()
+                    ->action(function (User $record) {
+                        $record->delete();
+                    }),
+
                 Action::make('reset_password')
                     ->label('Reset Password')
                     ->icon('heroicon-o-key')

@@ -50,6 +50,11 @@ class User extends Authenticatable
         ]);
     }
 
+    public function anggota()
+    {
+        return $this->hasOne(Anggota::class);
+    }
+
     protected function casts(): array
     {
         return [

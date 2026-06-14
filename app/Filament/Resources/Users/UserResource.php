@@ -21,13 +21,18 @@ class UserResource extends Resource
     protected static ?string $model = User::class;
 
     protected static string|BackedEnum|null $navigationIcon =
-        Heroicon::OutlinedUsers;
+    Heroicon::OutlinedUsers;
 
     protected static ?string $recordTitleAttribute = 'name';
 
     protected static ?string $modelLabel = 'Manajemen Akun';
 
     protected static ?string $pluralModelLabel = 'Manajemen Akun';
+
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Master Data';
+    }
 
     public static function form(Schema $schema): Schema
     {
@@ -41,7 +46,7 @@ class UserResource extends Resource
 
     public static function shouldRegisterNavigation(): bool
     {
-        return auth()->user()?->isAdmin() ?? false;
+        return auth()->user()?->isAdmin() === true;
     }
 
     public static function getPages(): array

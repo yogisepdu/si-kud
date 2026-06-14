@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Models\Pinjaman;
+use App\Observers\PinjamanObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,8 +19,9 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
+
     public function boot(): void
     {
-        //
+        Pinjaman::observe(PinjamanObserver::class);
     }
 }
