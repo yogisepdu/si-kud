@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\Pinjamen\Pages;
+namespace App\Filament\Resources\Pinjaman\Pages;
 
-use App\Filament\Resources\Pinjamen\PinjamanResource;
+use App\Filament\Resources\Pinjaman\PinjamanResource;
 use App\Models\Pinjaman;
 use Filament\Resources\Pages\CreateRecord;
 

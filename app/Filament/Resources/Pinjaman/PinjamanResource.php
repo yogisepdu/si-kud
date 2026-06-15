@@ -1,23 +1,23 @@
 <?php
 
-namespace App\Filament\Resources\Pinjamen;
+namespace App\Filament\Resources\Pinjaman;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-use App\Filament\Resources\Pinjamen\Pages\CreatePinjaman;
-use App\Filament\Resources\Pinjamen\Pages\EditPinjaman;
-use App\Filament\Resources\Pinjamen\Pages\ListPinjamen;
-use App\Filament\Resources\Pinjamen\Pages\ViewPinjaman;
-use App\Filament\Resources\Pinjamen\Schemas\PinjamanForm;
-use App\Filament\Resources\Pinjamen\Tables\PinjamenTable;
-use App\Filament\Resources\Pinjamen\Widgets\PinjamanStats;
+use App\Filament\Resources\Pinjaman\Pages\CreatePinjaman;
+use App\Filament\Resources\Pinjaman\Pages\EditPinjaman;
+use App\Filament\Resources\Pinjaman\Pages\ListPinjaman;
+use App\Filament\Resources\Pinjaman\Pages\ViewPinjaman;
+use App\Filament\Resources\Pinjaman\Schemas\PinjamanForm;
+use App\Filament\Resources\Pinjaman\Tables\PinjamanTable;
+use App\Filament\Resources\Pinjaman\Widgets\PinjamanStats;
 use App\Models\Pinjaman;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
-use App\Filament\Resources\Pinjamen\Schemas\PinjamanInfolist;
+use App\Filament\Resources\Pinjaman\Schemas\PinjamanInfolist;
 
 class PinjamanResource extends Resource
 {
@@ -27,6 +27,12 @@ class PinjamanResource extends Resource
     Heroicon::OutlinedBanknotes;
 
     protected static ?string $recordTitleAttribute = 'kode_pinjaman';
+
+    protected static ?string $navigationLabel = 'Pinjaman';
+
+    protected static ?string $modelLabel = 'Pinjaman';
+
+    protected static ?string $pluralModelLabel = 'Pinjaman';
 
     protected static ?int $navigationSort = 2;
 
@@ -43,7 +49,7 @@ class PinjamanResource extends Resource
 
     public static function table(Table $table): Table
     {
-        return PinjamenTable::configure($table);
+        return PinjamanTable::configure($table);
     }
 
     public static function getEloquentQuery(): Builder
@@ -109,7 +115,7 @@ class PinjamanResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListPinjamen::route('/'),
+            'index' => ListPinjaman::route('/'),
             'create' => CreatePinjaman::route('/create'),
             'view' => ViewPinjaman::route('/{record}'),
             'edit' => EditPinjaman::route('/{record}/edit'),

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Pinjamen\Widgets;
+namespace App\Filament\Resources\Pinjaman\Widgets;
 
 use App\Models\Anggota;
 use App\Models\Angsuran;

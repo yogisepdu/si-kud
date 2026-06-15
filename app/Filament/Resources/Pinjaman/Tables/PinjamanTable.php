@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Pinjamen\Tables;
+namespace App\Filament\Resources\Pinjaman\Tables;
 
 use Filament\Actions\Action as ActionsAction;
 use Filament\Actions\ActionGroup;
@@ -14,7 +14,7 @@ use Filament\Forms\Components\Textarea;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\SelectFilter;
 
-class PinjamenTable
+class PinjamanTable
 {
     public static function configure(Table $table): Table
     {

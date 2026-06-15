@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Pinjamen\Schemas;
+namespace App\Filament\Resources\Pinjaman\Schemas;
 
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;

@@ -7,8 +7,25 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    // public function index()
+    // {
+    //     return view('auth.login');
+    // }
+
     public function index()
     {
+        if (Auth::check()) {
+
+            $user = Auth::user();
+
+            return match ($user->role) {
+                'administrator' => redirect('/admin'),
+                'pimpinan'      => redirect('/pimpinan'),
+                'anggota'       => redirect('/anggota'),
+                default         => redirect('/'),
+            };
+        }
+
         return view('auth.login');
     }
 
@@ -26,7 +43,21 @@ class AuthController extends Controller
 
             $request->session()->regenerate();
 
-            return redirect()->intended('/admin');
+            $user = Auth::user();
+
+            if ($user->isAdmin()) {
+                return redirect('/admin');
+            }
+
+            if ($user->isPimpinan()) {
+                return redirect('/pimpinan');
+            }
+
+            if ($user->isAnggota()) {
+                return redirect('/anggota');
+            }
+
+            return redirect('/');
         }
 
         return back()->withErrors([

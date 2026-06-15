@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\Pinjamen\Pages;
+namespace App\Filament\Resources\Pinjaman\Pages;
 
-use App\Filament\Resources\Pinjamen\PinjamanResource;
-use App\Filament\Resources\Pinjamen\Widgets\PinjamanStats;
+use App\Filament\Resources\Pinjaman\PinjamanResource;
+use App\Filament\Resources\Pinjaman\Widgets\PinjamanStats;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 
-class ListPinjamen extends ListRecords
+class ListPinjaman extends ListRecords
 {
     protected static string $resource = PinjamanResource::class;
 

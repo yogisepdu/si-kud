@@ -18,10 +18,12 @@ Route::get('/layanan/{type}', [ProdukController::class, 'layanan'])->name('layan
 Route::get('/informasi/berita-all', [BeritaController::class, 'berita'])->name('berita.all');
 Route::get('/berita/{slug}', [BeritaController::class, 'detailBerita'])->name('berita.detail');
 
-Route::middleware('guest')->group(function () {
-    Route::get('/login', [AuthController::class, 'index'])->name('login');
-    Route::post('/login', [AuthController::class, 'authenticate']);
-});
+// Route::middleware('guest')->group(function () {
+//     Route::get('/login', [AuthController::class, 'index'])->name('login');
+//     Route::post('/login', [AuthController::class, 'authenticate']);
+// });
+Route::get('/login', [AuthController::class, 'index'])->name('login');
+Route::post('/login', [AuthController::class, 'authenticate']);
 
 Route::post('/logout', [AuthController::class, 'logout'])
     ->middleware('auth');

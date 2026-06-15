@@ -24,8 +24,7 @@ class AngsuranResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Angsuran';
 
-    protected static string|\BackedEnum|null $navigationIcon =
-    \Filament\Support\Icons\Heroicon::OutlinedBanknotes;
+    protected static string|\BackedEnum|null $navigationIcon = Heroicon::OutlinedCreditCard;
 
     protected static ?int $navigationSort = 3;
 

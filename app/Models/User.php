@@ -6,8 +6,10 @@ use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 
-class User extends Authenticatable
+class User extends Authenticatable implements FilamentUser
 {
     use HasFactory, Notifiable;
 
@@ -48,6 +50,26 @@ class User extends Authenticatable
             self::ADMINISTRATOR,
             self::PIMPINAN,
         ]);
+    }
+
+    public function getPanelPrefix(): string
+    {
+        return match ($this->role) {
+            self::ADMINISTRATOR => 'admin',
+            self::PIMPINAN => 'pimpinan',
+            self::ANGGOTA => 'anggota',
+            default => '',
+        };
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return match ($panel->getId()) {
+            'admin' => $this->isAdmin(),
+            'pimpinan' => $this->isPimpinan(),
+            'anggota' => $this->isAnggota(),
+            default => false,
+        };
     }
 
     public function anggota()
