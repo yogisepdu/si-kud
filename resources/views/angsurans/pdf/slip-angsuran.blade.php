@@ -6,139 +6,171 @@
 
     <style>
         @page {
-            margin: 15px;
+            size: A4 portrait;
+            margin: 0;
         }
 
         body {
+            margin: 0;
+            padding: 0;
             font-family: DejaVu Sans, sans-serif;
             font-size: 11px;
             color: #000;
         }
 
         .slip {
+            height: 143mm;
             border: 1px solid #000;
-            padding: 0;
+            position: relative;
+            overflow: hidden;
         }
 
         .header {
-            padding: 10px 15px;
             border-bottom: 1px solid #000;
+            padding: 10px 15px;
         }
 
         .header table {
             width: 100%;
+            border-collapse: collapse;
         }
 
         .logo {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
         }
 
         .koperasi {
-            text-align: center;
+            vertical-align: middle;
+            padding-left: 10px;
         }
 
-        .koperasi h1 {
-            margin: 0;
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .koperasi h2 {
-            margin: 0;
+        .koperasi-1 {
             font-size: 22px;
             font-weight: bold;
+            color: #777;
+            line-height: 1;
+        }
+
+        .koperasi-2 {
+            font-size: 17px;
+            font-weight: bold;
+            margin-top: 3px;
         }
 
         .alamat {
-            font-size: 10px;
             text-align: right;
-            line-height: 1.4;
+            font-size: 10px;
+            font-weight: bold;
+            line-height: 1.3;
         }
 
         .title {
             text-align: center;
-            color: #c40000;
-            font-size: 22px;
+            font-size: 18px;
             font-weight: bold;
-            margin: 12px 0;
-            text-transform: uppercase;
+            text-decoration: underline;
+            margin: 10px 0 15px;
+            font-family: DejaVu Serif;
         }
 
         .content {
-            padding: 0 15px 15px;
+            padding: 0 35px 15px;
+            position: relative;
         }
 
-        .content table {
+        .watermark {
+            position: absolute;
+            width: 220px;
+            left: 50%;
+            top: 20px;
+            margin-left: -110px;
+            opacity: 0.05;
+        }
+
+        .info {
             width: 100%;
             border-collapse: collapse;
+            position: relative;
+            z-index: 2;
         }
 
-        .content td {
-            padding: 4px;
+        .info td {
+            padding: 3px 0;
             vertical-align: top;
         }
 
         .label {
-            width: 130px;
+            width: 150px;
         }
 
         .separator {
             width: 10px;
         }
 
-        .nominal {
-            font-size: 16px;
+        .value {
             font-weight: bold;
+            font-family: DejaVu Serif;
         }
 
-        .terbilang {
-            margin-top: 10px;
-            padding: 8px;
-            border: 1px dashed #888;
+        .nominal {
+            margin-top: 20px;
+            font-size: 15px;
+            font-weight: bold;
             font-style: italic;
+            font-family: DejaVu Serif;
         }
 
         .footer {
+            margin-top: 18px;
             border-top: 1px dashed #000;
-            margin-top: 20px;
             padding-top: 20px;
+            position: relative;
         }
 
         .footer table {
             width: 100%;
         }
 
-        .ttd {
+        .footer td {
             text-align: center;
             width: 50%;
         }
 
-        .space {
-            height: 70px;
+        .ttd-space {
+            height: 75px;
         }
 
-        .name {
-            text-decoration: underline;
+        .nama {
+            font-weight: bold;
+            font-size: 12px;
+            font-family: DejaVu Serif;
+        }
+
+        .garis {
             font-weight: bold;
         }
 
-        .watermark {
-            position: fixed;
-            top: 45%;
-            left: 20%;
-            opacity: 0.05;
-            font-size: 90px;
-            transform: rotate(-30deg);
+        .stempel {
+            position: absolute;
+            right: 100px;
+            top: 30px;
+            width: 110px;
+            opacity: .25;
+        }
+
+        .cut-line {
+            border-top: 1px dashed #000;
+            height: 1px;
+            margin: 0;
+            padding: 0;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="watermark">
-        SI-KUD
-    </div>
+    {{-- ===================== SLIP 1 ===================== --}}
 
     <div class="slip">
 
@@ -147,21 +179,28 @@
             <table>
                 <tr>
 
-                    <td width="15%">
-                        {{-- Ganti dengan logo koperasi --}}
-                        {{-- <img src="{{ public_path('images/logo.png') }}" class="logo"> --}}
+                    <td width="10%">
+                        <img class="logo" src="{{ public_path('assets/img/logo.jpeg') }}">
                     </td>
 
-                    <td class="koperasi" width="55%">
-                        <h1>KOPERASI SIMPAN PINJAM</h1>
-                        <h2>SI-KUD</h2>
+                    <td class="koperasi" width="60%">
+
+                        <div class="koperasi-1">
+                            Koperasi Simpan Pinjam
+                        </div>
+
+                        <div class="koperasi-2">
+                            SI-KUD Kampar
+                        </div>
+
                     </td>
 
                     <td class="alamat" width="30%">
-                        Jl. Contoh Alamat Koperasi<br>
-                        Kecamatan XXXXX<br>
-                        Kabupaten XXXXX<br>
-                        Telp. XXXXXXXX
+                        Kantor : <br>
+                        Jl. Prof. M. Yamin No. 01<br>
+                        Bangkinang Kota<br>
+                        Kabupaten Kampar<br>
+                        Provinsi Riau
                     </td>
 
                 </tr>
@@ -170,64 +209,70 @@
         </div>
 
         <div class="title">
-            Bukti Pembayaran Angsuran
+            BUKTI PEMBAYARAN ANGSURAN
         </div>
 
         <div class="content">
 
-            <table>
+            <img class="watermark" src="{{ public_path('assets/img/logo.jpeg') }}">
+
+            <table class="info">
 
                 <tr>
-
-                    <td class="label">Nama Peminjam</td>
-                    <td class="separator">:</td>
-                    <td>
-                        {{ $angsuran->pinjaman->anggota->user->name }}
-                    </td>
-
                     <td class="label">Kode Pinjaman</td>
                     <td class="separator">:</td>
-                    <td>
+                    <td class="value">
                         {{ $angsuran->pinjaman->kode_pinjaman }}
                     </td>
 
+                    <td class="label">Tanggal Bayar</td>
+                    <td class="separator">:</td>
+                    <td class="value">
+                        {{ $angsuran->tanggal_bayar?->format('d/m/Y') }}
+                    </td>
                 </tr>
 
                 <tr>
+                    <td>Nama Peminjam</td>
+                    <td>:</td>
+                    <td class="value">
+                        {{ strtoupper($angsuran->pinjaman->anggota->user->name) }}
+                    </td>
 
                     <td>Angsuran Ke</td>
                     <td>:</td>
-                    <td>
+                    <td class="value">
                         {{ $angsuran->angsuran_ke }}
                     </td>
-
-                    <td>Tanggal Bayar</td>
-                    <td>:</td>
-                    <td>
-                        {{ $angsuran->tanggal_bayar?->format('d F Y') }}
-                    </td>
-
                 </tr>
 
                 <tr>
-
-                    <td>Jumlah Angsuran</td>
+                    <td>Status</td>
                     <td>:</td>
-                    <td class="nominal" colspan="4">
-                        Rp {{ number_format($angsuran->nominal, 0, ',', '.') }}
+                    <td class="value">
+                        {{ strtoupper($angsuran->status) }}
                     </td>
 
+                    <td>Jatuh Tempo</td>
+                    <td>:</td>
+                    <td class="value">
+                        {{ $angsuran->jatuh_tempo?->format('d/m/Y') }}
+                    </td>
                 </tr>
 
             </table>
 
-            <div class="terbilang">
-                Terbilang:
-                ...................................................................................................................
+            <div class="nominal">
+                Rp {{ number_format($angsuran->nominal, 0, ',', '.') }},-
             </div>
 
-            <div style="margin-top:15px;">
-                Pembayaran angsuran telah diterima dan diverifikasi oleh petugas koperasi.
+            <div
+                style="
+                    margin-top:8px;
+                    font-style:italic;
+                    font-size:12px;
+                ">
+                ({{ trim(terbilang($angsuran->nominal)) }} Rupiah)
             </div>
 
             <div class="footer">
@@ -235,32 +280,184 @@
                 <table>
 
                     <tr>
-                        <td class="ttd">
-                            Kasir
-                        </td>
-
-                        <td class="ttd">
-                            Penyetor
-                        </td>
+                        <td>Petugas Koperasi,</td>
+                        <td>Penyetor,</td>
                     </tr>
 
                     <tr>
-                        <td class="space"></td>
-                        <td class="space"></td>
+                        <td class="ttd-space"></td>
+                        <td class="ttd-space"></td>
                     </tr>
 
                     <tr>
 
-                        <td class="ttd">
-                            <span class="name">
-                                ___________________
+                        <td>
+                            <span class="garis">
+                                (........................................)
                             </span>
                         </td>
 
-                        <td class="ttd">
-                            <span class="name">
+                        <td>
+
+                            <div class="nama">
                                 {{ strtoupper($angsuran->pinjaman->anggota->user->name) }}
+                            </div>
+
+                            <span class="garis">
+                                (........................................)
                             </span>
+
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="cut-line"></div>
+
+    {{-- ===================== SLIP 2 ===================== --}}
+
+    <div class="slip">
+
+        <div class="header">
+
+            <table>
+                <tr>
+
+                    <td width="10%">
+                        <img class="logo" src="{{ public_path('assets/img/logo.jpeg') }}">
+                    </td>
+
+                    <td class="koperasi" width="60%">
+
+                        <div class="koperasi-1">
+                            Koperasi Simpan Pinjam
+                        </div>
+
+                        <div class="koperasi-2">
+                            SI-KUD Kampar
+                        </div>
+
+                    </td>
+
+                    <td class="alamat" width="30%">
+                        Kantor : <br>
+                        Jl. Prof. M. Yamin No. 01<br>
+                        Bangkinang Kota<br>
+                        Kabupaten Kampar<br>
+                        Provinsi Riau
+                    </td>
+
+                </tr>
+            </table>
+
+        </div>
+
+        <div class="title">
+            BUKTI PEMBAYARAN ANGSURAN
+        </div>
+
+        <div class="content">
+
+            <img class="watermark" src="{{ public_path('assets/img/logo.jpeg') }}">
+
+            <table class="info">
+
+                <tr>
+                    <td class="label">Kode Pinjaman</td>
+                    <td class="separator">:</td>
+                    <td class="value">
+                        {{ $angsuran->pinjaman->kode_pinjaman }}
+                    </td>
+
+                    <td class="label">Tanggal Bayar</td>
+                    <td class="separator">:</td>
+                    <td class="value">
+                        {{ $angsuran->tanggal_bayar?->format('d/m/Y') }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Nama Peminjam</td>
+                    <td>:</td>
+                    <td class="value">
+                        {{ strtoupper($angsuran->pinjaman->anggota->user->name) }}
+                    </td>
+
+                    <td>Angsuran Ke</td>
+                    <td>:</td>
+                    <td class="value">
+                        {{ $angsuran->angsuran_ke }}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Status</td>
+                    <td>:</td>
+                    <td class="value">
+                        {{ strtoupper($angsuran->status) }}
+                    </td>
+
+                    <td>Jatuh Tempo</td>
+                    <td>:</td>
+                    <td class="value">
+                        {{ $angsuran->jatuh_tempo?->format('d/m/Y') }}
+                    </td>
+                </tr>
+
+            </table>
+
+            <div class="nominal">
+                Rp {{ number_format($angsuran->nominal, 0, ',', '.') }},-
+            </div>
+
+            <div
+                style="
+                    margin-top:8px;
+                    font-style:italic;
+                    font-size:12px;
+                ">
+                ({{ trim(terbilang($angsuran->nominal)) }} Rupiah)
+            </div>
+
+            <div class="footer">
+
+                <table>
+
+                    <tr>
+                        <td>Petugas Koperasi,</td>
+                        <td>Penyetor,</td>
+                    </tr>
+
+                    <tr>
+                        <td class="ttd-space"></td>
+                        <td class="ttd-space"></td>
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            <span class="garis">
+                                (........................................)
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <div class="nama">
+                                {{ strtoupper($angsuran->pinjaman->anggota->user->name) }}
+                            </div>
+
+                            <span class="garis">
+                                (........................................)
+                            </span>
+
                         </td>
 
                     </tr>

@@ -2,11 +2,9 @@
 
 namespace App\Filament\Resources\Angsurans\Tables;
 
+use App\Filament\Support\AngsuranTableActions;
 use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
-use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Columns\TextColumn;
@@ -15,10 +13,14 @@ use Filament\Tables\Table;
 
 class AngsuransTable
 {
+    use AngsuranTableActions;
+
     public static function configure(Table $table): Table
     {
         return $table
             ->defaultSort('jatuh_tempo')
+            ->recordUrl(null)
+
             ->columns([
 
                 TextColumn::make('pinjaman.kode_pinjaman')
@@ -35,6 +37,7 @@ class AngsuransTable
                     ->sortable(),
 
                 TextColumn::make('jatuh_tempo')
+                    ->label('Jatuh Tempo')
                     ->date('d M Y')
                     ->sortable(),
 
@@ -78,8 +81,9 @@ class AngsuransTable
                     }),
 
             ])
+
             ->filters([
-                //
+
                 SelectFilter::make('status')
                     ->options([
                         'belum_bayar' => 'Belum Bayar',
@@ -87,12 +91,17 @@ class AngsuransTable
                         'dibayar' => 'Dibayar',
                         'ditolak' => 'Ditolak',
                     ]),
+
             ])
+
             ->recordActions([
-                Action::make('detail')
-                    ->label('Detail')
-                    ->icon('heroicon-o-eye')
-                    ->color('gray'),
+
+                /*
+                |--------------------------------------------------------------------------
+                | ANGGOTA
+                |--------------------------------------------------------------------------
+                */
+
                 Action::make('bayar')
                     ->label('Bayar')
                     ->icon('heroicon-o-banknotes')
@@ -100,10 +109,11 @@ class AngsuransTable
 
                     ->visible(
                         fn($record) =>
-                        in_array($record->status, [
-                            'belum_bayar',
-                            'ditolak',
-                        ])
+                        auth()->user()?->isAnggota()
+                            && in_array($record->status, [
+                                'belum_bayar',
+                                'ditolak',
+                            ])
                     )
 
                     ->form([
@@ -115,23 +125,42 @@ class AngsuransTable
 
                         FileUpload::make('bukti_bayar')
                             ->label('Bukti Pembayaran')
-                            ->directory('angsuran')
                             ->disk('public')
+                            ->directory('angsuran')
+                            ->visibility('public')
+                            ->acceptedFileTypes([
+                                'image/jpeg',
+                                'image/png',
+                                'image/webp',
+                                'application/pdf',
+                            ])
+                            ->maxSize(5120)
                             ->required()
                             ->downloadable()
                             ->openable(),
 
                     ])
 
-                    ->action(function (array $data, $record) {
+                    ->action(function (array $data, $record): void {
 
                         $record->update([
                             'tanggal_bayar' => $data['tanggal_bayar'],
                             'bukti_bayar' => $data['bukti_bayar'],
                             'status' => 'menunggu_verifikasi',
+                            'alasan_penolakan' => null,
                         ]);
                     }),
+
+                /*
+                |--------------------------------------------------------------------------
+                | ADMINISTRATOR & PIMPINAN
+                |--------------------------------------------------------------------------
+                */
+
+                ...static::getAngsuranActions(),
+
             ])
+
             ->toolbarActions([
                 BulkActionGroup::make([]),
             ]);

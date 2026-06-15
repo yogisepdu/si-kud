@@ -6,6 +6,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SlipAngsuranController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
@@ -24,6 +25,13 @@ Route::get('/berita/{slug}', [BeritaController::class, 'detailBerita'])->name('b
 // });
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate']);
+
+Route::middleware('auth')
+    ->get(
+        '/angsuran/{angsuran}/slip',
+        [SlipAngsuranController::class, 'download']
+    )
+    ->name('angsuran.slip');
 
 Route::post('/logout', [AuthController::class, 'logout'])
     ->middleware('auth');

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use App\Models\Angsuran;
 
 class Anggota extends Model
 {
@@ -31,6 +33,18 @@ class Anggota extends Model
     public function pinjamans()
     {
         return $this->hasMany(Pinjaman::class);
+    }
+
+    public function angsurans(): HasManyThrough
+    {
+        return $this->hasManyThrough(
+            Angsuran::class,
+            Pinjaman::class,
+            'anggota_id', // foreign key di pinjamans
+            'pinjaman_id', // foreign key di angsurans
+            'id', // local key anggota
+            'id' // local key pinjaman
+        );
     }
 
     public function simpanans()

@@ -9,6 +9,7 @@ use App\Filament\Resources\Angsurans\Schemas\AngsuranForm;
 use App\Filament\Resources\Angsurans\Tables\AngsuransTable;
 use App\Models\Angsuran;
 use BackedEnum;
+use Illuminate\Database\Eloquent\Builder;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -53,6 +54,33 @@ class AngsuranResource extends Resource
         return [
             //
         ];
+    }
+
+    public static function shouldRegisterNavigation(): bool
+    {
+        return auth()->user()?->isAnggota() ?? false;
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $query = parent::getEloquentQuery();
+
+        $user = auth()->user();
+
+        if ($user?->isAnggota()) {
+
+            $anggotaId = $user->anggota?->id;
+
+            if ($anggotaId) {
+                $query->whereHas('pinjaman', function (Builder $query) use ($anggotaId) {
+                    $query->where('anggota_id', $anggotaId);
+                });
+            } else {
+                $query->whereRaw('1 = 0');
+            }
+        }
+
+        return $query;
     }
 
     public static function getPages(): array
