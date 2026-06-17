@@ -37,31 +37,49 @@
 
                 <button
                     style="
-            background:none;
-            border:none;
-            cursor:pointer;
-            padding:0 0 10px;
-            font-weight:600;
-            color:{{ $status === 'published' ? '#f97316' : '#6b7280' }};
-            border-bottom:3px solid {{ $status === 'published' ? '#f97316' : 'transparent' }};
-        "
-                    wire:click="setStatus('published')">
-                    Published ({{ \App\Models\Berita::where('is_publish', true)->count() }})
+                        background:none;
+                        border:none;
+                        cursor:pointer;
+                        padding:0 0 10px;
+                        font-weight:600;
+                        color:{{ $status === 'popular' ? '#f97316' : '#6b7280' }};
+                        border-bottom:3px solid {{ $status === 'popular' ? '#f97316' : 'transparent' }};
+                    "
+                    wire:click="setStatus('popular')">
+
+                    Terpopuler
                 </button>
 
+                @if(auth()->user()?->isAdmin())
+
                 <button
-                    style="
-            background:none;
-            border:none;
-            cursor:pointer;
-            padding:0 0 10px;
-            font-weight:600;
-            color:{{ $status === 'draft' ? '#f97316' : '#6b7280' }};
-            border-bottom:3px solid {{ $status === 'draft' ? '#f97316' : 'transparent' }};
-        "
-                    wire:click="setStatus('draft')">
-                    Draft ({{ \App\Models\Berita::where('is_publish', false)->count() }})
+                        style="
+                background:none;
+                border:none;
+                cursor:pointer;
+                padding:0 0 10px;
+                font-weight:600;
+                color:{{ $status === 'published' ? '#f97316' : '#6b7280' }};
+                border-bottom:3px solid {{ $status === 'published' ? '#f97316' : 'transparent' }};
+            "
+                        wire:click="setStatus('published')">
+                        Published ({{ \App\Models\Berita::where('is_publish', true)->count() }})
                 </button>
+
+                    <button
+                        style="
+                            background:none;
+                            border:none;
+                            cursor:pointer;
+                            padding:0 0 10px;
+                            font-weight:600;
+                            color:{{ $status === 'draft' ? '#f97316' : '#6b7280' }};
+                            border-bottom:3px solid {{ $status === 'draft' ? '#f97316' : 'transparent' }};
+                        "
+                        wire:click="setStatus('draft')">
+                        Draft ({{ \App\Models\Berita::where('is_publish', false)->count() }})
+                    </button>
+                @endif
 
             </div>
 

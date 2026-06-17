@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Beritas\Pages;
 
 use App\Filament\Resources\Beritas\BeritaResource;
 use App\Filament\Resources\Beritas\Widgets\BeritaStats;
+use App\Filament\Resources\Beritas\Widgets\BeritaTerpopuler;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Components\Tab;
 use Filament\Resources\Pages\ListRecords;
@@ -20,7 +21,9 @@ class ListBeritas extends ListRecords
     {
         return [
             CreateAction::make()
-                ->label('Buat Berita Baru'),
+                ->visible(
+                    fn () => auth()->user()?->isAdmin()
+                ),
         ];
     }
 
@@ -31,6 +34,7 @@ class ListBeritas extends ListRecords
     {
         return [
             BeritaStats::class,
+            BeritaTerpopuler::class,
         ];
     }
 
@@ -38,10 +42,30 @@ class ListBeritas extends ListRecords
     {
         $query = parent::getFilteredTableQuery();
 
+        if (! auth()->user()?->isAdmin()) {
+
+            return match ($this->status) {
+
+                'popular' => $query
+                    ->where('is_publish', true)
+                    ->orderByDesc('views'),
+
+                default => $query
+                    ->where('is_publish', true),
+            };
+        }
+
         return match ($this->status) {
-            'published' => $query->where('is_publish', true),
-            'draft' => $query->where('is_publish', false),
-            'arsip' => $query->where('is_publish', false),
+
+            'published' => $query
+                ->where('is_publish', true),
+
+            'draft' => $query
+                ->where('is_publish', false),
+
+            'popular' => $query
+                ->orderByDesc('views'),
+
             default => $query,
         };
     }

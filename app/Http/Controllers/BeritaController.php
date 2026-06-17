@@ -30,6 +30,15 @@ class BeritaController extends Controller
             ->where('is_publish', true)
             ->firstOrFail();
 
+        $sessionKey = 'berita_viewed_' . $berita->id;
+
+        if (! session()->has($sessionKey)) {
+
+            $berita->increment('views');
+
+            session()->put($sessionKey, true);
+        }
+
         $beritaLainnya = Berita::where('id', '!=', $berita->id)
             ->where('is_publish', true)
             ->latest('tanggal')

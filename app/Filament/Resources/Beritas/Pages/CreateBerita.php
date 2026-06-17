@@ -13,4 +13,9 @@ class CreateBerita extends CreateRecord
     {
         return $this->getResource()::getUrl('index');
     }
+
+    public static function canCreate(): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
+    }
 }

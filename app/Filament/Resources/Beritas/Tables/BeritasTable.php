@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Storage;
 use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\DatePicker;
 use Filament\Tables\Enums\FiltersLayout;
+use Filament\Tables\Columns\Layout\Split;
+use Filament\Tables\Columns\Layout\Stack;
+use Filament\Support\Enums\FontWeight;
+use Filament\Actions\Action;
 
 class BeritasTable
 {
@@ -21,60 +25,74 @@ class BeritasTable
     {
         return $table
             ->defaultSort('tanggal', 'desc')
+            ->contentGrid([
+                'md' => 2,
+                'xl' => 3,
+            ])
 
             ->columns([
+                Stack::make([
 
-                ImageColumn::make('gambar')
-                    ->label('Gambar Berita')
-                    ->getStateUsing(
-                        fn($record) => asset('storage/' . $record->gambar)
-                    )
-                    ->height(70)
-                    ->width(110),
+                    ImageColumn::make('gambar')
+                        ->height(220)
+                        ->grow(false)
+                        ->getStateUsing(
+                            fn($record) => asset('storage/' . $record->gambar)
+                        ),
 
-                TextColumn::make('judul')
-                    ->label('Berita')
-                    ->weight('bold')
-                    ->description(
-                        fn($record) => str($record->ringkasan)
-                            ->limit(90)
-                    )
-                    ->wrap(),
+                    TextColumn::make('tanggal')
+                        ->badge()
+                        ->color('success')
+                        ->date('d M Y'),
 
-                TextColumn::make('is_publish')
-                    ->label('Status')
-                    ->badge()
-                    ->formatStateUsing(
-                        fn(bool $state) =>
-                        $state ? 'Published' : 'Draft'
-                    )
-                    ->color(
-                        fn(bool $state) =>
-                        $state ? 'success' : 'warning'
-                    ),
+                    TextColumn::make('judul')
+                        ->weight(FontWeight::Bold)
+                        ->limit(60)
+                        ->searchable(),
 
-                TextColumn::make('views')
-                    ->label('Views')
-                    ->numeric()
-                    ->sortable()
-                    ->alignCenter(),
+                    TextColumn::make('ringkasan')
+                        ->limit(120)
+                        ->wrap(),
 
-                TextColumn::make('tanggal')
-                    ->label('Tanggal')
-                    ->date('d M Y')
-                    ->sortable(),
+                    Split::make([
 
+                        TextColumn::make('tanggal')
+                            ->icon('heroicon-o-calendar')
+                            ->date('d M Y')
+                            ->color('gray'),
+
+                        TextColumn::make('views')
+                            ->icon('heroicon-o-eye')
+                            ->formatStateUsing(fn ($state) => "{$state} Dilihat")
+                            ->color('gray'),
+
+                    ]),
+
+                ])
             ])
 
             ->filters([])
             ->filtersLayout(FiltersLayout::AboveContent)
             ->recordActions([
-
+               Action::make('view')
+                    ->label('Lihat Berita')
+                    ->icon('heroicon-o-eye')
+                    ->color('success')
+                    ->url(
+                        fn ($record) => route('berita.detail', $record->slug)
+                    )
+                    ->openUrlInNewTab(),
                 EditAction::make()
-                    ->iconButton(),
+                ->iconButton()
+                ->visible(
+                    fn () => auth()->user()?->isAdmin()
+                ),
 
                 DeleteAction::make()
                     ->iconButton()
+                    ->visible(
+                        fn () => auth()->user()?->isAdmin()
+                    )
                     ->before(function ($record) {
 
                         if (
@@ -92,9 +110,6 @@ class BeritasTable
             )
 
             ->toolbarActions([
-                BulkActionGroup::make([
-                    DeleteBulkAction::make(),
-                ]),
             ]);
     }
 }

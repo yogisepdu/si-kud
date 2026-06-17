@@ -7,12 +7,15 @@ use App\Filament\Resources\Beritas\Pages\EditBerita;
 use App\Filament\Resources\Beritas\Pages\ListBeritas;
 use App\Filament\Resources\Beritas\Schemas\BeritaForm;
 use App\Filament\Resources\Beritas\Tables\BeritasTable;
+use App\Filament\Resources\Beritas\Widgets\BeritaStats;
+use App\Filament\Resources\Beritas\Widgets\BeritaTerpopuler;
 use App\Models\Berita;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 
 class BeritaResource extends Resource
 {
@@ -48,18 +51,41 @@ class BeritaResource extends Resource
 
     public static function shouldRegisterNavigation(): bool
     {
-        return auth()->user()?->isAdmin() ?? false;
+        return auth()->check();
     }
 
     public static function canViewAny(): bool
     {
-        return auth()->user()?->isAdmin() ?? false;
+        return auth()->check();
     }
 
     public static function getRelations(): array
     {
         return [
             //
+        ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $query = parent::getEloquentQuery();
+
+        $user = auth()->user();
+
+        // Admin bisa melihat semua berita
+        if ($user?->isAdmin()) {
+            return $query;
+        }
+
+        // Pimpinan & Anggota hanya melihat berita publish
+        return $query->where('is_publish', true);
+    }
+
+    public static function getWidgets(): array
+    {
+        return [
+            BeritaStats::class,
+            BeritaTerpopuler::class,
         ];
     }
 

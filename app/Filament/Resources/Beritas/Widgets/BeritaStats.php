@@ -53,4 +53,9 @@ class BeritaStats extends StatsOverviewWidget
 
         ];
     }
+
+    public static function canView(): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
+    }
 }

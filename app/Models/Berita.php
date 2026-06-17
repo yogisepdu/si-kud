@@ -30,5 +30,6 @@ class Berita extends Model
 
     protected $casts = [
         'tanggal' => 'date',
+        'is_publish' => 'boolean',
     ];
 }

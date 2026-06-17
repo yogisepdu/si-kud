@@ -21,4 +21,9 @@ class EditBerita extends EditRecord
     {
         return $this->getResource()::getUrl('index');
     }
+
+    public static function canEdit($record): bool
+    {
+        return auth()->user()?->isAdmin() ?? false;
+    }
 }
