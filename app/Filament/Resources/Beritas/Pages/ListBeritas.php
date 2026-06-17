@@ -22,7 +22,7 @@ class ListBeritas extends ListRecords
         return [
             CreateAction::make()
                 ->visible(
-                    fn () => auth()->user()?->isAdmin()
+                    fn() => auth()->user()?->isAdmin()
                 ),
         ];
     }
@@ -34,7 +34,7 @@ class ListBeritas extends ListRecords
     {
         return [
             BeritaStats::class,
-            BeritaTerpopuler::class,
+            // BeritaTerpopuler::class,
         ];
     }
 

@@ -34,11 +34,18 @@ class BeritasTable
                 Stack::make([
 
                     ImageColumn::make('gambar')
-                        ->height(220)
-                        ->grow(false)
                         ->getStateUsing(
                             fn($record) => asset('storage/' . $record->gambar)
-                        ),
+                        )
+                        ->height(250)
+                        ->extraImgAttributes([
+                            'style' => '
+                            width:100%;
+                            height:250px;
+                            object-fit:cover;
+                            border-radius:12px;
+                        ',
+                        ]),
 
                     TextColumn::make('tanggal')
                         ->badge()
@@ -63,7 +70,7 @@ class BeritasTable
 
                         TextColumn::make('views')
                             ->icon('heroicon-o-eye')
-                            ->formatStateUsing(fn ($state) => "{$state} Dilihat")
+                            ->formatStateUsing(fn($state) => "{$state} Dilihat")
                             ->color('gray'),
 
                     ]),
@@ -74,24 +81,24 @@ class BeritasTable
             ->filters([])
             ->filtersLayout(FiltersLayout::AboveContent)
             ->recordActions([
-               Action::make('view')
+                Action::make('view')
                     ->label('Lihat Berita')
                     ->icon('heroicon-o-eye')
                     ->color('success')
                     ->url(
-                        fn ($record) => route('berita.detail', $record->slug)
+                        fn($record) => route('berita.detail', $record->slug)
                     )
                     ->openUrlInNewTab(),
                 EditAction::make()
-                ->iconButton()
-                ->visible(
-                    fn () => auth()->user()?->isAdmin()
-                ),
+                    ->iconButton()
+                    ->visible(
+                        fn() => auth()->user()?->isAdmin()
+                    ),
 
                 DeleteAction::make()
                     ->iconButton()
                     ->visible(
-                        fn () => auth()->user()?->isAdmin()
+                        fn() => auth()->user()?->isAdmin()
                     )
                     ->before(function ($record) {
 
@@ -109,7 +116,6 @@ class BeritasTable
                 'Klik tombol Buat Berita Baru untuk menambahkan berita.'
             )
 
-            ->toolbarActions([
-            ]);
+            ->toolbarActions([]);
     }
 }

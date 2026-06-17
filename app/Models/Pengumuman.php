@@ -13,5 +13,7 @@ class Pengumuman extends Model
         'image',
         'is_active',
         'sort_order',
+        'created_at',
+        'updated_at',
     ];
 }
