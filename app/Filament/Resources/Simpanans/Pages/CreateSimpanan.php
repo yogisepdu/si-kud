@@ -11,6 +11,11 @@ class CreateSimpanan extends CreateRecord
 {
     protected static string $resource = SimpananResource::class;
 
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
+
     protected function mutateFormDataBeforeCreate(array $data): array
     {
         $last = Simpanan::latest('id')->first();

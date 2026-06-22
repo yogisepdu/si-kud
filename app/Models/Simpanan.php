@@ -11,12 +11,11 @@ class Simpanan extends Model
         'anggota_id',
         'kode_simpanan',
         'tanggal',
-        'jenis',
-        'jumlah',
         'keterangan',
         'status',
         'verified_by',
         'verified_at',
+        'slip_pdf',
     ];
 
     protected function casts(): array
@@ -27,10 +26,16 @@ class Simpanan extends Model
         ];
     }
 
+    public function items()
+    {
+        return $this->hasMany(SimpananItem::class);
+    }
+
     public function anggota()
     {
         return $this->belongsTo(Anggota::class);
     }
+
 
     public function verifier()
     {

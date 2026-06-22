@@ -21,14 +21,6 @@ return new class extends Migration
 
             $table->date('tanggal');
 
-            $table->enum('jenis', [
-                'pokok',
-                'wajib',
-                'sukarela',
-            ]);
-
-            $table->decimal('jumlah', 15, 2);
-
             $table->text('keterangan')->nullable();
 
             $table->enum('status', [

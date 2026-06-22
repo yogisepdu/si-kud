@@ -10,6 +10,8 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\Repeater;
+use Filament\Support\RawJs;
 
 class SimpananForm
 {
@@ -51,20 +53,29 @@ class SimpananForm
                     ->required()
                     ->default(now()),
 
-                Select::make('jenis')
-                    ->options([
-                        'pokok' => 'Simpanan Pokok',
-                        'wajib' => 'Simpanan Wajib',
-                        'sukarela' => 'Simpanan Sukarela',
-                        'berjangka' => 'Simpanan Berjangka',
-                        'pendidikan' => 'Simpanan Pendidikan',
-                    ])
-                    ->required(),
+                Repeater::make('items')
+                    ->relationship()
+                    ->schema([
+                        Select::make('jenis')
+                            ->options([
+                                'pokok' => 'Simpanan Pokok',
+                                'wajib' => 'Simpanan Wajib',
+                                'sukarela' => 'Simpanan Sukarela',
+                                'berjangka' => 'Simpanan Berjangka',
+                                'pendidikan' => 'Simpanan Pendidikan',
+                            ])
+                            ->required(),
 
-                TextInput::make('jumlah')
-                    ->numeric()
-                    ->prefix('Rp')
-                    ->required(),
+                        TextInput::make('jumlah')
+                            ->label('Jumlah Setoran')
+                            ->prefix('Rp')
+                            ->required()
+                            ->numeric()
+                            ->helperText('Masukkan nominal setoran simpanan'),
+                    ])
+                    ->columns(2)
+                    ->label('Detail Simpanan')
+                    ->columnSpanFull(),
 
                 Textarea::make('keterangan')
                     ->columnSpanFull(),

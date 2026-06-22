@@ -9,6 +9,8 @@ use App\Models\Simpanan;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
 
+$totalSimpanan = \App\Models\SimpananItem::sum('jumlah');
+
 class PinjamanStats extends StatsOverviewWidget
 {
     protected int|string|array $columnSpan = 'full';
@@ -177,7 +179,9 @@ class PinjamanStats extends StatsOverviewWidget
                 Stat::make(
                     'Total Simpanan',
                     'Rp ' . number_format(
-                        Simpanan::sum('jumlah'),
+                        Simpanan::with('items')
+                            ->get()
+                            ->sum(fn($s) => $s->items->sum('jumlah')),
                         0,
                         ',',
                         '.'

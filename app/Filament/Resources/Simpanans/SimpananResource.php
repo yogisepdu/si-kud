@@ -13,6 +13,8 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class SimpananResource extends Resource
 {
@@ -40,6 +42,37 @@ class SimpananResource extends Resource
         return [
             //
         ];
+    }
+
+    public static function getEloquentQuery(): Builder
+    {
+        $query = parent::getEloquentQuery();
+
+        $user = Auth::user();
+
+        if ($user->role === 'anggota') {
+            return $query->whereHas('anggota', function ($q) use ($user) {
+                $q->where('user_id', $user->id);
+            });
+        }
+
+        return $query;
+    }
+
+    public static function canCreate(): bool
+    {
+        return auth()->user()->role === 'administrator';
+    }
+
+    public static function canEdit($record): bool
+    {
+        return auth()->user()->role === 'administrator'
+            && $record->status === 'pending';
+    }
+
+    public static function canDelete($record): bool
+    {
+        return auth()->user()->role === 'administrator';
     }
 
     public static function getPages(): array

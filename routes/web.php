@@ -7,6 +7,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SlipAngsuranController;
+use App\Http\Controllers\SlipSimpananController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
@@ -32,6 +33,13 @@ Route::middleware('auth')
         [SlipAngsuranController::class, 'download']
     )
     ->name('angsuran.slip');
+
+Route::middleware('auth')
+    ->get(
+        '/simpanan/{simpanan}/slip',
+        [SlipSimpananController::class, 'download']
+    )
+    ->name('simpanan.slip');
 
 Route::post('/logout', [AuthController::class, 'logout'])
     ->middleware('auth');
