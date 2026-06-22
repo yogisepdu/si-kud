@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SimpananItem extends Model
 {
+    //
     protected $fillable = [
         'simpanan_id',
         'jenis',
