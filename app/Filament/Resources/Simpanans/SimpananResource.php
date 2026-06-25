@@ -27,6 +27,11 @@ class SimpananResource extends Resource
 
     protected static ?int $navigationSort = 3;
 
+    public static function getNavigationGroup(): ?string
+    {
+        return 'Simpan-Pinjam';
+    }
+
     public static function form(Schema $schema): Schema
     {
         return SimpananForm::configure($schema);

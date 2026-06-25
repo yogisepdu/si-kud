@@ -31,7 +31,7 @@ class AngsuranResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return 'Master Data';
+        return 'Simpan-Pinjam';
     }
 
     public static function form(Schema $schema): Schema

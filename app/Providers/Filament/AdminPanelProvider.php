@@ -53,6 +53,11 @@ class AdminPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+            ->navigationGroups([
+                'Master Data',
+                'Simpan-Pinjam',
+                'Manajemen Website',
+            ])
             ->authMiddleware([
                 Authenticate::class,
             ]);

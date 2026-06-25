@@ -50,6 +50,11 @@ class PimpinanPanelProvider extends PanelProvider
                 AccountWidget::class,
                 FilamentInfoWidget::class,
             ])
+            ->navigationGroups([
+                'Master Data',
+                'Simpan-Pinjam',
+                'Manajemen Website',
+            ])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
@@ -65,5 +70,4 @@ class PimpinanPanelProvider extends PanelProvider
                 Authenticate::class,
             ]);
     }
-    
 }

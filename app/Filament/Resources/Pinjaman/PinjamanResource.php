@@ -34,12 +34,12 @@ class PinjamanResource extends Resource
 
     protected static ?string $pluralModelLabel = 'Pinjaman';
 
-    protected static ?int $navigationSort = 2;
+    protected static ?int $navigationSort = 1;
 
 
     public static function getNavigationGroup(): ?string
     {
-        return 'Master Data';
+        return 'Simpan-Pinjam';
     }
 
     public static function form(Schema $schema): Schema
