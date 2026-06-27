@@ -84,19 +84,19 @@ class Anggota extends Model
 
     public function getSaldoSukarelaAttribute(): float
     {
-        $simpanan = SimpananItem::query()
+        $totalSimpanan = SimpananItem::query()
             ->where('jenis', 'sukarela')
             ->whereHas(
                 'simpanan',
-                fn($q) =>
-                $q->where('anggota_id', $this->id)
+                fn($query) => $query->where('anggota_id', $this->id)
             )
             ->sum('jumlah');
 
-        $penarikan = $this->penarikans()
+        $totalPenarikan = $this->penarikans()
+            ->where('status', 'disetujui')
             ->sum('jumlah_penarikan');
 
-        return $simpanan - $penarikan;
+        return $totalSimpanan - $totalPenarikan;
     }
 
     public function simpanans()

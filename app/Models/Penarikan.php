@@ -12,13 +12,30 @@ class Penarikan extends Model
         'tanggal_penarikan',
         'jumlah_penarikan',
         'keterangan',
+
+        'status',
+        'verified_by',
+        'verified_at',
+
         'slip',
         'user_id',
     ];
 
-    protected $casts = [
-        'tanggal_penarikan' => 'date',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'tanggal_penarikan' => 'date',
+            'verified_at' => 'datetime',
+        ];
+    }
+
+    public function verifier()
+    {
+        return $this->belongsTo(
+            User::class,
+            'verified_by'
+        );
+    }
 
     protected static function booted(): void
     {
@@ -34,6 +51,8 @@ class Penarikan extends Model
                 str_pad($last, 5, '0', STR_PAD_LEFT);
 
             $penarikan->user_id = auth()->id();
+
+            $penarikan->status = 'pending';
         });
     }
 
