@@ -7,6 +7,7 @@ use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SlipAngsuranController;
+use App\Http\Controllers\SlipPenarikanController;
 use App\Http\Controllers\SlipSimpananController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
@@ -40,6 +41,13 @@ Route::middleware('auth')
         [SlipSimpananController::class, 'download']
     )
     ->name('simpanan.slip');
+
+Route::middleware('auth')
+    ->get(
+        '/penarikan/{penarikan}/slip',
+        [SlipPenarikanController::class, 'download']
+    )
+    ->name('penarikan.slip');
 
 Route::post('/logout', [AuthController::class, 'logout'])
     ->middleware('auth');

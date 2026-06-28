@@ -86,17 +86,40 @@ class Anggota extends Model
     {
         $totalSimpanan = SimpananItem::query()
             ->where('jenis', 'sukarela')
-            ->whereHas(
-                'simpanan',
-                fn($query) => $query->where('anggota_id', $this->id)
-            )
+            ->whereHas('simpanan', function ($query) {
+                $query
+                    ->where('anggota_id', $this->id)
+                    ->where('status', 'terverifikasi');
+            })
             ->sum('jumlah');
 
         $totalPenarikan = $this->penarikans()
             ->where('status', 'disetujui')
             ->sum('jumlah_penarikan');
 
-        return $totalSimpanan - $totalPenarikan;
+        return max(0, $totalSimpanan - $totalPenarikan);
+    }
+
+    public function getTotalSaldoAttribute(): float
+    {
+        return $this->saldo_pokok
+            + $this->saldo_wajib
+            + $this->saldo_sukarela;
+    }
+
+    public function getSaldoSimpananAttribute(): float
+    {
+        $totalSimpanan = $this->simpanans()
+            ->where('status', 'disetujui')
+            ->withSum('items', 'jumlah')
+            ->get()
+            ->sum('items_sum_jumlah');
+
+        $totalPenarikan = $this->penarikans()
+            ->where('status', 'disetujui')
+            ->sum('jumlah_penarikan');
+
+        return max(0, $totalSimpanan - $totalPenarikan);
     }
 
     public function simpanans()

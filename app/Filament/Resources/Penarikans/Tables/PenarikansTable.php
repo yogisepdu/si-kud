@@ -190,6 +190,16 @@ class PenarikansTable
                             ->warning()
                             ->send();
                     }),
+                Action::make('slip')
+                    ->label('Slip')
+                    ->icon('heroicon-o-document-arrow-down')
+                    ->color('info')
+                    ->visible(fn($record) => $record->status === 'disetujui')
+                    ->url(fn($record) => route(
+                        'penarikan.slip',
+                        $record
+                    ))
+                    ->openUrlInNewTab(),
             ])
             ->toolbarActions([]);
     }
