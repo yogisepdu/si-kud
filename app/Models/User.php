@@ -44,6 +44,11 @@ class User extends Authenticatable implements FilamentUser
         return $this->role === self::ANGGOTA;
     }
 
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class);
+    }
+
     public function isAdminOrPimpinan(): bool
     {
         return in_array($this->role, [
