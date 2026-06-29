@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use App\Models\UserProfile;
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -42,6 +44,19 @@ class User extends Authenticatable implements FilamentUser
     public function isAnggota(): bool
     {
         return $this->role === self::ANGGOTA;
+    }
+
+
+    public function profile(): HasOne
+    {
+        return $this->hasOne(UserProfile::class);
+    }
+
+    protected static function booted(): void
+    {
+        static::created(function (User $user) {
+            $user->profile()->create();
+        });
     }
 
     public function isAdminOrPimpinan(): bool
