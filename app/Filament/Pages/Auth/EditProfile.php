@@ -29,15 +29,20 @@ class EditProfile extends BaseEditProfile
                         ->icon('heroicon-o-photo')
                         ->schema([
 
+                            // FileUpload::make('profile.avatar')
+                            //     ->label('Foto Profil')
+                            //     ->avatar()
+                            //     ->image()
+                            //     ->disk('public')
+                            //     ->directory('avatars')
+                            //     ->imageEditor()
+                            //     ->imageEditorAspectRatios(['1:1'])
+                            //     ->maxSize(2048)
+                            //     ->visibility('public'),
                             FileUpload::make('profile.avatar')
-                                ->label('Foto Profil')
-                                ->avatar()
                                 ->image()
                                 ->disk('public')
-                                ->directory('avatars')
-                                ->imageEditor()
-                                ->imageEditorAspectRatios(['1:1'])
-                                ->maxSize(2048),
+                                ->directory('avatars'),
 
                         ]),
 
@@ -49,34 +54,38 @@ class EditProfile extends BaseEditProfile
 
                             $this->getNameFormComponent(),
 
-                            $this->getEmailFormComponent(),
+                            $this->getEmailFormComponent()
+                                ->disabled(),
 
-                            TextInput::make('profile.phone')
+                            TextInput::make('anggota.no_hp')
                                 ->label('Nomor HP')
                                 ->tel()
                                 ->placeholder('08xxxxxxxxxx')
-                                ->maxLength(20),
+                                ->maxLength(20)
+                                ->visible(fn() => $this->isAnggota()),
 
                             TextInput::make('profile.position')
                                 ->label('Jabatan')
                                 ->placeholder('Contoh: Administrator'),
 
-                            Select::make('profile.gender')
+                            Select::make('anggota.jenis_kelamin')
                                 ->label('Jenis Kelamin')
                                 ->options([
                                     'Laki-laki' => 'Laki-laki',
                                     'Perempuan' => 'Perempuan',
                                 ])
                                 ->native(false)
-                                ->placeholder('Pilih jenis kelamin'),
+                                ->visible(fn() => $this->isAnggota()),
 
-                            DatePicker::make('profile.birth_date')
+                            DatePicker::make('anggota.tanggal_lahir')
                                 ->label('Tanggal Lahir')
-                                ->native(false),
+                                ->native(false)
+                                ->visible(fn() => $this->isAnggota()),
 
-                            Textarea::make('profile.address')
+                            Textarea::make('anggota.alamat')
                                 ->label('Alamat')
-                                ->placeholder('Masukkan alamat lengkap...'),
+                                ->placeholder('Masukkan alamat lengkap...')
+                                ->visible(fn() => $this->isAnggota()),
 
                             Textarea::make('profile.bio')
                                 ->label('Bio')
@@ -112,6 +121,18 @@ class EditProfile extends BaseEditProfile
         return [
             'class' => 'pt-8',
         ];
+    }
+
+    public function save(): void
+    {
+        parent::save();
+
+        $this->dispatch('$refresh');
+    }
+
+    protected function isAnggota(): bool
+    {
+        return auth()->user()->role === 'anggota';
     }
 
     public static function isSimple(): bool

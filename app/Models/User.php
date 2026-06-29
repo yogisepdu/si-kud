@@ -3,15 +3,16 @@
 namespace App\Models;
 
 use Database\Factories\UserFactory;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasAvatar;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Filament\Models\Contracts\FilamentUser;
-use Filament\Panel;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use App\Models\UserProfile;
+use Illuminate\Support\Facades\Storage;
 
-class User extends Authenticatable implements FilamentUser
+class User extends Authenticatable implements FilamentUser, HasAvatar
 {
     use HasFactory, Notifiable;
 
@@ -31,6 +32,43 @@ class User extends Authenticatable implements FilamentUser
         'remember_token',
     ];
 
+    /**
+     * Selalu load profile agar avatar tidak menambah query.
+     */
+    protected $with = [
+        'profile',
+    ];
+
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Relasi
+    |--------------------------------------------------------------------------
+    */
+
+    public function profile(): HasOne
+    {
+        return $this->hasOne(UserProfile::class);
+    }
+
+    public function anggota(): HasOne
+    {
+        return $this->hasOne(Anggota::class);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Role
+    |--------------------------------------------------------------------------
+    */
+
     public function isAdmin(): bool
     {
         return $this->role === self::ADMINISTRATOR;
@@ -46,17 +84,28 @@ class User extends Authenticatable implements FilamentUser
         return $this->role === self::ANGGOTA;
     }
 
-    public function profile()
-    {
-        return $this->hasOne(UserProfile::class);
-    }
-
     public function isAdminOrPimpinan(): bool
     {
         return in_array($this->role, [
             self::ADMINISTRATOR,
             self::PIMPINAN,
         ]);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Filament
+    |--------------------------------------------------------------------------
+    */
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        return match ($panel->getId()) {
+            'admin' => $this->isAdmin(),
+            'pimpinan' => $this->isPimpinan(),
+            'anggota' => $this->isAnggota(),
+            default => false,
+        };
     }
 
     public function getPanelPrefix(): string
@@ -69,26 +118,15 @@ class User extends Authenticatable implements FilamentUser
         };
     }
 
-    public function canAccessPanel(Panel $panel): bool
+    /**
+     * Avatar yang digunakan Filament pada Topbar.
+     */
+    public function getFilamentAvatarUrl(): ?string
     {
-        return match ($panel->getId()) {
-            'admin' => $this->isAdmin(),
-            'pimpinan' => $this->isPimpinan(),
-            'anggota' => $this->isAnggota(),
-            default => false,
-        };
-    }
+        if (! $this->profile?->avatar) {
+            return null;
+        }
 
-    public function anggota()
-    {
-        return $this->hasOne(Anggota::class);
-    }
-
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return Storage::disk('public')->url($this->profile->avatar);
     }
 }
