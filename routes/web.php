@@ -49,5 +49,13 @@ Route::middleware('auth')
     )
     ->name('penarikan.slip');
 
+Route::middleware('auth')
+    ->get(
+         '/laporan-bulanan/pdf',
+        [LaporanBulananPdfController::class]
+    )
+    ->name('laporan.bulanan.pdf');
+    
+
 Route::post('/logout', [AuthController::class, 'logout'])
     ->middleware('auth');

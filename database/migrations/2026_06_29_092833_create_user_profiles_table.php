@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('position')->nullable();
 
             $table->text('bio')->nullable();
+            
             $table->timestamps();
         });
     }

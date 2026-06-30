@@ -29,21 +29,16 @@ class EditProfile extends BaseEditProfile
                         ->icon('heroicon-o-photo')
                         ->schema([
 
-                            // FileUpload::make('profile.avatar')
-                            //     ->label('Foto Profil')
-                            //     ->avatar()
-                            //     ->image()
-                            //     ->disk('public')
-                            //     ->directory('avatars')
-                            //     ->imageEditor()
-                            //     ->imageEditorAspectRatios(['1:1'])
-                            //     ->maxSize(2048)
-                            //     ->visibility('public'),
                             FileUpload::make('profile.avatar')
+                                ->label('Foto Profil')
+                                ->avatar()
                                 ->image()
                                 ->disk('public')
-                                ->directory('avatars'),
-
+                                ->directory('avatars')
+                                ->imageEditor()
+                                ->imageEditorAspectRatios(['1:1'])
+                                ->maxSize(2048)
+                                ->visibility('public'),
                         ]),
 
                     Section::make('Informasi Akun')
