@@ -9,7 +9,7 @@ use Filament\Pages\Page;
 class LaporanBulanan extends Page
 {
     /**
-     * View
+     * View halaman
      */
     protected string $view = 'filament.pages.laporan-bulanan';
 
@@ -41,61 +41,65 @@ class LaporanBulanan extends Page
     }
 
     /**
-     * Service
-     */
-    protected function service(): LaporanBulananService
-    {
-        return app(LaporanBulananService::class);
-    }
-
-    /**
-     * Data tabel
+     * Data laporan
      */
     public function getLaporan()
     {
-        return $this->service()->getData(
-            $this->bulan,
-            $this->tahun,
-        );
+        return app(LaporanBulananService::class)
+            ->getData(
+                bulan: $this->bulan,
+                tahun: $this->tahun,
+            );
     }
 
     /**
-     * Ringkasan
+     * Total Simpanan
      */
-    public function getSummary(): array
+    public function getTotalSimpanan(): float
     {
-        $rows = $this->getLaporan();
-
-        return [
-
-            'simpanan' => $rows->sum('total_simpanan'),
-
-            'pinjaman' => $rows->sum('total_pinjaman'),
-
-            'angsuran' => $rows->sum('total_angsuran'),
-
-            'sisa' => $rows->sum('sisa_pinjaman'),
-
-            'anggota' => $rows->count(),
-
-        ];
+        return $this->getLaporan()->sum('total_simpanan');
     }
 
     /**
-     * Export PDF
+     * Total Pinjaman
+     */
+    public function getTotalPinjaman(): float
+    {
+        return $this->getLaporan()->sum('total_pinjaman');
+    }
+
+    /**
+     * Total Angsuran
+     */
+    public function getTotalAngsuran(): float
+    {
+        return $this->getLaporan()->sum('total_angsuran');
+    }
+
+    /**
+     * Grand Total
+     */
+    public function getGrandTotal(): float
+    {
+        return
+            $this->getTotalSimpanan()
+            +
+            $this->getTotalPinjaman()
+            +
+            $this->getTotalAngsuran();
+    }
+
+    /**
+     * Header Action
      */
     protected function getHeaderActions(): array
     {
         return [
 
             Action::make('pdf')
-
                 ->label('Export PDF')
-
                 ->icon('heroicon-o-printer')
-
                 ->color('danger')
-
                 ->url(fn () => route(
                     'laporan.bulanan.pdf',
                     [
@@ -103,7 +107,6 @@ class LaporanBulanan extends Page
                         'tahun' => $this->tahun,
                     ]
                 ))
-
                 ->openUrlInNewTab(),
 
         ];
