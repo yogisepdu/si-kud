@@ -5,6 +5,9 @@ namespace App\Filament\Resources\Pinjaman\Pages;
 use App\Filament\Resources\Pinjaman\PinjamanResource;
 use App\Models\Pinjaman;
 use Filament\Resources\Pages\CreateRecord;
+use Illuminate\Validation\ValidationException;
+use Filament\Actions\Action;
+use App\Models\Setting;
 
 class CreatePinjaman extends CreateRecord
 {
@@ -26,7 +29,12 @@ class CreatePinjaman extends CreateRecord
             $data['jumlah_pinjaman'] ?? 0
         );
 
-        $bunga = (float) ($data['persentase_bunga'] ?? 0);
+        $bunga = (float) Setting::get(
+            'bunga_pinjaman',
+            0
+        );
+
+        $data['persentase_bunga'] = $bunga;
 
         $tenor = max(
             (int) ($data['jangka_waktu'] ?? 1),
@@ -63,6 +71,12 @@ class CreatePinjaman extends CreateRecord
         $data['angsuran_per_bulan'] = $angsuranPerBulan;
 
         return $data;
+    }
+
+    protected function getSubmitFormAction(): Action
+    {
+        return parent::getSubmitFormAction()
+            ->label('Ajukan Pinjaman');
     }
 
 

@@ -27,6 +27,12 @@ class PinjamanTable
                     ->searchable()
                     ->sortable(),
 
+                TextColumn::make('anggota.user.name')
+                    ->label('Nama Anggota')
+                    ->searchable()
+                    ->sortable()
+                    ->visible(fn() => auth()->user()?->isAnggota() === false),
+
                 TextColumn::make('tanggal_pengajuan')
                     ->label('Tanggal Pengajuan')
                     ->date('d M Y')
@@ -57,6 +63,19 @@ class PinjamanTable
                         'disetujui' => 'success',
                         'ditolak' => 'danger',
                         'lunas' => 'info',
+                    }),
+
+                TextColumn::make('catatan_pimpinan')
+                    ->label('Catatan Pimpinan')
+                    ->placeholder('-')
+                    ->wrap()
+                    ->lineClamp(2)
+                    ->tooltip(fn($record) => $record->catatan_pimpinan)
+                    ->iconColor('gray')
+                    ->color(fn($record) => match ($record->status) {
+                        'ditolak' => 'danger',
+                        'disetujui' => 'success',
+                        default => 'gray',
                     }),
             ])
             ->filters([
@@ -137,15 +156,18 @@ class PinjamanTable
                         ->color('danger')
                         ->visible(
                             fn($record) =>
-                            auth()->user()->isPimpinan()
+                            auth()->user()?->isPimpinan()
                                 && $record->status === 'menunggu'
                         )
                         ->form([
                             Textarea::make('catatan_pimpinan')
                                 ->label('Alasan Penolakan')
+                                ->rows(4)
+                                ->maxLength(500)
                                 ->required(),
                         ])
-                        ->action(function ($record, array $data) {
+                        ->action(function (array $data, $record): void {
+
                             $record->update([
                                 'status' => 'ditolak',
                                 'approved_by' => auth()->id(),

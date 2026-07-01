@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 22, 2026 at 03:30 PM
+-- Generation Time: Jul 01, 2026 at 07:59 PM
 -- Server version: 5.7.39
 -- PHP Version: 8.3.23
 
@@ -39,7 +39,6 @@ CREATE TABLE `anggotas` (
   `no_hp` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `jenis_petani` enum('Plasma','Swadaya') COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `luas_lahan` decimal(8,2) DEFAULT NULL,
-  `nama_kebun` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `blok_kebun` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tanggal_bergabung` date DEFAULT NULL,
   `foto` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -47,14 +46,6 @@ CREATE TABLE `anggotas` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `anggotas`
---
-
-INSERT INTO `anggotas` (`id`, `user_id`, `no_anggota`, `nik`, `tempat_lahir`, `tanggal_lahir`, `jenis_kelamin`, `alamat`, `no_hp`, `jenis_petani`, `luas_lahan`, `nama_kebun`, `blok_kebun`, `tanggal_bergabung`, `foto`, `status`, `created_at`, `updated_at`) VALUES
-(2, 10, '012', '1502056452251515', 'Riau', '2000-02-06', 'Laki-laki', 'Kampar', '082254655852', 'Plasma', '20.00', NULL, '14', '2026-06-13', NULL, 'Aktif', '2026-06-13 13:35:42', '2026-06-13 13:52:46'),
-(3, 11, 'A011', '15020564522124', 'Tebangan', '2003-09-28', 'Perempuan', 'Jambi', '085236459878', 'Plasma', '10000.00', NULL, '15', '2026-06-15', NULL, 'Aktif', '2026-06-15 13:49:23', '2026-06-15 13:50:41');
 
 -- --------------------------------------------------------
 
@@ -79,30 +70,6 @@ CREATE TABLE `angsurans` (
   `alasan_penolakan` text COLLATE utf8mb4_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `angsurans`
---
-
-INSERT INTO `angsurans` (`id`, `pinjaman_id`, `angsuran_ke`, `jatuh_tempo`, `nominal`, `tanggal_bayar`, `bukti_bayar`, `status`, `verified_by`, `verified_at`, `created_at`, `updated_at`, `slip_pembayaran`, `alasan_penolakan`) VALUES
-(1, 4, 1, '2026-07-14', '1400000.00', '2026-06-14', 'angsuran/01KV3J401S69R24A6EV4X07MMK.pdf', 'dibayar', NULL, NULL, '2026-06-14 08:32:48', '2026-06-15 12:13:45', NULL, NULL),
-(2, 4, 2, '2026-08-14', '1400000.00', '2026-06-15', 'angsuran/01KV6BWFNTD3BXNXRNHYAZMTZ0.pdf', 'dibayar', NULL, NULL, '2026-06-14 08:32:48', '2026-06-15 12:50:10', NULL, NULL),
-(3, 4, 3, '2026-09-14', '1400000.00', '2026-06-15', 'angsuran/01KV6GGB75HFZWCB6GERZBZJXE.pdf', 'menunggu_verifikasi', NULL, NULL, '2026-06-14 08:32:48', '2026-06-15 13:45:25', NULL, NULL),
-(4, 4, 4, '2026-10-14', '1400000.00', NULL, NULL, 'belum_bayar', NULL, NULL, '2026-06-14 08:32:48', '2026-06-14 08:32:48', NULL, NULL),
-(5, 4, 5, '2026-11-14', '1400000.00', NULL, NULL, 'belum_bayar', NULL, NULL, '2026-06-14 08:32:48', '2026-06-14 08:32:48', NULL, NULL),
-(6, 4, 6, '2026-12-14', '1400000.00', NULL, NULL, 'belum_bayar', NULL, NULL, '2026-06-14 08:32:48', '2026-06-14 08:32:48', NULL, NULL),
-(7, 4, 7, '2027-01-14', '1400000.00', NULL, NULL, 'belum_bayar', NULL, NULL, '2026-06-14 08:32:48', '2026-06-14 08:32:48', NULL, NULL),
-(8, 4, 8, '2027-02-14', '1400000.00', NULL, NULL, 'belum_bayar', NULL, NULL, '2026-06-14 08:32:48', '2026-06-14 08:32:48', NULL, NULL),
-(9, 4, 9, '2027-03-14', '1400000.00', NULL, NULL, 'belum_bayar', NULL, NULL, '2026-06-14 08:32:48', '2026-06-14 08:32:48', NULL, NULL),
-(10, 4, 10, '2027-04-14', '1400000.00', NULL, NULL, 'belum_bayar', NULL, NULL, '2026-06-14 08:32:48', '2026-06-14 08:32:48', NULL, NULL),
-(11, 4, 11, '2027-05-14', '1400000.00', NULL, NULL, 'belum_bayar', NULL, NULL, '2026-06-14 08:32:48', '2026-06-14 08:32:48', NULL, NULL),
-(12, 4, 12, '2027-06-14', '1400000.00', NULL, NULL, 'belum_bayar', NULL, NULL, '2026-06-14 08:32:48', '2026-06-14 08:32:48', NULL, NULL),
-(14, 6, 1, '2026-07-15', '1120000.00', '2026-06-15', 'angsuran/01KV6HF4DN0VHB91KWN2F2WWYD.pdf', 'dibayar', NULL, NULL, '2026-06-15 14:00:49', '2026-06-15 14:02:38', NULL, NULL),
-(15, 6, 2, '2026-08-15', '1120000.00', NULL, NULL, 'belum_bayar', NULL, NULL, '2026-06-15 14:00:49', '2026-06-15 14:00:49', NULL, NULL),
-(16, 6, 3, '2026-09-15', '1120000.00', NULL, NULL, 'belum_bayar', NULL, NULL, '2026-06-15 14:00:49', '2026-06-15 14:00:49', NULL, NULL),
-(17, 6, 4, '2026-10-15', '1120000.00', NULL, NULL, 'belum_bayar', NULL, NULL, '2026-06-15 14:00:49', '2026-06-15 14:00:49', NULL, NULL),
-(18, 6, 5, '2026-11-15', '1120000.00', NULL, NULL, 'belum_bayar', NULL, NULL, '2026-06-15 14:00:49', '2026-06-15 14:00:49', NULL, NULL),
-(19, 6, 6, '2026-12-15', '1120000.00', NULL, NULL, 'belum_bayar', NULL, NULL, '2026-06-15 14:00:49', '2026-06-15 14:00:49', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -112,6 +79,7 @@ INSERT INTO `angsurans` (`id`, `pinjaman_id`, `angsuran_ke`, `jatuh_tempo`, `nom
 CREATE TABLE `beritas` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `judul` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `website_id` bigint(20) UNSIGNED NOT NULL DEFAULT '1',
   `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `gambar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tanggal` date NOT NULL,
@@ -120,6 +88,7 @@ CREATE TABLE `beritas` (
   `is_publish` tinyint(1) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   `views` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -127,9 +96,8 @@ CREATE TABLE `beritas` (
 -- Dumping data for table `beritas`
 --
 
-INSERT INTO `beritas` (`id`, `judul`, `slug`, `gambar`, `tanggal`, `ringkasan`, `isi`, `is_publish`, `created_at`, `updated_at`, `views`) VALUES
-(2, 'berita-01-baru', 'berita-01-baru', 'berita/01KTHJ5MYNQBK4G6BG3KABYZ5W.jpg', '2026-06-08', 'ini jadwal imsakiyah', '<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem facilis consectetur voluptatibus reiciendis voluptatem, perspiciatis accusamus enim aut quo ratione nam architecto expedita quae modi quia. Optio esse, explicabo incidunt nihil eaque deserunt dolorum omnis molestias voluptas placeat, nulla quasi quos quis ipsam inventore blanditiis minus similique. Illum rem eius natus corporis voluptatem quae, aperiam amet ipsam temporibus tempora esse voluptas nemo magnam labore dolore, voluptatum consectetur maiores laboriosam mollitia veritatis. Nobis facilis doloremque hic nisi. Voluptatibus accusantium earum qui! Magnam, iure reprehenderit molestias quas distinctio accusamus et voluptatibus repudiandae veritatis modi corporis voluptate nulla inventore dignissimos architecto doloremque reiciendis provident corrupti natus omnis, enim illum nemo repellendus.</p><p>Ducimus, numquam aperiam optio molestias doloribus consequuntur sunt accusamus laborum quae incidunt dignissimos tempora consequatur aliquid illum adipisci assumenda ex, neque quos. Placeat fugiat quis fuga blanditiis beatae dicta consectetur. Molestias, ea labore nesciunt sit mollitia aperiam animi saepe veniam corrupti eos quae sed ipsa autem fugit omnis suscipit ratione molestiae in nemo veritatis deserunt? Temporibus labore, inventore quisquam molestias laboriosam voluptas iure reprehenderit rerum commodi magnam non suscipit cumque enim laudantium quia? Alias cumque repellendus provident facere delectus nihil, rerum reiciendis voluptas dolorem voluptates quasi quod, pariatur cum laboriosam dignissimos fuga ullam ratione aliquam laudantium! Vitae eum inventore repudiandae labore culpa eius fugiat esse! Neque ipsam blanditiis doloribus error enim, et reiciendis in laborum exercitationem quibusdam quidem porro natus eaque, quam nulla sed, expedita magni iusto unde impedit repellat. Totam voluptate nulla pariatur unde mollitia, nostrum accusamus laborum, nesciunt rem ullam perspiciatis ut perferendis, harum adipisci. Molestiae voluptatibus tempore perspiciatis soluta consequuntur! Commodi earum nobis qui beatae necessitatibus fuga assumenda consectetur debitis illo aut voluptate ut, dolore dolor minima, magni ullam. Sit, quos! Magnam quisquam totam porro repellendus obcaecati ex eum aliquam. Earum ut asperiores eaque aperiam alias pariatur? Facere, commodi?</p>', 1, '2026-06-07 10:30:29', '2026-06-17 07:34:04', 1),
-(3, 'berita-02-baru', 'berita-02-baru', 'berita/01KTHPR7DAQJP9TMBT0DN29NHW.png', '2026-06-08', 'berita kedua siang ini', '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, ratione quia doloremque sunt sint inventore, veniam, repellendus sit obcaecati eligendi ducimus ipsam doloribus voluptas similique corrupti voluptate odit sapiente consectetur eveniet commodi laborum. Voluptates sint veniam eos distinctio corporis temporibus quas autem inventore accusamus, omnis molestias saepe nesciunt enim beatae placeat eveniet deserunt.</p><p>Accusamus ut praesentium, repudiandae itaque aperiam autem, veniam provident unde iure voluptas tempore, rerum inventore maxime distinctio blanditiis temporibus corrupti impedit est iste. Consequatur quos nesciunt et, recusandae debitis, magni delectus nam possimus harum praesentium suscipit incidunt odio rerum porro asperiores libero doloribus voluptate ipsum beatae eos?</p>', 1, '2026-06-07 11:50:32', '2026-06-17 07:42:55', 0);
+INSERT INTO `beritas` (`id`, `judul`, `website_id`, `slug`, `gambar`, `tanggal`, `ringkasan`, `isi`, `is_publish`, `created_at`, `updated_at`, `deleted_at`, `views`) VALUES
+(1, 'berita-01', 1, 'berita-01', 'berita/01KWFK3DFW2RQVFR47RMS8GE48.jpg', '2026-07-02', 'ini adalah berita satu jadi mohon bersar', '<p>dari tadi kita sudah menunjukkan hal yang sanagat luat biasa sekali untuk menjelaskan</p>', 1, '2026-07-01 12:39:39', '2026-07-01 12:39:39', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -148,10 +116,8 @@ CREATE TABLE `cache` (
 --
 
 INSERT INTO `cache` (`key`, `value`, `expiration`) VALUES
-('laravel-cache-17ba0791499db908433b80f37c5fbc89b870084b', 'i:2;', 1781557341),
-('laravel-cache-17ba0791499db908433b80f37c5fbc89b870084b:timer', 'i:1781557341;', 1781557341),
-('laravel-cache-b1d5781111d84f7b3fe45a0852e59758cd7a87e5', 'i:1;', 1781556383),
-('laravel-cache-b1d5781111d84f7b3fe45a0852e59758cd7a87e5:timer', 'i:1781556383;', 1781556383);
+('laravel-cache-356a192b7913b04c54574d18c28d46e6395428ab', 'i:3;', 1782935653),
+('laravel-cache-356a192b7913b04c54574d18c28d46e6395428ab:timer', 'i:1782935653;', 1782935653);
 
 -- --------------------------------------------------------
 
@@ -194,17 +160,16 @@ CREATE TABLE `galleries` (
   `sort_order` int(11) NOT NULL DEFAULT '0',
   `is_active` tinyint(1) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `website_id` bigint(20) UNSIGNED NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `galleries`
 --
 
-INSERT INTO `galleries` (`id`, `title`, `image`, `sort_order`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, 'Galleri-1', 'gallery/01KTF5V25A2F5PNF8HKSYH11C3.png', 1, 1, '2026-06-06 12:16:30', '2026-06-06 12:16:30'),
-(2, 'Galleri-2', 'gallery/01KTF5VKYCSFAVH50VEXFBP5HF.png', 2, 1, '2026-06-06 12:16:48', '2026-06-06 12:16:48'),
-(5, 'Galleri-3', 'gallery/01KTF6BFKYZQD08AMBJAPFKVE2.png', 3, 1, '2026-06-06 12:25:28', '2026-06-06 12:25:28');
+INSERT INTO `galleries` (`id`, `title`, `image`, `sort_order`, `is_active`, `created_at`, `updated_at`, `website_id`) VALUES
+(1, 'galeri 01', 'gallery/01KWFKAJ41VJNHMRMNXDQDHKS4.jpg', 1, 1, '2026-07-01 12:43:33', '2026-07-01 12:43:33', 1);
 
 -- --------------------------------------------------------
 
@@ -261,24 +226,34 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '0001_01_01_000000_create_users_table', 1),
 (2, '0001_01_01_000001_create_cache_table', 1),
 (3, '0001_01_01_000002_create_jobs_table', 1),
-(5, '2026_06_05_192731_create_sliders_table', 2),
-(6, '2026_06_06_172353_create_profiles_table', 3),
-(7, '2026_06_06_175345_add_structure_image_to_profiles_table', 4),
-(8, '2026_06_06_180446_create_produks_table', 5),
-(9, '2026_06_06_182140_create_pengumumen_table', 6),
-(10, '2026_06_06_191004_create_galleries_table', 7),
-(11, '2026_06_07_080342_create_beritas_table', 8),
-(12, '2026_06_07_181848_add_views_to_beritas_table', 9),
-(13, '2026_06_08_073345_add_role_to_users_table', 10),
-(16, '2026_06_13_200241_create_anggotas_table', 11),
-(21, '2026_06_13_204557_create_pinjamen_table', 12),
-(22, '2026_06_13_204607_create_angsurans_table', 12),
-(24, '2026_06_14_113943_add_dokumen_to_pinjamen_table', 13),
-(25, '2026_06_14_172843_add_slip_to_angsurans_table', 14),
-(26, '2026_06_15_184742_add_alasan_penolakan_to_angsurans_table', 15),
-(32, '2026_06_14_092356_create_simpanans_table', 16),
-(33, '2026_06_22_141055_add_slip_pdf_to_simpanans_table', 16),
-(34, '2026_06_22_145024_create_simpanan_items_table', 16);
+(4, '2026_06_03_184019_create_websites_table', 1),
+(5, '2026_06_05_192731_create_sliders_table', 1),
+(6, '2026_06_06_172353_create_profiles_table', 1),
+(7, '2026_06_06_175345_add_structure_image_to_profiles_table', 1),
+(8, '2026_06_06_180446_create_produks_table', 1),
+(9, '2026_06_06_182140_create_pengumumen_table', 1),
+(10, '2026_06_06_191004_create_galleries_table', 1),
+(11, '2026_06_07_080342_create_beritas_table', 1),
+(12, '2026_06_07_181848_add_views_to_beritas_table', 1),
+(13, '2026_06_08_073345_add_role_to_users_table', 1),
+(14, '2026_06_13_200241_create_anggotas_table', 1),
+(15, '2026_06_13_204557_create_pinjamen_table', 1),
+(16, '2026_06_13_204607_create_angsurans_table', 1),
+(17, '2026_06_14_092356_create_simpanans_table', 1),
+(18, '2026_06_14_113943_add_dokumen_to_pinjamen_table', 1),
+(19, '2026_06_14_172843_add_slip_to_angsurans_table', 1),
+(20, '2026_06_15_184742_add_alasan_penolakan_to_angsurans_table', 1),
+(21, '2026_06_22_141055_add_slip_pdf_to_simpanans_table', 1),
+(22, '2026_06_22_145024_create_simpanan_items_table', 1),
+(23, '2026_06_25_160032_create_penarikans_table', 1),
+(24, '2026_06_27_173155_add_verification_columns_to_penarikans_table', 1),
+(25, '2026_06_29_092833_create_user_profiles_table', 1),
+(26, '2026_07_01_162553_create_settings_table', 1),
+(27, '2026_07_01_184323_add_website_id_to_sliders_table', 1),
+(28, '2026_07_01_184442_add_website_id_to_profiles_table', 1),
+(29, '2026_07_01_184452_add_website_id_to_produks_table', 1),
+(30, '2026_07_01_184504_add_website_id_to_pengumumen_table', 1),
+(31, '2026_07_01_184525_add_website_id_to_galleries_table', 1);
 
 -- --------------------------------------------------------
 
@@ -295,6 +270,28 @@ CREATE TABLE `password_reset_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `penarikans`
+--
+
+CREATE TABLE `penarikans` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `anggota_id` bigint(20) UNSIGNED NOT NULL,
+  `kode_penarikan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tanggal_penarikan` date NOT NULL,
+  `jumlah_penarikan` decimal(15,2) NOT NULL,
+  `keterangan` text COLLATE utf8mb4_unicode_ci,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
+  `verified_by` bigint(20) UNSIGNED DEFAULT NULL,
+  `verified_at` timestamp NULL DEFAULT NULL,
+  `slip` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pengumumen`
 --
 
@@ -306,15 +303,16 @@ CREATE TABLE `pengumumen` (
   `is_active` tinyint(1) NOT NULL DEFAULT '1',
   `sort_order` int(11) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `website_id` bigint(20) UNSIGNED NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `pengumumen`
 --
 
-INSERT INTO `pengumumen` (`id`, `title`, `description`, `image`, `is_active`, `sort_order`, `created_at`, `updated_at`) VALUES
-(1, 'Loker APRIL 2026', 'ini adalah lowongan loker april 2026', 'pengumuman/01KTF59M7NPDR5GYQDK65QK7C4.jpeg', 1, 1, '2026-06-06 12:06:59', '2026-06-06 12:06:59');
+INSERT INTO `pengumumen` (`id`, `title`, `description`, `image`, `is_active`, `sort_order`, `created_at`, `updated_at`, `website_id`) VALUES
+(1, 'ini pengumuman pertama', 'jadi ini adalah pengumuman yang di lakukan untuk menyelesaikan', 'pengumuman/01KWFKE6TGEWFAE80R20YADGK8.jpg', 1, 1, '2026-07-01 12:45:33', '2026-07-01 12:45:33', 1);
 
 -- --------------------------------------------------------
 
@@ -350,14 +348,6 @@ CREATE TABLE `pinjamen` (
   `file_dokumen_pendukung` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `pinjamen`
---
-
-INSERT INTO `pinjamen` (`id`, `anggota_id`, `kode_pinjaman`, `tanggal_pengajuan`, `jumlah_pinjaman`, `jangka_waktu`, `persentase_bunga`, `total_bunga`, `total_pinjaman`, `angsuran_per_bulan`, `tujuan_pinjaman`, `status`, `approved_by`, `approved_at`, `catatan_pimpinan`, `created_at`, `updated_at`, `no_hp`, `email`, `jaminan`, `file_ktp`, `file_kk`, `file_bukti_penghasilan`, `file_agunan`, `file_dokumen_pendukung`) VALUES
-(4, 2, 'PJM-20260614-00001', '2026-06-14', '15000000.00', 12, '12.00', '1800000.00', '16800000.00', '1400000.00', 'beli mobil pajero', 'disetujui', 2, '2026-06-14 07:51:39', NULL, '2026-06-14 06:23:22', '2026-06-14 07:51:39', '082254655852', 'yogi@yogi123.com', 'satu buah sertifikat shm kebun sawit 2 hektar', 'pinjaman/ktp/01KV34T68P1CX51VNQDZ0CERRV.pdf', 'pinjaman/kk/01KV34T693SVK3YYXWKW7VEK0V.pdf', 'pinjaman/penghasilan/01KV34T698PVHR9A9VYNPNC8VZ.pdf', 'pinjaman/agunan/01KV34T69CJXG3TXMM59291QRJ.pdf', 'pinjaman/pendukung/01KV34T69GZK3VKAP5CNHKJJ74.pdf'),
-(6, 3, 'PJM-20260615-00002', '2026-06-15', '6000000.00', 6, '12.00', '720000.00', '6720000.00', '1120000.00', 'Beli HP', 'disetujui', 2, '2026-06-15 14:00:49', NULL, '2026-06-15 14:00:23', '2026-06-15 14:00:49', '085236459878', 'retno@retno.com', 'Satu Buah Jalan Lintas Rokan Hulu', 'pinjaman/ktp/01KV6HBQPTSX5NA53BSKM4N7ZH.pdf', 'pinjaman/kk/01KV6HBQQ0BX26WJHWV4T3XFGY.pdf', 'pinjaman/penghasilan/01KV6HBQQ4X0PTXNT50K3ZZ6GF.pdf', 'pinjaman/agunan/01KV6HBQQ9B8Q6VEYCJK767DPF.pdf', 'pinjaman/pendukung/01KV6HBQQC7KSJTN5E77X1SPNJ.pdf');
-
 -- --------------------------------------------------------
 
 --
@@ -371,17 +361,18 @@ CREATE TABLE `produks` (
   `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_active` tinyint(1) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `website_id` bigint(20) UNSIGNED NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `produks`
 --
 
-INSERT INTO `produks` (`id`, `type`, `title`, `content`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, 'pupuk', 'ini layanan PUPUK', '<p>baik ini adalah untuk layanan PUPUK, jadi semua nya harus bersiap-siap dengan..</p><ol start=\"1\"><li><p>ya satu</p></li><li><p>dua</p></li><li><p>tiga</p></li><li><p>saja</p></li></ol>', 1, '2026-06-06 11:11:08', '2026-06-06 11:11:08'),
-(2, 'tbs', 'Layanan TBS', '<h2>OKE BAIK INI LAYANAN TBS</h2><p></p><ol start=\"1\"><li><p>ini layanan tbs ya kawan-kawan</p></li><li><p>coba layanan ini</p></li></ol>', 1, '2026-06-06 11:15:57', '2026-06-06 11:15:57'),
-(3, 'simpan_pinjam', 'Layanan Simpan-Pinjam', '<p>ini layanan simpan-pinjam, jadi simpan dan pinjam.</p><p></p><ol start=\"1\"><li><p>simpan</p></li><li><p>pinjam</p></li></ol>', 1, '2026-06-06 11:16:47', '2026-06-06 11:16:47');
+INSERT INTO `produks` (`id`, `type`, `title`, `content`, `is_active`, `created_at`, `updated_at`, `website_id`) VALUES
+(1, 'pupuk', 'PUPUK PESTISIDA', '<p>ini layanan pupuk pestisida ya :<br></p><table><tbody><tr><th rowspan=\"1\" colspan=\"1\"><p>H</p></th><th rowspan=\"1\" colspan=\"1\"><p>U</p></th><th rowspan=\"1\" colspan=\"1\"><p>B</p></th></tr><tr><td rowspan=\"1\" colspan=\"1\"><p>ini</p></td><td rowspan=\"1\" colspan=\"1\"><p>adalah</p></td><td rowspan=\"1\" colspan=\"1\"><p>hari yang sangat</p></td></tr></tbody></table>', 1, '2026-07-01 12:48:06', '2026-07-01 12:48:06', 1),
+(2, 'tbs', 'TBS', '<p><strong>HARGA TBS :</strong><br><br></p><table><tbody><tr><th rowspan=\"1\" colspan=\"1\"><p>TGL</p></th><th rowspan=\"1\" colspan=\"1\"><p>HARGA</p></th><th rowspan=\"1\" colspan=\"1\"><p>KILO</p></th></tr><tr><td rowspan=\"1\" colspan=\"1\"><p>01 JUNI 2026</p></td><td rowspan=\"1\" colspan=\"1\"><p>Rp. 25.000,-</p></td><td rowspan=\"1\" colspan=\"1\"><p>1</p></td></tr></tbody></table>', 1, '2026-07-01 12:49:09', '2026-07-01 12:49:09', 1),
+(3, 'simpan_pinjam', 'Pinjam', '<p>ayo lah pinjam di sini dong</p>', 1, '2026-07-01 12:49:27', '2026-07-01 12:49:27', 1);
 
 -- --------------------------------------------------------
 
@@ -397,15 +388,16 @@ CREATE TABLE `profiles` (
   `mission` longtext COLLATE utf8mb4_unicode_ci,
   `structure_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `website_id` bigint(20) UNSIGNED NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `profiles`
 --
 
-INSERT INTO `profiles` (`id`, `title`, `history`, `vision`, `mission`, `structure_image`, `created_at`, `updated_at`) VALUES
-(2, 'Sejarah KUD Kampar', '<h2>ini sejarah ya</h2>', '<p>ini adalah visi dari kud</p>', '<p>ini misi nya :</p><ol start=\"1\"><li><p>satu</p></li><li><p>dua</p></li><li><p>tiga</p></li></ol>', 'profiles/01KTF1CBSA1YMZ4CP6ARV79NTS.jpeg', '2026-06-06 10:52:29', '2026-06-06 10:58:34');
+INSERT INTO `profiles` (`id`, `title`, `history`, `vision`, `mission`, `structure_image`, `created_at`, `updated_at`, `website_id`) VALUES
+(1, 'SEJARAH KUD', '<p>INI SEJARA KUD YAH</p>', '<p>VISI KUD MENCERDASKAN BANGSA</p>', '<ol start=\"1\"><li><p>SATU</p></li><li><p>DUA</p></li><li><p>TIGA</p></li></ol>', 'profiles/01KWFKSF5MW41H6HTFGTFGFYF1.jpg', '2026-07-01 12:51:42', '2026-07-01 12:51:42', 1);
 
 -- --------------------------------------------------------
 
@@ -427,9 +419,22 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('k98pQJJVajjnAInGkRYBhttEYSjBUNZwZdpS4zjx', 10, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36 Edg/149.0.0.0', 'eyJfdG9rZW4iOiJSSTlIbTVUY3NJam8xc09SRFBlbWZHN1dQVktiNjdSYWhIQUlJc1E1IiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cLzEyNy4wLjAuMTo4MDAwXC9hbmdnb3RhXC9zaW1wYW5hbnMiLCJyb3V0ZSI6ImZpbGFtZW50LmFuZ2dvdGEucmVzb3VyY2VzLnNpbXBhbmFucy5pbmRleCJ9LCJfZmxhc2giOnsib2xkIjpbXSwibmV3IjpbXX0sImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjoxMCwicGFzc3dvcmRfaGFzaF93ZWIiOiI4OGQxOWNjOTQ0Yjc1OGIwZTRlMzEwNjM0ZDExNTY4ZmU3NjViNjkxMjNjYjMyOWM1M2VjNDY2ZWYxMGY3MTU0IiwidGFibGVzIjp7IjQzYTAxODA3MWE1YzgxNzM5NTMyNWE4NjdlY2M2YjQxX2NvbHVtbnMiOlt7InR5cGUiOiJjb2x1bW4iLCJuYW1lIjoia29kZV9zaW1wYW5hbiIsImxhYmVsIjoiS29kZSBzaW1wYW5hbiIsImlzSGlkZGVuIjp0cnVlLCJpc1RvZ2dsZWQiOnRydWUsImlzVG9nZ2xlYWJsZSI6ZmFsc2UsImlzVG9nZ2xlZEhpZGRlbkJ5RGVmYXVsdCI6bnVsbH0seyJ0eXBlIjoiY29sdW1uIiwibmFtZSI6ImFuZ2dvdGEudXNlci5uYW1lIiwibGFiZWwiOiJOYW1hIEFuZ2dvdGEiLCJpc0hpZGRlbiI6dHJ1ZSwiaXNUb2dnbGVkIjp0cnVlLCJpc1RvZ2dsZWFibGUiOmZhbHNlLCJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiOm51bGx9LHsidHlwZSI6ImNvbHVtbiIsIm5hbWUiOiJpdGVtcyIsImxhYmVsIjoiRGV0YWlsIFNpbXBhbmFuIiwiaXNIaWRkZW4iOmZhbHNlLCJpc1RvZ2dsZWQiOnRydWUsImlzVG9nZ2xlYWJsZSI6ZmFsc2UsImlzVG9nZ2xlZEhpZGRlbkJ5RGVmYXVsdCI6bnVsbH0seyJ0eXBlIjoiY29sdW1uIiwibmFtZSI6Iml0ZW1zX3RvdGFsIiwibGFiZWwiOiJUb3RhbCBOb21pbmFsIiwiaXNIaWRkZW4iOmZhbHNlLCJpc1RvZ2dsZWQiOnRydWUsImlzVG9nZ2xlYWJsZSI6ZmFsc2UsImlzVG9nZ2xlZEhpZGRlbkJ5RGVmYXVsdCI6bnVsbH0seyJ0eXBlIjoiY29sdW1uIiwibmFtZSI6InRhbmdnYWwiLCJsYWJlbCI6IlRhbmdnYWwgU2V0b3IiLCJpc0hpZGRlbiI6ZmFsc2UsImlzVG9nZ2xlZCI6dHJ1ZSwiaXNUb2dnbGVhYmxlIjpmYWxzZSwiaXNUb2dnbGVkSGlkZGVuQnlEZWZhdWx0IjpudWxsfSx7InR5cGUiOiJjb2x1bW4iLCJuYW1lIjoic3RhdHVzIiwibGFiZWwiOiJTdGF0dXMiLCJpc0hpZGRlbiI6ZmFsc2UsImlzVG9nZ2xlZCI6dHJ1ZSwiaXNUb2dnbGVhYmxlIjpmYWxzZSwiaXNUb2dnbGVkSGlkZGVuQnlEZWZhdWx0IjpudWxsfV0sImIyNDBiOGI4N2E3OGQzMmRmZjdhMTA5N2FiYzgyMmM4X2NvbHVtbnMiOlt7InR5cGUiOiJjb2x1bW4iLCJuYW1lIjoia29kZV9waW5qYW1hbiIsImxhYmVsIjoiTm8uIFBpbmphbWFuIiwiaXNIaWRkZW4iOmZhbHNlLCJpc1RvZ2dsZWQiOnRydWUsImlzVG9nZ2xlYWJsZSI6ZmFsc2UsImlzVG9nZ2xlZEhpZGRlbkJ5RGVmYXVsdCI6bnVsbH0seyJ0eXBlIjoiY29sdW1uIiwibmFtZSI6InRhbmdnYWxfcGVuZ2FqdWFuIiwibGFiZWwiOiJUYW5nZ2FsIFBlbmdhanVhbiIsImlzSGlkZGVuIjpmYWxzZSwiaXNUb2dnbGVkIjp0cnVlLCJpc1RvZ2dsZWFibGUiOmZhbHNlLCJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiOm51bGx9LHsidHlwZSI6ImNvbHVtbiIsIm5hbWUiOiJqdW1sYWhfcGluamFtYW4iLCJsYWJlbCI6Ikp1bWxhaCBQaW5qYW1hbiIsImlzSGlkZGVuIjpmYWxzZSwiaXNUb2dnbGVkIjp0cnVlLCJpc1RvZ2dsZWFibGUiOmZhbHNlLCJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiOm51bGx9LHsidHlwZSI6ImNvbHVtbiIsIm5hbWUiOiJhbmdzdXJhbl9wZXJfYnVsYW4iLCJsYWJlbCI6IkFuZ3N1cmFuIFwvIEJ1bGFuIiwiaXNIaWRkZW4iOmZhbHNlLCJpc1RvZ2dsZWQiOnRydWUsImlzVG9nZ2xlYWJsZSI6ZmFsc2UsImlzVG9nZ2xlZEhpZGRlbkJ5RGVmYXVsdCI6bnVsbH0seyJ0eXBlIjoiY29sdW1uIiwibmFtZSI6ImphbmdrYV93YWt0dSIsImxhYmVsIjoiVGVub3IiLCJpc0hpZGRlbiI6ZmFsc2UsImlzVG9nZ2xlZCI6dHJ1ZSwiaXNUb2dnbGVhYmxlIjpmYWxzZSwiaXNUb2dnbGVkSGlkZGVuQnlEZWZhdWx0IjpudWxsfSx7InR5cGUiOiJjb2x1bW4iLCJuYW1lIjoic3RhdHVzIiwibGFiZWwiOiJTdGF0dXMiLCJpc0hpZGRlbiI6ZmFsc2UsImlzVG9nZ2xlZCI6dHJ1ZSwiaXNUb2dnbGVhYmxlIjpmYWxzZSwiaXNUb2dnbGVkSGlkZGVuQnlEZWZhdWx0IjpudWxsfV0sImI1ZDE1Nzk3MjUzYTQ1ZWNiMDk5NWEwYWE3NzQ5MmM1X2NvbHVtbnMiOlt7InR5cGUiOiJjb2x1bW4iLCJuYW1lIjoicGluamFtYW4ua29kZV9waW5qYW1hbiIsImxhYmVsIjoiS29kZSBQaW5qYW1hbiIsImlzSGlkZGVuIjpmYWxzZSwiaXNUb2dnbGVkIjp0cnVlLCJpc1RvZ2dsZWFibGUiOmZhbHNlLCJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiOm51bGx9LHsidHlwZSI6ImNvbHVtbiIsIm5hbWUiOiJwaW5qYW1hbi5hbmdnb3RhLnVzZXIubmFtZSIsImxhYmVsIjoiQW5nZ290YSIsImlzSGlkZGVuIjpmYWxzZSwiaXNUb2dnbGVkIjp0cnVlLCJpc1RvZ2dsZWFibGUiOmZhbHNlLCJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiOm51bGx9LHsidHlwZSI6ImNvbHVtbiIsIm5hbWUiOiJhbmdzdXJhbl9rZSIsImxhYmVsIjoiQW5nc3VyYW4ga2UtIiwiaXNIaWRkZW4iOmZhbHNlLCJpc1RvZ2dsZWQiOnRydWUsImlzVG9nZ2xlYWJsZSI6ZmFsc2UsImlzVG9nZ2xlZEhpZGRlbkJ5RGVmYXVsdCI6bnVsbH0seyJ0eXBlIjoiY29sdW1uIiwibmFtZSI6ImphdHVoX3RlbXBvIiwibGFiZWwiOiJKYXR1aCBUZW1wbyIsImlzSGlkZGVuIjpmYWxzZSwiaXNUb2dnbGVkIjp0cnVlLCJpc1RvZ2dsZWFibGUiOmZhbHNlLCJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiOm51bGx9LHsidHlwZSI6ImNvbHVtbiIsIm5hbWUiOiJub21pbmFsIiwibGFiZWwiOiJKdW1sYWggQW5nc3VyYW4iLCJpc0hpZGRlbiI6ZmFsc2UsImlzVG9nZ2xlZCI6dHJ1ZSwiaXNUb2dnbGVhYmxlIjpmYWxzZSwiaXNUb2dnbGVkSGlkZGVuQnlEZWZhdWx0IjpudWxsfSx7InR5cGUiOiJjb2x1bW4iLCJuYW1lIjoidGFuZ2dhbF9iYXlhciIsImxhYmVsIjoiVGFuZ2dhbCBCYXlhciIsImlzSGlkZGVuIjpmYWxzZSwiaXNUb2dnbGVkIjp0cnVlLCJpc1RvZ2dsZWFibGUiOmZhbHNlLCJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiOm51bGx9LHsidHlwZSI6ImNvbHVtbiIsIm5hbWUiOiJzdGF0dXMiLCJsYWJlbCI6IlN0YXR1cyIsImlzSGlkZGVuIjpmYWxzZSwiaXNUb2dnbGVkIjp0cnVlLCJpc1RvZ2dsZWFibGUiOmZhbHNlLCJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiOm51bGx9XX19', 1782141313),
-('NO6mRGh7xClwq0jdjKyxDmQgIrBKKf8OWglQl1IE', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiJsWVJ0Y1R1SUNXUUdLM3NjcUxPU2U5QWFHZE0yOHpsTnFBeUNCTElWIiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cLzEyNy4wLjAuMTo4MDAwXC9hZG1pblwvcGluamFtYW5cL3BpbmphbWVuIiwicm91dGUiOiJmaWxhbWVudC5hZG1pbi5yZXNvdXJjZXMucGluamFtYW4ucGluamFtZW4uaW5kZXgifSwiX2ZsYXNoIjp7Im9sZCI6W10sIm5ldyI6W119LCJsb2dpbl93ZWJfNTliYTM2YWRkYzJiMmY5NDAxNTgwZjAxNGM3ZjU4ZWE0ZTMwOTg5ZCI6MSwicGFzc3dvcmRfaGFzaF93ZWIiOiI2MTMxYzM3OTcyYmM3NzczNDg2YzAwODE1YTUxYzYxYzM2OThhNzczNjEwNTU1Nzk5OTVlM2NkYjdmZDk3Mzk2IiwidGFibGVzIjp7IjQzYTAxODA3MWE1YzgxNzM5NTMyNWE4NjdlY2M2YjQxX2NvbHVtbnMiOlt7InR5cGUiOiJjb2x1bW4iLCJuYW1lIjoia29kZV9zaW1wYW5hbiIsImxhYmVsIjoiS29kZSBzaW1wYW5hbiIsImlzSGlkZGVuIjpmYWxzZSwiaXNUb2dnbGVkIjp0cnVlLCJpc1RvZ2dsZWFibGUiOmZhbHNlLCJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiOm51bGx9LHsidHlwZSI6ImNvbHVtbiIsIm5hbWUiOiJhbmdnb3RhLnVzZXIubmFtZSIsImxhYmVsIjoiTmFtYSBBbmdnb3RhIiwiaXNIaWRkZW4iOmZhbHNlLCJpc1RvZ2dsZWQiOnRydWUsImlzVG9nZ2xlYWJsZSI6ZmFsc2UsImlzVG9nZ2xlZEhpZGRlbkJ5RGVmYXVsdCI6bnVsbH0seyJ0eXBlIjoiY29sdW1uIiwibmFtZSI6Iml0ZW1zIiwibGFiZWwiOiJEZXRhaWwgU2ltcGFuYW4iLCJpc0hpZGRlbiI6ZmFsc2UsImlzVG9nZ2xlZCI6dHJ1ZSwiaXNUb2dnbGVhYmxlIjpmYWxzZSwiaXNUb2dnbGVkSGlkZGVuQnlEZWZhdWx0IjpudWxsfSx7InR5cGUiOiJjb2x1bW4iLCJuYW1lIjoiaXRlbXNfdG90YWwiLCJsYWJlbCI6IlRvdGFsIE5vbWluYWwiLCJpc0hpZGRlbiI6ZmFsc2UsImlzVG9nZ2xlZCI6dHJ1ZSwiaXNUb2dnbGVhYmxlIjpmYWxzZSwiaXNUb2dnbGVkSGlkZGVuQnlEZWZhdWx0IjpudWxsfSx7InR5cGUiOiJjb2x1bW4iLCJuYW1lIjoidGFuZ2dhbCIsImxhYmVsIjoiVGFuZ2dhbCBTZXRvciIsImlzSGlkZGVuIjpmYWxzZSwiaXNUb2dnbGVkIjp0cnVlLCJpc1RvZ2dsZWFibGUiOmZhbHNlLCJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiOm51bGx9LHsidHlwZSI6ImNvbHVtbiIsIm5hbWUiOiJzdGF0dXMiLCJsYWJlbCI6IlN0YXR1cyIsImlzSGlkZGVuIjpmYWxzZSwiaXNUb2dnbGVkIjp0cnVlLCJpc1RvZ2dsZWFibGUiOmZhbHNlLCJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiOm51bGx9XSwiYjI0MGI4Yjg3YTc4ZDMyZGZmN2ExMDk3YWJjODIyYzhfY29sdW1ucyI6W3sidHlwZSI6ImNvbHVtbiIsIm5hbWUiOiJrb2RlX3BpbmphbWFuIiwibGFiZWwiOiJOby4gUGluamFtYW4iLCJpc0hpZGRlbiI6ZmFsc2UsImlzVG9nZ2xlZCI6dHJ1ZSwiaXNUb2dnbGVhYmxlIjpmYWxzZSwiaXNUb2dnbGVkSGlkZGVuQnlEZWZhdWx0IjpudWxsfSx7InR5cGUiOiJjb2x1bW4iLCJuYW1lIjoidGFuZ2dhbF9wZW5nYWp1YW4iLCJsYWJlbCI6IlRhbmdnYWwgUGVuZ2FqdWFuIiwiaXNIaWRkZW4iOmZhbHNlLCJpc1RvZ2dsZWQiOnRydWUsImlzVG9nZ2xlYWJsZSI6ZmFsc2UsImlzVG9nZ2xlZEhpZGRlbkJ5RGVmYXVsdCI6bnVsbH0seyJ0eXBlIjoiY29sdW1uIiwibmFtZSI6Imp1bWxhaF9waW5qYW1hbiIsImxhYmVsIjoiSnVtbGFoIFBpbmphbWFuIiwiaXNIaWRkZW4iOmZhbHNlLCJpc1RvZ2dsZWQiOnRydWUsImlzVG9nZ2xlYWJsZSI6ZmFsc2UsImlzVG9nZ2xlZEhpZGRlbkJ5RGVmYXVsdCI6bnVsbH0seyJ0eXBlIjoiY29sdW1uIiwibmFtZSI6ImFuZ3N1cmFuX3Blcl9idWxhbiIsImxhYmVsIjoiQW5nc3VyYW4gXC8gQnVsYW4iLCJpc0hpZGRlbiI6ZmFsc2UsImlzVG9nZ2xlZCI6dHJ1ZSwiaXNUb2dnbGVhYmxlIjpmYWxzZSwiaXNUb2dnbGVkSGlkZGVuQnlEZWZhdWx0IjpudWxsfSx7InR5cGUiOiJjb2x1bW4iLCJuYW1lIjoiamFuZ2thX3dha3R1IiwibGFiZWwiOiJUZW5vciIsImlzSGlkZGVuIjpmYWxzZSwiaXNUb2dnbGVkIjp0cnVlLCJpc1RvZ2dsZWFibGUiOmZhbHNlLCJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiOm51bGx9LHsidHlwZSI6ImNvbHVtbiIsIm5hbWUiOiJzdGF0dXMiLCJsYWJlbCI6IlN0YXR1cyIsImlzSGlkZGVuIjpmYWxzZSwiaXNUb2dnbGVkIjp0cnVlLCJpc1RvZ2dsZWFibGUiOmZhbHNlLCJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiOm51bGx9XX0sImZpbGFtZW50IjpbXX0=', 1782141671),
-('qko2YsW7v6l7pX5J5EzoJkZn4yAO9jfCJeCUG1O6', 2, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiJ6OXZ3WDZ0S0JvN3kydzZjTk16RDl1VG15RnFwSzlRSWpOdmF0MU96IiwidXJsIjp7ImludGVuZGVkIjoiaHR0cDpcL1wvMTI3LjAuMC4xOjgwMDBcL2FkbWluIn0sIl9wcmV2aW91cyI6eyJ1cmwiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvcGltcGluYW5cL3NpbXBhbmFucyIsInJvdXRlIjoiZmlsYW1lbnQucGltcGluYW4ucmVzb3VyY2VzLnNpbXBhbmFucy5pbmRleCJ9LCJfZmxhc2giOnsib2xkIjpbXSwibmV3IjpbXX0sImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjoyLCJwYXNzd29yZF9oYXNoX3dlYiI6IjA5NThmODlhZTBmZjczYTFhOGRlZTM4OGZkNWU3NzQ5NzRlN2NkOWYzMjVjOGM4ZjFhMzc4MWU0ZDA5NDM2YmIiLCJ0YWJsZXMiOnsiNDNhMDE4MDcxYTVjODE3Mzk1MzI1YTg2N2VjYzZiNDFfY29sdW1ucyI6W3sidHlwZSI6ImNvbHVtbiIsIm5hbWUiOiJrb2RlX3NpbXBhbmFuIiwibGFiZWwiOiJLb2RlIHNpbXBhbmFuIiwiaXNIaWRkZW4iOmZhbHNlLCJpc1RvZ2dsZWQiOnRydWUsImlzVG9nZ2xlYWJsZSI6ZmFsc2UsImlzVG9nZ2xlZEhpZGRlbkJ5RGVmYXVsdCI6bnVsbH0seyJ0eXBlIjoiY29sdW1uIiwibmFtZSI6ImFuZ2dvdGEudXNlci5uYW1lIiwibGFiZWwiOiJOYW1hIEFuZ2dvdGEiLCJpc0hpZGRlbiI6ZmFsc2UsImlzVG9nZ2xlZCI6dHJ1ZSwiaXNUb2dnbGVhYmxlIjpmYWxzZSwiaXNUb2dnbGVkSGlkZGVuQnlEZWZhdWx0IjpudWxsfSx7InR5cGUiOiJjb2x1bW4iLCJuYW1lIjoiaXRlbXMiLCJsYWJlbCI6IkRldGFpbCBTaW1wYW5hbiIsImlzSGlkZGVuIjpmYWxzZSwiaXNUb2dnbGVkIjp0cnVlLCJpc1RvZ2dsZWFibGUiOmZhbHNlLCJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiOm51bGx9LHsidHlwZSI6ImNvbHVtbiIsIm5hbWUiOiJpdGVtc190b3RhbCIsImxhYmVsIjoiVG90YWwgTm9taW5hbCIsImlzSGlkZGVuIjpmYWxzZSwiaXNUb2dnbGVkIjp0cnVlLCJpc1RvZ2dsZWFibGUiOmZhbHNlLCJpc1RvZ2dsZWRIaWRkZW5CeURlZmF1bHQiOm51bGx9LHsidHlwZSI6ImNvbHVtbiIsIm5hbWUiOiJ0YW5nZ2FsIiwibGFiZWwiOiJUYW5nZ2FsIFNldG9yIiwiaXNIaWRkZW4iOmZhbHNlLCJpc1RvZ2dsZWQiOnRydWUsImlzVG9nZ2xlYWJsZSI6ZmFsc2UsImlzVG9nZ2xlZEhpZGRlbkJ5RGVmYXVsdCI6bnVsbH0seyJ0eXBlIjoiY29sdW1uIiwibmFtZSI6InN0YXR1cyIsImxhYmVsIjoiU3RhdHVzIiwiaXNIaWRkZW4iOmZhbHNlLCJpc1RvZ2dsZWQiOnRydWUsImlzVG9nZ2xlYWJsZSI6ZmFsc2UsImlzVG9nZ2xlZEhpZGRlbkJ5RGVmYXVsdCI6bnVsbH1dfX0=', 1782141328);
+('EIw8FtNVEQPvuDOEGJqQKg2UhcaIKnyQ8HiRwAj9', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36', 'eyJfdG9rZW4iOiJUMmd6ZnM4VjZjN0t5UzdjUldqSnZ0alBqUFBtcEVLRFE0ZzFaZ0txIiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cLzEyNy4wLjAuMTo4MDAwXC9sb2dpbiIsInJvdXRlIjoibG9naW4ifSwiX2ZsYXNoIjp7Im9sZCI6W10sIm5ldyI6W119fQ==', 1782935869),
+('QXSzPqeqH30Urkzy3eXMeVrgljwYvCWpUw4X3exh', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36 Edg/149.0.0.0', 'eyJfdG9rZW4iOiJ3TWJwRUd4WTJYeVc3a0YyUkoxOHlGT0hBRm1QRUM2VFBodElZS3FJIiwiX3ByZXZpb3VzIjp7InVybCI6Imh0dHA6XC9cLzEyNy4wLjAuMTo4MDAwIiwicm91dGUiOiJpbmRleCJ9LCJfZmxhc2giOnsib2xkIjpbXSwibmV3IjpbXX19', 1782935954);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `settings`
+--
+
+CREATE TABLE `settings` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -451,13 +456,6 @@ CREATE TABLE `simpanans` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `simpanans`
---
-
-INSERT INTO `simpanans` (`id`, `anggota_id`, `kode_simpanan`, `tanggal`, `keterangan`, `status`, `verified_by`, `verified_at`, `slip_pdf`, `created_at`, `updated_at`) VALUES
-(1, 2, 'SIM000001', '2026-06-22', 'set biaya an. yogi', 'terverifikasi', 2, '2026-06-22 08:03:56', NULL, '2026-06-22 08:03:36', '2026-06-22 08:03:56');
-
 -- --------------------------------------------------------
 
 --
@@ -473,15 +471,6 @@ CREATE TABLE `simpanan_items` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Dumping data for table `simpanan_items`
---
-
-INSERT INTO `simpanan_items` (`id`, `simpanan_id`, `jenis`, `jumlah`, `created_at`, `updated_at`) VALUES
-(1, 1, 'pokok', 1000000, '2026-06-22 08:03:36', '2026-06-22 08:03:36'),
-(2, 1, 'wajib', 15000, '2026-06-22 08:03:36', '2026-06-22 08:03:36'),
-(3, 1, 'sukarela', 25000, '2026-06-22 08:03:36', '2026-06-22 08:03:36');
-
 -- --------------------------------------------------------
 
 --
@@ -496,16 +485,17 @@ CREATE TABLE `sliders` (
   `sort_order` int(11) NOT NULL DEFAULT '0',
   `is_active` tinyint(1) NOT NULL DEFAULT '1',
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `website_id` bigint(20) UNSIGNED NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `sliders`
 --
 
-INSERT INTO `sliders` (`id`, `title`, `description`, `image`, `sort_order`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, 'bg-1', 'background-1', 'sliders/01KTEZ3CAQEGB81QKRND1TZ3DH.png', 1, 1, '2026-06-06 10:18:43', '2026-06-06 10:18:43'),
-(2, 'bg-2', 'background-2', 'sliders/01KTEZ8ES685PGVNACSV5K253P.png', 2, 1, '2026-06-06 10:21:29', '2026-06-06 10:21:29');
+INSERT INTO `sliders` (`id`, `title`, `description`, `image`, `sort_order`, `is_active`, `created_at`, `updated_at`, `website_id`) VALUES
+(1, 'slider-1', 'ini slider 01 ya', 'sliders/01KWFKWAEJPWMZ98GBDW6GNKYW.png', 1, 1, '2026-07-01 12:53:15', '2026-07-01 12:53:15', 1),
+(2, 'slider-2', 'ini slider 2', 'sliders/01KWFKXE27FKS32E5HNQXPSXBV.png', 2, 1, '2026-07-01 12:53:51', '2026-07-01 12:53:51', 1);
 
 -- --------------------------------------------------------
 
@@ -530,10 +520,45 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `role`) VALUES
-(1, 'Administrator', 'admin@admin.com', NULL, '$2y$12$q97ytu1sKTExpyJYdvGIT.QcVBMhOcH7DzlLRtQx1dBnAPtKeV1M6', 'ST00wrXwQjH4cFbnVVdKae5VAuM6z563kfe481j3TQSpT3FBC6AcD2t1Fsts', '2026-06-05 08:43:48', '2026-06-05 08:43:48', 'administrator'),
-(2, 'yogi', 'yogi@yogi.com', NULL, '$2y$12$KtGBLtOJMy2DeXMsn54rXOK9HWKtg7qi.v3kRQpRIO8Rguwfux./i', NULL, '2026-06-08 09:33:39', '2026-06-13 13:51:17', 'pimpinan'),
-(10, 'yogi', 'yogi@yogi123.com', NULL, '$2y$12$I5j1XLkDkQvpZxsPERP7ZuWBz/h3JBfkB7j6kGkOfAe/4SzAaxsJy', NULL, '2026-06-13 13:35:42', '2026-06-13 13:52:46', 'anggota'),
-(11, 'Retno', 'retno@retno.com', NULL, '$2y$12$KoCswC.YXqcJiBFpBwHxG.Zs5wb09YzJaTzntvMpFrSjeva3UfFv.', NULL, '2026-06-15 13:49:23', '2026-06-15 13:51:03', 'anggota');
+(1, 'Administrator', 'admin@kud.com', NULL, '$2y$12$r4BMQuDdQBYY726hJtTY9eL0vckEozvjRcepC5O.JkRROC0/JD.Jq', NULL, '2026-07-01 12:38:03', '2026-07-01 12:38:03', 'administrator'),
+(2, 'Pimpinan KUD', 'pimpinan@kud.com', NULL, '$2y$12$/Mye.u68n2Q/XSYYhISsROxPSUPzpzoEsEfReJ.LLEKlUifGil.Qa', NULL, '2026-07-01 12:38:04', '2026-07-01 12:38:04', 'pimpinan'),
+(3, 'Anggota KUD', 'anggota@kud.com', NULL, '$2y$12$qeoStpjmvScY1oG21oqSbOFxxlh0DCwR1j.gc9kpreVzaoUKgcR32', NULL, '2026-07-01 12:38:04', '2026-07-01 12:38:04', 'anggota');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_profiles`
+--
+
+CREATE TABLE `user_profiles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `position` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bio` text COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `websites`
+--
+
+CREATE TABLE `websites` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Website KUD',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `websites`
+--
+
+INSERT INTO `websites` (`id`, `nama`, `created_at`, `updated_at`) VALUES
+(1, 'Website KUD', '2026-07-01 12:38:33', '2026-07-01 12:38:33');
 
 --
 -- Indexes for dumped tables
@@ -554,7 +579,7 @@ ALTER TABLE `anggotas`
 --
 ALTER TABLE `angsurans`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `angsurans_pinjaman_id_foreign` (`pinjaman_id`),
+  ADD UNIQUE KEY `angsurans_pinjaman_id_angsuran_ke_unique` (`pinjaman_id`,`angsuran_ke`),
   ADD KEY `angsurans_verified_by_foreign` (`verified_by`);
 
 --
@@ -562,7 +587,8 @@ ALTER TABLE `angsurans`
 --
 ALTER TABLE `beritas`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `beritas_slug_unique` (`slug`);
+  ADD UNIQUE KEY `beritas_slug_unique` (`slug`),
+  ADD KEY `beritas_website_id_foreign` (`website_id`);
 
 --
 -- Indexes for table `cache`
@@ -590,7 +616,8 @@ ALTER TABLE `failed_jobs`
 -- Indexes for table `galleries`
 --
 ALTER TABLE `galleries`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `galleries_website_id_foreign` (`website_id`);
 
 --
 -- Indexes for table `jobs`
@@ -618,10 +645,21 @@ ALTER TABLE `password_reset_tokens`
   ADD PRIMARY KEY (`email`);
 
 --
+-- Indexes for table `penarikans`
+--
+ALTER TABLE `penarikans`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `penarikans_kode_penarikan_unique` (`kode_penarikan`),
+  ADD KEY `penarikans_anggota_id_foreign` (`anggota_id`),
+  ADD KEY `penarikans_user_id_foreign` (`user_id`),
+  ADD KEY `penarikans_verified_by_foreign` (`verified_by`);
+
+--
 -- Indexes for table `pengumumen`
 --
 ALTER TABLE `pengumumen`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `pengumumen_website_id_foreign` (`website_id`);
 
 --
 -- Indexes for table `pinjamen`
@@ -636,13 +674,15 @@ ALTER TABLE `pinjamen`
 -- Indexes for table `produks`
 --
 ALTER TABLE `produks`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `produks_website_id_foreign` (`website_id`);
 
 --
 -- Indexes for table `profiles`
 --
 ALTER TABLE `profiles`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `profiles_website_id_foreign` (`website_id`);
 
 --
 -- Indexes for table `sessions`
@@ -651,6 +691,13 @@ ALTER TABLE `sessions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `sessions_user_id_index` (`user_id`),
   ADD KEY `sessions_last_activity_index` (`last_activity`);
+
+--
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `settings_key_unique` (`key`);
 
 --
 -- Indexes for table `simpanans`
@@ -672,7 +719,8 @@ ALTER TABLE `simpanan_items`
 -- Indexes for table `sliders`
 --
 ALTER TABLE `sliders`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `sliders_website_id_foreign` (`website_id`);
 
 --
 -- Indexes for table `users`
@@ -682,6 +730,19 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
+-- Indexes for table `user_profiles`
+--
+ALTER TABLE `user_profiles`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_profiles_user_id_foreign` (`user_id`);
+
+--
+-- Indexes for table `websites`
+--
+ALTER TABLE `websites`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -689,19 +750,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `anggotas`
 --
 ALTER TABLE `anggotas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `angsurans`
 --
 ALTER TABLE `angsurans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `beritas`
 --
 ALTER TABLE `beritas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -713,7 +774,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `galleries`
 --
 ALTER TABLE `galleries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -725,7 +786,13 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT for table `penarikans`
+--
+ALTER TABLE `penarikans`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pengumumen`
@@ -737,7 +804,7 @@ ALTER TABLE `pengumumen`
 -- AUTO_INCREMENT for table `pinjamen`
 --
 ALTER TABLE `pinjamen`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `produks`
@@ -749,19 +816,25 @@ ALTER TABLE `produks`
 -- AUTO_INCREMENT for table `profiles`
 --
 ALTER TABLE `profiles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `simpanans`
 --
 ALTER TABLE `simpanans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `simpanan_items`
 --
 ALTER TABLE `simpanan_items`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sliders`
@@ -773,7 +846,19 @@ ALTER TABLE `sliders`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `user_profiles`
+--
+ALTER TABLE `user_profiles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `websites`
+--
+ALTER TABLE `websites`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -793,11 +878,49 @@ ALTER TABLE `angsurans`
   ADD CONSTRAINT `angsurans_verified_by_foreign` FOREIGN KEY (`verified_by`) REFERENCES `users` (`id`) ON DELETE SET NULL;
 
 --
+-- Constraints for table `beritas`
+--
+ALTER TABLE `beritas`
+  ADD CONSTRAINT `beritas_website_id_foreign` FOREIGN KEY (`website_id`) REFERENCES `websites` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `galleries`
+--
+ALTER TABLE `galleries`
+  ADD CONSTRAINT `galleries_website_id_foreign` FOREIGN KEY (`website_id`) REFERENCES `websites` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `penarikans`
+--
+ALTER TABLE `penarikans`
+  ADD CONSTRAINT `penarikans_anggota_id_foreign` FOREIGN KEY (`anggota_id`) REFERENCES `anggotas` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `penarikans_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE SET NULL,
+  ADD CONSTRAINT `penarikans_verified_by_foreign` FOREIGN KEY (`verified_by`) REFERENCES `users` (`id`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `pengumumen`
+--
+ALTER TABLE `pengumumen`
+  ADD CONSTRAINT `pengumumen_website_id_foreign` FOREIGN KEY (`website_id`) REFERENCES `websites` (`id`) ON DELETE CASCADE;
+
+--
 -- Constraints for table `pinjamen`
 --
 ALTER TABLE `pinjamen`
   ADD CONSTRAINT `pinjamen_anggota_id_foreign` FOREIGN KEY (`anggota_id`) REFERENCES `anggotas` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `pinjamen_approved_by_foreign` FOREIGN KEY (`approved_by`) REFERENCES `users` (`id`) ON DELETE SET NULL;
+
+--
+-- Constraints for table `produks`
+--
+ALTER TABLE `produks`
+  ADD CONSTRAINT `produks_website_id_foreign` FOREIGN KEY (`website_id`) REFERENCES `websites` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `profiles`
+--
+ALTER TABLE `profiles`
+  ADD CONSTRAINT `profiles_website_id_foreign` FOREIGN KEY (`website_id`) REFERENCES `websites` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `simpanans`
@@ -811,6 +934,18 @@ ALTER TABLE `simpanans`
 --
 ALTER TABLE `simpanan_items`
   ADD CONSTRAINT `simpanan_items_simpanan_id_foreign` FOREIGN KEY (`simpanan_id`) REFERENCES `simpanans` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `sliders`
+--
+ALTER TABLE `sliders`
+  ADD CONSTRAINT `sliders_website_id_foreign` FOREIGN KEY (`website_id`) REFERENCES `websites` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `user_profiles`
+--
+ALTER TABLE `user_profiles`
+  ADD CONSTRAINT `user_profiles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

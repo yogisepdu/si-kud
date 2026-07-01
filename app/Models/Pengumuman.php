@@ -16,4 +16,9 @@ class Pengumuman extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function website()
+    {
+        return $this->belongsTo(Website::class);
+    }
 }

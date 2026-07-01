@@ -34,9 +34,14 @@ class GalleryResource extends Resource
         return 'Manajemen Website';
     }
 
+    // public static function shouldRegisterNavigation(): bool
+    // {
+    //     return auth()->user()?->isAdmin() ?? false;
+    // }
+
     public static function shouldRegisterNavigation(): bool
     {
-        return auth()->user()?->isAdmin() ?? false;
+        return false;
     }
 
     public static function canViewAny(): bool

@@ -85,7 +85,9 @@ trait AngsuranTableActions
 
                     Textarea::make('alasan_penolakan')
                         ->label('Alasan Penolakan')
-                        ->required(),
+                        ->rows(4)
+                        ->required()
+                        ->maxLength(500),
 
                 ])
 
@@ -93,6 +95,8 @@ trait AngsuranTableActions
 
                     $record->update([
                         'status' => 'ditolak',
+                        'verified_by' => auth()->id(),
+                        'verified_at' => now(),
                         'alasan_penolakan' => $data['alasan_penolakan'],
                     ]);
                 }),

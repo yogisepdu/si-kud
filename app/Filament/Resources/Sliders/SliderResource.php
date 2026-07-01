@@ -42,9 +42,14 @@ class SliderResource extends Resource
         return SliderForm::configure($schema);
     }
 
+    // public static function shouldRegisterNavigation(): bool
+    // {
+    //     return auth()->user()?->isAdmin() ?? false;
+    // }
+
     public static function shouldRegisterNavigation(): bool
     {
-        return auth()->user()?->isAdmin() ?? false;
+        return false;
     }
 
     public static function canViewAny(): bool

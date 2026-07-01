@@ -58,6 +58,8 @@ class PimpinanPanelProvider extends PanelProvider
                 'Master Data',
                 'Simpan-Pinjam',
                 'Manajemen Website',
+                'Laporan',
+                'Pengaturan',
             ])
             ->profile(EditProfile::class)
             ->userMenuItems([

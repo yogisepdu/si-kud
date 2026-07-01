@@ -5,13 +5,22 @@ namespace App\Filament\Resources\Pinjaman\Widgets;
 use App\Models\Anggota;
 use App\Models\Angsuran;
 use App\Models\Pinjaman;
+use App\Models\Setting;
 use App\Models\Simpanan;
 use Filament\Widgets\StatsOverviewWidget;
 use Filament\Widgets\StatsOverviewWidget\Stat;
+use Livewire\Attributes\On;
 
 class PinjamanStats extends StatsOverviewWidget
 {
     protected int|string|array $columnSpan = 'full';
+
+    #[On('refreshStats')]
+    public function refreshWidget(): void
+    {
+        // Kosong saja.
+        // Event ini akan memicu widget untuk dirender ulang.
+    }
 
     protected function getStats(): array
     {
@@ -173,6 +182,15 @@ class PinjamanStats extends StatsOverviewWidget
                     ->descriptionIcon('heroicon-m-document-text')
                     ->icon('heroicon-m-document-currency-dollar')
                     ->color('info'),
+
+                Stat::make(
+                    'Bunga Pinjaman',
+                    number_format((float) Setting::get('bunga_pinjaman', 0), 2) . ' %'
+                )
+                    ->description('Berlaku untuk seluruh pengajuan baru')
+                    ->descriptionIcon('heroicon-m-banknotes')
+                    ->icon('heroicon-m-percent-badge')
+                    ->color('warning'),
 
                 Stat::make(
                     'Total Simpanan',

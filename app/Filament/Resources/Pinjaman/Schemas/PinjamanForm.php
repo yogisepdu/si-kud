@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Pinjaman\Schemas;
 
+use App\Models\Setting;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Textarea;
@@ -44,14 +45,13 @@ class PinjamanForm
                                     ->required()
                                     ->live(),
 
-                                TextInput::make('persentase_bunga')
-                                    ->label('Bunga')
-                                    ->numeric()
-                                    ->suffix('%')
-                                    ->default(12)
-                                    ->disabled()
-                                    ->dehydrated()
-                                    ->live(),
+
+                                Placeholder::make('persentase_bunga')
+                                    ->label('Bunga Pinjaman')
+                                    ->content(fn() => number_format(
+                                        (float) Setting::get('bunga_pinjaman', 0),
+                                        2
+                                    ) . ' %'),
 
                             ]),
 

@@ -20,20 +20,20 @@ class AnggotaResource extends Resource
 {
     protected static ?string $model = Anggota::class;
 
-    protected static ?string $navigationLabel = 'Data Anggota';
+    protected static ?string $navigationLabel = 'Angsuran';
 
     protected static ?string $modelLabel = 'Anggota';
 
-    protected static ?string $pluralModelLabel = 'Data Anggota';
+    protected static ?string $pluralModelLabel = 'Angsuran';
 
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 2;
 
     protected static string|BackedEnum|null $navigationIcon =
-    Heroicon::OutlinedUsers;
+    Heroicon::OutlinedReceiptPercent;
 
     public static function getNavigationGroup(): ?string
     {
-        return 'Master Data';
+        return 'Simpan-Pinjam';
     }
 
     public static function form(Schema $schema): Schema
@@ -55,7 +55,7 @@ class AnggotaResource extends Resource
     {
         return [
 
-            PinjamansRelationManager::class,
+            // PinjamansRelationManager::class,
 
             AngsuransRelationManager::class,
 

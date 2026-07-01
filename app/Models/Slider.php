@@ -18,4 +18,9 @@ class Slider extends Model
     protected $casts = [
         'is_active' => 'boolean',
     ];
+
+    public function website()
+    {
+        return $this->belongsTo(Website::class);
+    }
 }

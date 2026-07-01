@@ -13,4 +13,9 @@ class Produk extends Model
         'content',
         'is_active',
     ];
+
+    public function website()
+    {
+        return $this->belongsTo(Website::class);
+    }
 }

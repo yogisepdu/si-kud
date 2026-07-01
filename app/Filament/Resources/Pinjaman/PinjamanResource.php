@@ -18,6 +18,7 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use App\Filament\Resources\Pinjaman\Schemas\PinjamanInfolist;
+use Filament\Actions\Action;
 
 class PinjamanResource extends Resource
 {
@@ -50,6 +51,12 @@ class PinjamanResource extends Resource
     public static function table(Table $table): Table
     {
         return PinjamanTable::configure($table);
+    }
+
+    protected function getSubmitFormAction(): Action
+    {
+        return parent::getSubmitFormAction()
+            ->label('Ajukan Pinjaman');
     }
 
     public static function getEloquentQuery(): Builder

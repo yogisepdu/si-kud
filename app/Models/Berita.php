@@ -3,11 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
 class Berita extends Model
 {
-    //
+    use SoftDeletes;
+
     protected $fillable = [
         'judul',
         'slug',
@@ -32,4 +34,9 @@ class Berita extends Model
         'tanggal' => 'date',
         'is_publish' => 'boolean',
     ];
+
+    public function website()
+    {
+        return $this->belongsTo(Website::class);
+    }
 }

@@ -20,7 +20,7 @@ class Angsuran extends Model
         'slip_pembayaran',
         'verified_by',
         'verified_at',
-        'catatan_verifikasi',
+        'alasan_penolakan',
     ];
 
     protected $casts = [

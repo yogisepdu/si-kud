@@ -13,4 +13,9 @@ class Gallery extends Model
         'sort_order',
         'is_active',
     ];
+
+    public function website()
+    {
+        return $this->belongsTo(Website::class);
+    }
 }

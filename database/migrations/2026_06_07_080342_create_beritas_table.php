@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('beritas', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
+
+            $table->foreignId('website_id')
+                ->default(1)
+                ->constrained()
+                ->cascadeOnDelete();
+
             $table->string('slug')->unique();
 
             $table->string('gambar')->nullable();
@@ -26,6 +32,8 @@ return new class extends Migration
 
             $table->boolean('is_publish')->default(true);
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

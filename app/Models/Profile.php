@@ -14,4 +14,9 @@ class Profile extends Model
         'mission',
         'structure_image',
     ];
+
+    public function website()
+    {
+        return $this->belongsTo(Website::class);
+    }
 }

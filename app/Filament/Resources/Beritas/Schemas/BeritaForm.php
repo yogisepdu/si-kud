@@ -40,6 +40,10 @@ class BeritaForm
                     Toggle::make('is_publish')
                         ->label('Publikasikan'),
 
+
+                    Textarea::make('ringkasan')
+                        ->label('Ringkasan Berita')
+                        ->columnSpanFull(),
                 ])
                 ->columns(2),
 
@@ -51,9 +55,6 @@ class BeritaForm
                         ->directory('berita')
                         ->image()
                         ->imageEditor(),
-
-                    Textarea::make('ringkasan')
-                        ->rows(3),
 
                     RichEditor::make('isi')
                         ->columnSpanFull(),

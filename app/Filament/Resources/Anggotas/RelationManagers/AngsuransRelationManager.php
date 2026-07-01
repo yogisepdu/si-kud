@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Anggotas\RelationManagers;
 use App\Filament\Support\AngsuranTableActions;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
 class AngsuransRelationManager extends RelationManager
@@ -69,6 +70,24 @@ class AngsuransRelationManager extends RelationManager
                         'menunggu_verifikasi' => 'heroicon-m-clock',
                         'ditolak' => 'heroicon-m-x-circle',
                         default => 'heroicon-m-minus-circle',
+                    }),
+                TextColumn::make('alasan_penolakan')
+                    ->label('Alasan Penolakan')
+                    ->wrap()
+                    ->placeholder('-')
+                    ->toggleable()
+                    ->formatStateUsing(function ($state, $record) {
+
+                        if (! in_array($record->status, ['dibayar', 'ditolak'])) {
+                            return '-';
+                        }
+
+                        return $state ?: '-';
+                    })
+                    ->color(fn($record) => match ($record->status) {
+                        'dibayar' => 'success',
+                        'ditolak' => 'danger',
+                        default => 'gray',
                     }),
 
             ])

@@ -21,7 +21,7 @@ class BeritaResource extends Resource
 {
     protected static ?string $model = Berita::class;
 
-    protected static ?string $recordTitleAttribute = 'title';
+    protected static ?string $recordTitleAttribute = 'judul';
 
     protected static ?string $navigationLabel = 'Berita';
 
@@ -49,9 +49,14 @@ class BeritaResource extends Resource
         return BeritasTable::configure($table);
     }
 
+    // public static function shouldRegisterNavigation(): bool
+    // {
+    //     return auth()->check();
+    // }
+
     public static function shouldRegisterNavigation(): bool
     {
-        return auth()->check();
+        return false;
     }
 
     public static function canViewAny(): bool

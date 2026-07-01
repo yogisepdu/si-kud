@@ -24,7 +24,7 @@ class PenarikanResource extends Resource
     protected static ?string $model = Penarikan::class;
 
     protected static string|BackedEnum|null $navigationIcon =
-    Heroicon::OutlinedRectangleStack;
+    Heroicon::OutlinedCurrencyDollar;
 
     protected static ?string $navigationLabel = 'Data Penarikan';
 

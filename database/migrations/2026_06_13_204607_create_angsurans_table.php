@@ -45,9 +45,6 @@ return new class extends Migration
             $table->timestamp('verified_at')
                 ->nullable();
 
-            $table->text('catatan_verifikasi')
-                ->nullable();
-
             $table->unique([
                 'pinjaman_id',
                 'angsuran_ke',

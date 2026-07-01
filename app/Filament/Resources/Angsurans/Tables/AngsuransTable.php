@@ -79,6 +79,24 @@ class AngsuransTable
                         'ditolak' => 'heroicon-m-x-circle',
                         default => 'heroicon-m-minus-circle',
                     }),
+                TextColumn::make('alasan_penolakan')
+                    ->label('Alasan Penolakan')
+                    ->wrap()
+                    ->placeholder('-')
+                    ->toggleable()
+                    ->formatStateUsing(function ($state, $record) {
+
+                        if (! in_array($record->status, ['dibayar', 'ditolak'])) {
+                            return '-';
+                        }
+
+                        return $state ?: '-';
+                    })
+                    ->color(fn($record) => match ($record->status) {
+                        'dibayar' => 'success',
+                        'ditolak' => 'danger',
+                        default => 'gray',
+                    }),
 
             ])
 
@@ -147,7 +165,11 @@ class AngsuransTable
                             'tanggal_bayar' => $data['tanggal_bayar'],
                             'bukti_bayar' => $data['bukti_bayar'],
                             'status' => 'menunggu_verifikasi',
-                            'alasan_penolakan' => null,
+
+                            // Reset data verifikasi sebelumnya
+                            'verified_by' => null,
+                            'verified_at' => null,
+                            'catatan_verifikasi' => null,
                         ]);
                     }),
 
