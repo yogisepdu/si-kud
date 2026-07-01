@@ -4,27 +4,85 @@
         $summary = $this->getSummary();
     @endphp
 
-    {{-- ================= FILTER ================= --}}
-    <div class="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900">
+    <div
+        class="overflow-hidden rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 p-8 text-white shadow-xl">
 
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div class="flex items-center justify-between">
 
             <div>
 
-                <label class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-200">
+                <p class="text-sm uppercase tracking-widest text-white/80">
+                    Sistem Informasi Koperasi
+                </p>
+
+                <h1 class="mt-2 text-4xl font-bold">
+                    Laporan Bulanan
+                </h1>
+
+                <p class="mt-2 text-lg text-white/90">
+                    Koperasi Serba Usaha
+                </p>
+
+            </div>
+
+            <div class="text-right">
+
+                <div class="text-sm text-white/80">
+                    Periode
+                </div>
+
+                <div class="text-2xl font-bold">
+                    {{ \Carbon\Carbon::create($this->tahun, $this->bulan, 1)->translatedFormat('F Y') }}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {{-- ================= FILTER ================= --}}
+    <div class="mb-6 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900">
+
+        <div class="mb-5 flex items-center gap-3">
+
+            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 dark:bg-amber-500/20">
+
+                <x-heroicon-o-funnel class="h-5 w-5 text-amber-600" />
+
+            </div>
+
+            <div>
+
+                <h2 class="text-lg font-semibold text-gray-900 dark:text-white">
+                    Filter Laporan
+                </h2>
+
+                <p class="text-sm text-gray-500">
+                    Pilih periode laporan yang ingin ditampilkan.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 gap-5 lg:grid-cols-3">
+
+            {{-- Bulan --}}
+            <div>
+
+                <label class="mb-2 block text-sm font-medium text-gray-600 dark:text-gray-300">
                     Bulan
                 </label>
 
                 <select
                     wire:model.live="bulan"
-                    class="block w-full rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+                    class="block w-full rounded-xl border-gray-300 bg-white shadow-sm transition focus:border-amber-500 focus:ring-amber-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
                 >
 
                     @foreach (range(1, 12) as $b)
                         <option value="{{ $b }}">
-
                             {{ \Carbon\Carbon::create()->month($b)->translatedFormat('F') }}
-
                         </option>
                     @endforeach
 
@@ -32,26 +90,42 @@
 
             </div>
 
+            {{-- Tahun --}}
             <div>
 
-                <label class="mb-2 block text-sm font-semibold text-gray-700 dark:text-gray-200">
+                <label class="mb-2 block text-sm font-medium text-gray-600 dark:text-gray-300">
                     Tahun
                 </label>
 
                 <select
                     wire:model.live="tahun"
-                    class="block w-full rounded-lg border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+                    class="block w-full rounded-xl border-gray-300 bg-white shadow-sm transition focus:border-amber-500 focus:ring-amber-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
                 >
 
                     @foreach (range(now()->year - 5, now()->year + 5) as $t)
                         <option value="{{ $t }}">
-
                             {{ $t }}
-
                         </option>
                     @endforeach
 
                 </select>
+
+            </div>
+
+            {{-- Informasi --}}
+            <div class="flex items-end">
+
+                <div class="w-full rounded-xl bg-amber-50 px-4 py-3 dark:bg-amber-500/10">
+
+                    <div class="text-xs uppercase tracking-wide text-amber-600">
+                        Periode Aktif
+                    </div>
+
+                    <div class="mt-1 text-lg font-semibold text-gray-900 dark:text-white">
+                        {{ \Carbon\Carbon::create($this->tahun, $this->bulan, 1)->translatedFormat('F Y') }}
+                    </div>
+
+                </div>
 
             </div>
 

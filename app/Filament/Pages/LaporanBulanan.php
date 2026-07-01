@@ -5,6 +5,7 @@ namespace App\Filament\Pages;
 use App\Services\LaporanBulananService;
 use Filament\Actions\Action;
 use Filament\Pages\Page;
+use Filament\Facades\Filament;
 
 class LaporanBulanan extends Page
 {
@@ -15,7 +16,7 @@ class LaporanBulanan extends Page
 
     /**
      * Navigation
-     */
+    */
     protected static ?string $navigationLabel = 'Laporan Bulanan';
 
     protected static string|\UnitEnum|null $navigationGroup = 'Laporan';
@@ -26,14 +27,14 @@ class LaporanBulanan extends Page
 
     /**
      * Filter
-     */
+    */
     public int $bulan;
 
     public int $tahun;
 
     /**
      * Mount
-     */
+    */
     public function mount(): void
     {
         $this->bulan = now()->month;
@@ -42,7 +43,7 @@ class LaporanBulanan extends Page
 
     /**
      * Data laporan
-     */
+    */
     public function getLaporan()
     {
         return app(LaporanBulananService::class)
@@ -50,6 +51,22 @@ class LaporanBulanan extends Page
                 bulan: $this->bulan,
                 tahun: $this->tahun,
             );
+    }
+
+    /**
+     * Ringkasan laporan
+     */
+    public function getSummary(): array
+    {
+        $laporan = $this->getLaporan();
+
+        return [
+            'anggota' => $laporan->count(),
+            'simpanan' => $laporan->sum('total_simpanan'),
+            'pinjaman' => $laporan->sum('total_pinjaman'),
+            'angsuran' => $laporan->sum('total_angsuran'),
+            'sisa' => $laporan->sum('sisa_pinjaman'),
+        ];
     }
 
     /**
@@ -89,6 +106,16 @@ class LaporanBulanan extends Page
             $this->getTotalAngsuran();
     }
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return Filament::auth()->user()?->role !== 'anggota';
+    }
+
+    public static function canAccess(): bool
+    {
+        return auth()->user()?->role !== 'anggota';
+    }
+
     /**
      * Header Action
      */
@@ -96,10 +123,12 @@ class LaporanBulanan extends Page
     {
         return [
 
-            Action::make('pdf')
+            Action::make('exportPdf')
                 ->label('Export PDF')
-                ->icon('heroicon-o-printer')
+                ->icon('heroicon-o-arrow-down-tray')
                 ->color('danger')
+                ->size('lg')
+                ->tooltip('Download laporan bulanan')
                 ->url(fn () => route(
                     'laporan.bulanan.pdf',
                     [

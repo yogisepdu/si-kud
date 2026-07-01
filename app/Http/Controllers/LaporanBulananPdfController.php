@@ -10,26 +10,54 @@ class LaporanBulananPdfController extends Controller
 {
     public function __invoke(
         Request $request,
-        LaporanBulananService $service
+        LaporanBulananService $service,
     ) {
-        $bulan = (int) $request->get('bulan', now()->month);
-        $tahun = (int) $request->get('tahun', now()->year);
+        // Validasi input
+        $validated = $request->validate([
+            'bulan' => ['nullable', 'integer', 'between:1,12'],
+            'tahun' => ['nullable', 'integer', 'digits:4'],
+        ]);
 
+        $bulan = $validated['bulan'] ?? now()->month;
+        $tahun = $validated['tahun'] ?? now()->year;
+
+        // Data laporan
         $laporan = $service->getData(
+            bulan: $bulan,
+            tahun: $tahun,
+        );
+
+        // Ringkasan
+        $summary = [
+            'anggota'  => $laporan->count(),
+            'simpanan' => $laporan->sum('total_simpanan'),
+            'pinjaman' => $laporan->sum('total_pinjaman'),
+            'angsuran' => $laporan->sum('total_angsuran'),
+            'sisa'     => $laporan->sum('sisa_pinjaman'),
+        ];
+
+        // Nama file
+        $filename = sprintf(
+            'Laporan-Bulanan-%02d-%d.pdf',
             $bulan,
-            $tahun
+            $tahun,
         );
 
         return Pdf::loadView(
             'pdf.laporan-bulanan',
             [
                 'laporan' => $laporan,
+                'summary' => $summary,
                 'bulan' => $bulan,
                 'tahun' => $tahun,
-                'periode' => $service->getPeriode($bulan, $tahun),
+                'periode' => $service->getPeriode(
+                    $bulan,
+                    $tahun,
+                ),
+                'tanggalCetak' => now(),
             ]
         )
-            ->setPaper('A4', 'landscape')
-            ->stream("laporan-bulanan-$bulan-$tahun.pdf");
+            ->setPaper('a4', 'landscape')
+            ->stream($filename);
     }
 }

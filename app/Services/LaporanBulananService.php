@@ -25,7 +25,7 @@ class LaporanBulananService
                 */
 
                 $simpanan = $anggota->simpanans
-                    ->where('status', 'disetujui')
+                    ->where('status', 'terverifikasi')
                     ->filter(function ($item) use ($bulan, $tahun) {
 
                         return Carbon::parse($item->tanggal)->month == $bulan
@@ -45,13 +45,11 @@ class LaporanBulananService
                 $pinjaman = $anggota->pinjamans
                     ->where('status', 'disetujui')
                     ->filter(function ($item) use ($bulan, $tahun) {
-
                         return Carbon::parse($item->tanggal_pengajuan)->month == $bulan
                             && Carbon::parse($item->tanggal_pengajuan)->year == $tahun;
                     });
 
-                $totalPinjaman = $pinjaman
-                    ->sum('jumlah_pinjaman');
+                $totalPinjaman = $pinjaman->sum('jumlah_pinjaman');
 
                 /*
                 |--------------------------------------------------------------------------
@@ -59,12 +57,13 @@ class LaporanBulananService
                 |--------------------------------------------------------------------------
                 */
 
-                $angsuran = $pinjaman
-                    ->flatMap->angsurans
+                $angsuran = $anggota->pinjamans
                     ->where('status', 'disetujui')
+                    ->flatMap->angsurans
+                    ->where('status', 'dibayar')
                     ->filter(function ($item) use ($bulan, $tahun) {
 
-                        if (!$item->tanggal_bayar) {
+                        if (blank($item->tanggal_bayar)) {
                             return false;
                         }
 
@@ -72,8 +71,7 @@ class LaporanBulananService
                             && Carbon::parse($item->tanggal_bayar)->year == $tahun;
                     });
 
-                $totalAngsuran = $angsuran
-                    ->sum('nominal');
+                $totalAngsuran = $angsuran->sum('nominal');
 
                 /*
                 |--------------------------------------------------------------------------
@@ -81,9 +79,20 @@ class LaporanBulananService
                 |--------------------------------------------------------------------------
                 */
 
+                $seluruhPinjaman = $anggota->pinjamans
+                    ->where('status', 'disetujui');
+
+                $totalPinjamanAktif = $seluruhPinjaman
+                    ->sum('jumlah_pinjaman');
+
+                $totalAngsuranSemua = $seluruhPinjaman
+                    ->flatMap->angsurans
+                    ->where('status', 'dibayar')
+                    ->sum('nominal');
+
                 $sisaPinjaman = max(
                     0,
-                    $totalPinjaman - $totalAngsuran
+                    $totalPinjamanAktif - $totalAngsuranSemua
                 );
 
                 return (object) [

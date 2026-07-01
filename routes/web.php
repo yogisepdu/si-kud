@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SlipAngsuranController;
 use App\Http\Controllers\SlipPenarikanController;
 use App\Http\Controllers\SlipSimpananController;
+use App\Http\Controllers\LaporanBulananPdfController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
@@ -51,8 +52,8 @@ Route::middleware('auth')
 
 Route::middleware('auth')
     ->get(
-         '/laporan-bulanan/pdf',
-        [LaporanBulananPdfController::class]
+        '/laporan-bulanan/pdf',
+        LaporanBulananPdfController::class
     )
     ->name('laporan.bulanan.pdf');
     
