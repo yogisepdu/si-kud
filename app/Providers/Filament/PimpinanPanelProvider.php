@@ -33,6 +33,7 @@ class PimpinanPanelProvider extends PanelProvider
         return $panel
             ->id('pimpinan')
             ->path('pimpinan')
+            ->viteTheme('resources/css/filament/admin/theme.css')
             ->colors([
                 'primary' => Color::Amber,
             ])

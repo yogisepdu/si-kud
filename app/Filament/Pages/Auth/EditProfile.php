@@ -122,6 +122,21 @@ class EditProfile extends BaseEditProfile
     {
         parent::save();
 
+        $data = $this->form->getState();
+
+        $user = auth()->user();
+
+        $user->profile()->updateOrCreate(
+            [],
+            $data['profile'] ?? [],
+        );
+
+        if ($user->isAnggota()) {
+            $user->anggota()->update(
+                $data['anggota'] ?? [],
+            );
+        }
+
         $this->dispatch('$refresh');
     }
 
