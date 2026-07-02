@@ -3,6 +3,9 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Auth\EditProfile;
+use App\Filament\Widgets\PinjamanChart;
+use App\Filament\Widgets\SimpananChart;
+use App\Filament\Widgets\StatsOverview;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -35,6 +38,7 @@ class PimpinanPanelProvider extends PanelProvider
             ])
             ->brandName('SI-KUD Kampar')
             ->brandLogo(asset('assets/img/logo.jpeg'))
+            ->favicon(asset('assets/favicon-32x32.png'))
             ->discoverResources(
                 in: app_path('Filament/Resources'),
                 for: 'App\Filament\Resources'
@@ -46,13 +50,10 @@ class PimpinanPanelProvider extends PanelProvider
             ->pages([
                 Dashboard::class,
             ])
-            ->discoverWidgets(
-                in: app_path('Filament/Widgets'),
-                for: 'App\Filament\Widgets'
-            )
             ->widgets([
-                AccountWidget::class,
-                FilamentInfoWidget::class,
+                StatsOverview::class,
+                PinjamanChart::class,
+                SimpananChart::class,
             ])
             ->navigationGroups([
                 'Master Data',

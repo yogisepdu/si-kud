@@ -29,15 +29,5 @@ class DatabaseSeeder extends Seeder
                 'role' => 'pimpinan',
             ]
         );
-
-        // ANGGOTA
-        User::updateOrCreate(
-            ['email' => 'anggota@kud.com'],
-            [
-                'name' => 'Anggota KUD',
-                'password' => Hash::make('password'),
-                'role' => 'anggota',
-            ]
-        );
     }
 }

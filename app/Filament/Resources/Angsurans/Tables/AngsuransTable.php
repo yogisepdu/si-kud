@@ -169,7 +169,7 @@ class AngsuransTable
                             // Reset data verifikasi sebelumnya
                             'verified_by' => null,
                             'verified_at' => null,
-                            'catatan_verifikasi' => null,
+                            'alasan_penolakan' => null,
                         ]);
                     }),
 

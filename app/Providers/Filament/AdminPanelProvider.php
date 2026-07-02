@@ -19,6 +19,9 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use App\Filament\Pages\Auth\EditProfile;
+use App\Filament\Widgets\PinjamanChart;
+use App\Filament\Widgets\SimpananChart;
+use App\Filament\Widgets\StatsOverview;
 use Filament\Navigation\MenuItem;
 use Filament\Navigation\NavigationItem;
 
@@ -36,15 +39,16 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->brandName('SI-KUD Kampar')
             ->brandLogo(asset('assets/img/logo.jpeg'))
+            ->favicon(asset('assets/favicon-32x32.png'))
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([
                 Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
             ->widgets([
-                AccountWidget::class,
-                FilamentInfoWidget::class,
+                StatsOverview::class,
+                PinjamanChart::class,
+                SimpananChart::class,
             ])
             ->middleware([
                 EncryptCookies::class,

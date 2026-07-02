@@ -3,6 +3,11 @@
 namespace App\Providers\Filament;
 
 use App\Filament\Pages\Auth\EditProfile;
+use App\Filament\Widgets\AngsuranChartAnggota;
+use App\Filament\Widgets\RiwayatAngsuran;
+use App\Filament\Widgets\RiwayatSimpanan;
+use App\Filament\Widgets\SimpananChartAnggota;
+use App\Filament\Widgets\StatsOverviewAnggota;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -30,10 +35,11 @@ class AnggotaPanelProvider extends PanelProvider
             ->id('anggota')
             ->path('anggota')
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Green,
             ])
             ->brandName('SI-KUD Kampar')
             ->brandLogo(asset('assets/img/logo.jpeg'))
+            ->favicon(asset('assets/favicon-32x32.png'))
             ->discoverResources(
                 in: app_path('Filament/Resources'),
                 for: 'App\Filament\Resources'
@@ -45,13 +51,12 @@ class AnggotaPanelProvider extends PanelProvider
             ->pages([
                 Dashboard::class,
             ])
-            ->discoverWidgets(
-                in: app_path('Filament/Widgets'),
-                for: 'App\Filament\Widgets'
-            )
             ->widgets([
-                AccountWidget::class,
-                FilamentInfoWidget::class,
+                StatsOverviewAnggota::class,
+                SimpananChartAnggota::class,
+                AngsuranChartAnggota::class,
+                RiwayatSimpanan::class,
+                RiwayatAngsuran::class,
             ])
             ->navigationGroups([
                 'Master Data',

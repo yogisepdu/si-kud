@@ -7,66 +7,61 @@
     <!-- End Header Area -->
     <style>
         .product-section {
-            padding: 40px 0;
-            background-color: #01A85A;
+            padding: 70px 0;
+            background: #F8F9FA;
+        }
+
+        .section-title h2 {
+            color: #2E7D32;
+            font-weight: 700;
+            margin-bottom: 50px;
         }
 
         .product-card {
-            background: #fff;
+            background: #FFFFFF;
             border-radius: 16px;
-            padding: 30px 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            padding: 35px 25px;
+            border: 1px solid #E9ECEF;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all .3s ease;
             height: 100%;
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.10);
         }
 
         .product-icon {
-            font-size: 48px;
-            color: #28a745;
-            margin-bottom: 15px;
-        }
-
-        .product-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #343a40;
+            font-size: 52px;
+            color: #28A745;
             margin-bottom: 20px;
         }
 
-        .btn-product {
-            background-color: #28a745;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
+        .product-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #343A40;
+            margin-bottom: 25px;
         }
 
         .btn-product {
-            background-color: #28a745;
-            /* Hijau */
-            color: white;
-            /* Warna teks putih */
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
             display: inline-block;
+            background: #28A745;
+            color: #FFF;
+            padding: 10px 26px;
+            border-radius: 10px;
             font-weight: 600;
+            text-decoration: none;
+            transition: .3s;
         }
 
         .btn-product:hover {
-            background-color: #218838;
-            /* Warna saat hover */
-            color: white;
-            /* Tetap putih saat hover */
+            background: #1E7E34;
+            color: #FFF;
+            text-decoration: none;
         }
-
 
         .mb-4 {
             margin-bottom: 30px;
@@ -76,10 +71,8 @@
     <!-- ===== Penghimpunan Dana ===== -->
     <section class="product-section">
         <div class="container">
-            <div class="section-title">
-                <h2 style="color: white; margin-bottom: 0px;"><b>
-                        <center>Produk dan Layanan KUD</center>
-                    </b></h2>
+            <div class="section-title mb-5 text-center">
+                <h2><b>Produk dan Layanan KUD</b></h2>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-12 mb-4">

@@ -41,8 +41,8 @@
 </section>
 <div class="marquee-container">
     <div class="marquee-text">
-        Selamat datang di Website Resmi Bank Syariah Berkah, Hijrah Menjadi Mudah bersama Bank Syariah Berkah. Masya
-        Allah... #nyamandalamkeberkahan
+        Selamat datang di Website Resmi KUD Kampar. Bersama KUD Kampar, membangun kesejahteraan anggota melalui
+        pelayanan koperasi yang profesional, transparan, dan terpercaya.
     </div>
 </div>
 <br>
