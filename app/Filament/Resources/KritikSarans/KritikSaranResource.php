@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources\KritikSarans;
 
-use App\Filament\Resources\KritikSarans\Pages\CreateKritikSaran;
 use App\Filament\Resources\KritikSarans\Pages\EditKritikSaran;
 use App\Filament\Resources\KritikSarans\Pages\ListKritikSarans;
 use App\Filament\Resources\KritikSarans\Schemas\KritikSaranForm;
@@ -29,6 +28,21 @@ class KritikSaranResource extends Resource
         return 'Manajemen Website';
     }
 
+    public static function getNavigationLabel(): string
+    {
+        return 'Kritik & Saran';
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return 'Kritik & Saran';
+    }
+
+    public static function getModelLabel(): string
+    {
+        return 'Kritik & Saran';
+    }
+
     public static function canCreate(): bool
     {
         return false;
@@ -51,15 +65,14 @@ class KritikSaranResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array
     {
         return [
             'index' => ListKritikSarans::route('/'),
+            'edit' => EditKritikSaran::route('/{record}/edit'),
         ];
     }
 }

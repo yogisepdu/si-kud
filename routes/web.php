@@ -6,6 +6,7 @@ use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\KritikSaranController;
 use App\Http\Controllers\SlipAngsuranController;
 use App\Http\Controllers\SlipPenarikanController;
 use App\Http\Controllers\SlipSimpananController;
@@ -21,6 +22,9 @@ Route::get('/layanan/{type}', [ProdukController::class, 'layanan'])->name('layan
 
 Route::get('/informasi/berita-all', [BeritaController::class, 'berita'])->name('berita.all');
 Route::get('/berita/{slug}', [BeritaController::class, 'detailBerita'])->name('berita.detail');
+
+Route::post('/kritik-saran', [KritikSaranController::class, 'store'])
+    ->name('kritik-saran.store');
 
 // Route::middleware('guest')->group(function () {
 //     Route::get('/login', [AuthController::class, 'index'])->name('login');
@@ -56,7 +60,7 @@ Route::middleware('auth')
         LaporanBulananPdfController::class
     )
     ->name('laporan.bulanan.pdf');
-    
+
 
 Route::post('/logout', [AuthController::class, 'logout'])
     ->middleware('auth');

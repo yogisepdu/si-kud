@@ -11,7 +11,7 @@ class AngsuranChartAnggota extends ChartWidget
 {
     protected ?string $heading = 'Grafik Angsuran Saya';
 
-    protected static ?int $sort = 2;
+    protected static ?int $sort = 3;
 
     protected int|string|array $columnSpan = 'full';
 
