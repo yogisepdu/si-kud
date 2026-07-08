@@ -14,4 +14,6 @@
 
     @include('components.produk')
 
+    @include('components.kritik-saran')
+
 @endsection
