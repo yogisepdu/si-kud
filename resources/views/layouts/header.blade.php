@@ -4,11 +4,7 @@
         <!-- Logo Kiri -->
         <div class="logo-left">
             <a href="#">
-                <img
-                    alt="Logo Kiri"
-                    src="{{ asset('assets/img/logo.jpeg') }}"
-                    width="100"
-                >
+                <img alt="Logo Kiri" src="{{ asset('assets/img/logo.jpeg') }}" width="100">
             </a>
         </div>
         <div class="main-menu">
@@ -18,7 +14,7 @@
                     <li>
                         <a href="#">Profil<i class="icofont-rounded-down"></i></a>
                         <ul class="dropdown">
-                            <li><a href="{{ route('profil') }}">Sejarah Perusahaan</a></li>
+                            <li><a href="{{ route('profil') }}">Sejarah KUD</a></li>
                             <li><a href="{{ route('struktur') }}">Struktur Organisasi</a></li>
                         </ul>
                     </li>
@@ -48,10 +44,7 @@
                     <li><a href="{{ route('index') }}#galeri">Galeri</a></li>
                     <li><a href="{{ route('index') }}#footer">Kontak</a></li>
                     <li class="ms-lg-3">
-                        <a
-                            class="btn btn-success rounded-pill px-4 text-white"
-                            href="{{ route('login') }}"
-                        >
+                        <a class="btn btn-success rounded-pill px-4 text-white" href="{{ route('login') }}">
                             Login
                         </a>
                     </li>

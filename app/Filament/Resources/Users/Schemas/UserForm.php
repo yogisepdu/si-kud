@@ -17,14 +17,39 @@ class UserForm
         return $schema
             ->components([
 
+                /*
+                |--------------------------------------------------------------------------
+                | Nama
+                |--------------------------------------------------------------------------
+                */
                 TextInput::make('name')
                     ->label('Nama')
-                    ->required(),
+                    ->required()
+                    ->validationMessages([
+                        'required' => 'Nama wajib diisi.',
+                    ]),
 
+                /*
+                |--------------------------------------------------------------------------
+                | Email
+                |--------------------------------------------------------------------------
+                */
                 TextInput::make('email')
+                    ->label('Email')
                     ->email()
-                    ->required(),
+                    ->required()
+                    ->unique(ignoreRecord: true)
+                    ->validationMessages([
+                        'required' => 'Email wajib diisi.',
+                        'email' => 'Format email tidak valid. Contoh: nama@email.com',
+                        'unique' => 'Email tersebut sudah terdaftar. Silakan gunakan email lain.',
+                    ]),
 
+                /*
+                |--------------------------------------------------------------------------
+                | Hak Akses
+                |--------------------------------------------------------------------------
+                */
                 Select::make('role')
                     ->label('Hak Akses')
                     ->options([
@@ -33,8 +58,16 @@ class UserForm
                         'anggota' => 'Anggota',
                     ])
                     ->required()
-                    ->live(),
+                    ->live()
+                    ->validationMessages([
+                        'required' => 'Hak akses wajib dipilih.',
+                    ]),
 
+                /*
+                |--------------------------------------------------------------------------
+                | Password
+                |--------------------------------------------------------------------------
+                */
                 TextInput::make('password')
                     ->label('Password')
                     ->password()
@@ -50,64 +83,146 @@ class UserForm
                     ->required(
                         fn(string $operation): bool =>
                         $operation === 'create'
+                    )
+                    ->minLength(8)
+                    ->validationMessages([
+                        'required' => 'Password wajib diisi.',
+                        'min_length' => 'Password minimal harus 8 karakter.',
+                    ])
+                    ->helperText(
+                        fn(string $operation): ?string =>
+                        $operation === 'create'
+                            ? 'Password minimal 8 karakter.'
+                            : 'Kosongkan jika tidak ingin mengubah password.'
                     ),
 
+                /*
+                |--------------------------------------------------------------------------
+                | Data Anggota
+                |--------------------------------------------------------------------------
+                */
                 Section::make('Data Anggota')
                     ->schema([
 
                         TextInput::make('anggota.no_anggota')
                             ->label('No Anggota')
-                            ->required(),
+                            ->required()
+                            ->validationMessages([
+                                'required' => 'No Anggota wajib diisi.',
+                            ]),
 
                         TextInput::make('anggota.nik')
                             ->label('NIK')
-                            ->numeric(),
+                            ->required()
+                            ->numeric()
+                            ->validationMessages([
+                                'numeric' => 'NIK hanya boleh berisi angka.',
+                                'required' => 'NIK wajib diisi.',
+                            ]),
 
                         TextInput::make('anggota.tempat_lahir')
-                            ->label('Tempat Lahir'),
+                            ->label('Tempat Lahir')
+                            ->required()
+                            ->validationMessages([
+                                'required' => 'Tempat Lahir wajib diisi.',
+                            ]),
 
                         DatePicker::make('anggota.tanggal_lahir')
-                            ->label('Tanggal Lahir'),
+                            ->label('Tanggal Lahir')
+                            ->required()
+                            ->validationMessages([
+                                'required' => 'Tanggal Lahir wajib diisi.',
+                            ]),
 
                         Select::make('anggota.jenis_kelamin')
+                            ->label('Jenis Kelamin')
+                            ->required()
                             ->options([
                                 'Laki-laki' => 'Laki-laki',
                                 'Perempuan' => 'Perempuan',
+                            ])
+                            ->validationMessages([
+                                'required' => 'Jenis Kelamin wajib diisi.',
                             ]),
 
                         TextInput::make('anggota.no_hp')
-                            ->label('No HP'),
+                            ->label('No HP')
+                            ->tel()
+                            ->required()
+                            ->validationMessages([
+                                'required' => 'No HP wajib diisi.',
+                                'tel' => 'No HP harus berupa nomor telepon yang valid.',
+                            ]),
 
                         Select::make('anggota.jenis_petani')
+                            ->label('Jenis Petani')
+                            ->required()
                             ->options([
                                 'Plasma' => 'Plasma',
                                 'Swadaya' => 'Swadaya',
+                            ])
+                            ->validationMessages([
+                                'required' => 'Jenis Petani wajib diisi.',
                             ]),
 
                         TextInput::make('anggota.luas_lahan')
+                            ->label('Luas Lahan')
                             ->numeric()
-                            ->suffix('Ha'),
+                            ->required()
+                            ->suffix('Ha')
+                            ->validationMessages([
+                                'numeric' => 'Luas lahan harus berupa angka.',
+                                'required' => 'Luas lahan wajib diisi.',
+                            ]),
 
                         TextInput::make('anggota.blok_kebun')
-                            ->label('Blok Kebun'),
+                            ->label('Blok Kebun')
+                            ->required()
+                            ->validationMessages([
+                                'required' => 'Blok Kebun wajib diisi.',
+                            ]),
 
                         DatePicker::make('anggota.tanggal_bergabung')
-                            ->default(now()),
+                            ->label('Tanggal Bergabung')
+                            ->default(now())
+                            ->required()
+                            ->validationMessages([
+                                'required' => 'Tanggal Bergabung wajib diisi.',
+                            ]),
 
                         Select::make('anggota.status')
+                            ->label('Status')
                             ->options([
                                 'Aktif' => 'Aktif',
                                 'Tidak Aktif' => 'Tidak Aktif',
                             ])
-                            ->default('Aktif'),
+                            ->default('Aktif')
+                            ->required()
+                            ->validationMessages([
+                                'required' => 'Status wajib diisi.',
+                            ]),
 
                         Textarea::make('anggota.alamat')
-                            ->columnSpanFull(),
+                            ->label('Alamat')
+                            ->columnSpanFull()
+                            ->required()
+                            ->validationMessages([
+                                'required' => 'Alamat wajib diisi.',
+                            ]),
 
                     ])
                     ->columns(2)
                     ->columnSpanFull()
-                    ->visible(fn($get) => $get('role') === 'anggota'),
+
+                    /*
+                    |--------------------------------------------------------------------------
+                    | Section hanya muncul ketika role = anggota
+                    |--------------------------------------------------------------------------
+                    */
+                    ->visible(
+                        fn($get) => $get('role') === 'anggota'
+                    ),
+
             ]);
     }
 }
