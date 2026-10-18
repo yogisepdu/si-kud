@@ -11,6 +11,7 @@ use App\Http\Controllers\SlipAngsuranController;
 use App\Http\Controllers\SlipPenarikanController;
 use App\Http\Controllers\SlipSimpananController;
 use App\Http\Controllers\LaporanBulananPdfController;
+use App\Http\Controllers\AnggotaRegisterController;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
@@ -32,6 +33,17 @@ Route::post('/kritik-saran', [KritikSaranController::class, 'store'])
 // });
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate']);
+
+Route::get('/anggota/register', [AnggotaRegisterController::class, 'create'])
+    ->name('anggota.register');
+
+Route::post('/anggota/register', [AnggotaRegisterController::class, 'store'])
+    ->name('anggota.register.store');
+
+Route::get('/anggota/register/success', [AnggotaRegisterController::class, 'success'])
+    ->name('anggota.register.success');
+
+// 
 
 Route::middleware('auth')
     ->get(

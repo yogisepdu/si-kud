@@ -93,9 +93,23 @@
                         </div>
                     @enderror
 
-                    <button class="w-full rounded-lg bg-amber-600 py-3 text-white" type="submit">
+                    {{-- Tombol Login --}}
+                    <button class="w-full rounded-lg bg-amber-600 py-3 text-white transition hover:bg-amber-700"
+                        type="submit">
                         Login
                     </button>
+
+                    {{-- Register --}}
+                    <div class="mt-6 text-center">
+                        <p class="text-sm text-gray-500">
+                            Belum memiliki akun anggota?
+                        </p>
+
+                        <a class="mt-2 inline-block font-semibold text-green-700 transition hover:text-green-800 hover:underline"
+                            href="/anggota/register">
+                            Daftar sebagai Anggota
+                        </a>
+                    </div>
 
                 </form>
 

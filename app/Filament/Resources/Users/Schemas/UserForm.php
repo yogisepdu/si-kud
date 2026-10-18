@@ -19,9 +19,10 @@ class UserForm
 
                 /*
                 |--------------------------------------------------------------------------
-                | Nama
+                | Data Akun
                 |--------------------------------------------------------------------------
                 */
+
                 TextInput::make('name')
                     ->label('Nama')
                     ->required()
@@ -29,11 +30,6 @@ class UserForm
                         'required' => 'Nama wajib diisi.',
                     ]),
 
-                /*
-                |--------------------------------------------------------------------------
-                | Email
-                |--------------------------------------------------------------------------
-                */
                 TextInput::make('email')
                     ->label('Email')
                     ->email()
@@ -45,11 +41,6 @@ class UserForm
                         'unique' => 'Email tersebut sudah terdaftar. Silakan gunakan email lain.',
                     ]),
 
-                /*
-                |--------------------------------------------------------------------------
-                | Hak Akses
-                |--------------------------------------------------------------------------
-                */
                 Select::make('role')
                     ->label('Hak Akses')
                     ->options([
@@ -65,9 +56,51 @@ class UserForm
 
                 /*
                 |--------------------------------------------------------------------------
+                | Status Akun
+                |--------------------------------------------------------------------------
+                */
+
+                Select::make('status')
+                    ->label('Status Akun')
+                    ->options([
+                        'pending' => 'Menunggu Persetujuan',
+                        'active' => 'Aktif',
+                        'rejected' => 'Ditolak',
+                    ])
+                    ->default('active')
+                    ->required()
+                    ->native(false)
+                    ->validationMessages([
+                        'required' => 'Status akun wajib dipilih.',
+                    ]),
+
+                /*
+                |--------------------------------------------------------------------------
+                | Alasan Penolakan
+                |--------------------------------------------------------------------------
+                */
+
+                Textarea::make('rejection_reason')
+                    ->label('Alasan Penolakan')
+                    ->placeholder('Masukkan alasan penolakan jika diperlukan...')
+                    ->rows(4)
+                    ->visible(
+                        fn($get) => $get('status') === 'rejected'
+                    )
+                    ->required(
+                        fn($get) => $get('status') === 'rejected'
+                    )
+                    ->validationMessages([
+                        'required' => 'Alasan penolakan wajib diisi jika status akun ditolak.',
+                    ])
+                    ->columnSpanFull(),
+
+                /*
+                |--------------------------------------------------------------------------
                 | Password
                 |--------------------------------------------------------------------------
                 */
+
                 TextInput::make('password')
                     ->label('Password')
                     ->password()
@@ -101,6 +134,7 @@ class UserForm
                 | Data Anggota
                 |--------------------------------------------------------------------------
                 */
+
                 Section::make('Data Anggota')
                     ->schema([
 
@@ -115,8 +149,10 @@ class UserForm
                             ->label('NIK')
                             ->required()
                             ->numeric()
+                            ->length(16)
                             ->validationMessages([
                                 'numeric' => 'NIK hanya boleh berisi angka.',
+                                'length' => 'NIK harus terdiri dari 16 digit.',
                                 'required' => 'NIK wajib diisi.',
                             ]),
 
@@ -191,7 +227,7 @@ class UserForm
                             ]),
 
                         Select::make('anggota.status')
-                            ->label('Status')
+                            ->label('Status Keanggotaan')
                             ->options([
                                 'Aktif' => 'Aktif',
                                 'Tidak Aktif' => 'Tidak Aktif',
@@ -199,7 +235,7 @@ class UserForm
                             ->default('Aktif')
                             ->required()
                             ->validationMessages([
-                                'required' => 'Status wajib diisi.',
+                                'required' => 'Status keanggotaan wajib diisi.',
                             ]),
 
                         Textarea::make('anggota.alamat')
@@ -213,16 +249,9 @@ class UserForm
                     ])
                     ->columns(2)
                     ->columnSpanFull()
-
-                    /*
-                    |--------------------------------------------------------------------------
-                    | Section hanya muncul ketika role = anggota
-                    |--------------------------------------------------------------------------
-                    */
                     ->visible(
                         fn($get) => $get('role') === 'anggota'
                     ),
-
             ]);
     }
 }

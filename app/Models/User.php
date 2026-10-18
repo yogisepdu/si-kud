@@ -25,6 +25,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
         'email',
         'password',
         'role',
+        'status',
+        'rejection_reason',
     ];
 
     protected $hidden = [
@@ -82,6 +84,21 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     public function isAnggota(): bool
     {
         return $this->role === self::ANGGOTA;
+    }
+
+    public function isPending(): bool
+    {
+        return $this->status === 'pending';
+    }
+
+    public function isActive(): bool
+    {
+        return $this->status === 'active';
+    }
+
+    public function isRejected(): bool
+    {
+        return $this->status === 'rejected';
     }
 
     public function isAdminOrPimpinan(): bool

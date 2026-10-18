@@ -36,6 +36,35 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
+        $user = \App\Models\User::where('email', $credentials['email'])->first();
+
+        /*
+    |--------------------------------------------------------------------------
+    | Cek akun berdasarkan status
+    |--------------------------------------------------------------------------
+    */
+
+        if ($user) {
+
+            if ($user->status === 'pending') {
+                return back()->withErrors([
+                    'email' => 'Pendaftaran Anda masih menunggu persetujuan Administrator.',
+                ]);
+            }
+
+            if ($user->status === 'rejected') {
+                return back()->withErrors([
+                    'email' => 'Pendaftaran Anda ditolak oleh Administrator. Silakan hubungi pihak KUD untuk informasi lebih lanjut.',
+                ]);
+            }
+        }
+
+        /*
+    |--------------------------------------------------------------------------
+    | Proses Login
+    |--------------------------------------------------------------------------
+    */
+
         if (Auth::attempt(
             $credentials,
             $request->boolean('remember')
